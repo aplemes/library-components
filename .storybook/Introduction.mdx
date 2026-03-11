@@ -10,54 +10,38 @@ A library of reusable Vue 3 UI components for Leroy Merlin Portugal, built with 
 
 ## Getting Started
 
-This library provides a collection of accessible, themeable, and composable UI components built with Vue 3 and Tailwind CSS v4. All packages are published to GitHub Packages under the `@leroy-merlin-pt` npm scope and can be installed individually — only bring in what your project needs.
+All packages are published to GitHub Packages under the `@leroy-merlin-pt` npm scope. Install only the components your project needs.
 
----
+### 1. Configure the registry
 
-## Installation
-
-### 1. Configure the GitHub Packages registry
-
-Add a `.npmrc` file to the root of your project to point the `@leroy-merlin-pt` scope at the GitHub Packages registry:
+Add a `.npmrc` file to the root of your project:
 
 ```
 @leroy-merlin-pt:registry=https://npm.pkg.github.com
 //npm.pkg.github.com/:_authToken=YOUR_TOKEN
 ```
 
-Replace `YOUR_TOKEN` with a GitHub Personal Access Token that has the `read:packages` scope.
+Replace `YOUR_TOKEN` with a GitHub Personal Access Token with the `read:packages` scope.
 
-### 2. Install individual packages
+### 2. Install and import
 
-Install only the components your project requires:
-
-```bash
-# npm
-npm install @leroy-merlin-pt/button @leroy-merlin-pt/input
-
-# yarn
-yarn add @leroy-merlin-pt/button @leroy-merlin-pt/input
-
-# pnpm
-pnpm add @leroy-merlin-pt/button @leroy-merlin-pt/input
-```
-
-### 3. Set up Tailwind CSS
-
-Components require Tailwind CSS v4. Each package ships a self-contained `style.css` that already includes the Tailwind utilities it needs. Import each component's stylesheet in your project's main entry file:
-
-```js
-import '@leroy-merlin-pt/button/style.css'
-// Import each component's styles individually as needed
-```
-
-Component styles are self-contained — they include all required Tailwind utilities and do not depend on a global Tailwind build in your application.
+Each component section below shows the exact install command, CSS import, and a usage example.
 
 ---
 
-## Usage
+## Components
 
-### Basic example
+### Button
+
+Interactive button with multiple variants, appearances, sizes, and states. Supports icon slots, loading state, and form submission.
+
+```bash
+yarn add @leroy-merlin-pt/button
+```
+
+```js
+import '@leroy-merlin-pt/button/style.css'
+```
 
 ```vue
 <script setup>
@@ -65,67 +49,247 @@ import Button from '@leroy-merlin-pt/button'
 </script>
 
 <template>
-  <Button label="Click me" variant="primary" @click="handleClick" />
+  <Button label="Confirmar" variant="primary" @click="handleClick" />
 </template>
 ```
 
-### With Vue plugin (optional global registration)
-
-You can register components globally if preferred:
-
-```js
-import { createApp } from 'vue'
-import Button from '@leroy-merlin-pt/button'
-import App from './App.vue'
-
-const app = createApp(App)
-app.component('Button', Button)
-app.mount('#app')
-```
+**Props:** `label`, `variant` (primary / secondary / ghost), `appearance` (standard / accent / danger / inverse), `size` (medium / small), `disabled`, `isLoading`, `outlined`, `ghost`, `iconPosition`, `type`
 
 ---
 
-## Available Components
+### Flag
 
-| Component | Package | Description |
-|-----------|---------|-------------|
-| Avatar | `@leroy-merlin-pt/avatar` | Displays a user avatar image or initials fallback |
-| Button | `@leroy-merlin-pt/button` | Interactive button with multiple variants and states |
-| Checkbox | `@leroy-merlin-pt/checkbox` | Single checkbox input with label support |
-| Checkbox Group | `@leroy-merlin-pt/checkbox-group` | Group of related checkboxes with shared state |
-| Circular Progress Bar | `@leroy-merlin-pt/circular-progress-bar` | Circular indicator showing task or loading progress |
-| Divider | `@leroy-merlin-pt/divider` | Horizontal or vertical visual separator |
-| Drawer | `@leroy-merlin-pt/drawer` | Slide-in panel anchored to a screen edge |
-| Flag | `@leroy-merlin-pt/flag` | Country or locale flag indicator |
-| Icon Button | `@leroy-merlin-pt/icon-button` | Button that displays an icon without a text label |
-| Input | `@leroy-merlin-pt/input` | Text input field with label, hint, and validation states |
-| Linear Progress Bar Buffer | `@leroy-merlin-pt/linear-progress-bar-buffer` | Linear progress bar with a buffered secondary track |
-| Linear Progress Bar Percentage | `@leroy-merlin-pt/linear-progress-bar-percentage` | Linear progress bar showing a percentage value |
-| Link | `@leroy-merlin-pt/link` | Styled anchor element with accessible focus handling |
-| Loader | `@leroy-merlin-pt/loader` | Animated spinner for indeterminate loading states |
-| Modal | `@leroy-merlin-pt/modal` | Accessible dialog overlay for focused user interactions |
-| Number Badge | `@leroy-merlin-pt/number-badge` | Small numeric badge for counts and notifications |
-| Overlay | `@leroy-merlin-pt/overlay` | Semi-transparent backdrop used behind modals and drawers |
-| Password Input | `@leroy-merlin-pt/password-input` | Text input with toggle to show or hide the password value |
-| Quantity Selector | `@leroy-merlin-pt/quantity-selector` | Stepper control for incrementing and decrementing a numeric value |
-| Radio | `@leroy-merlin-pt/radio` | Single radio button input with label support |
-| Radio Group | `@leroy-merlin-pt/radio-group` | Group of mutually exclusive radio button options |
-| Select | `@leroy-merlin-pt/select` | Dropdown select field with label and validation states |
-| Star Rating | `@leroy-merlin-pt/star-rating` | Interactive or read-only star rating display |
-| Status Badge | `@leroy-merlin-pt/status-badge` | Badge conveying a status with contextual colour coding |
-| Status Dot | `@leroy-merlin-pt/status-dot` | Small coloured dot indicating an item's current status |
-| Status Message | `@leroy-merlin-pt/status-message` | Inline message block for success, warning, error, or info states |
-| Status Notification | `@leroy-merlin-pt/status-notification` | Toast-style notification with a status icon and message |
-| Tag | `@leroy-merlin-pt/tag` | Compact label for categorisation or filtering |
-| Textarea | `@leroy-merlin-pt/textarea` | Multi-line text input with label and validation states |
-| Toggle | `@leroy-merlin-pt/toggle` | Binary on/off switch control |
-| Toggle Group | `@leroy-merlin-pt/toggle-group` | Group of toggles acting as a single selection control |
+Compact label badge used to highlight product states or promotions (e.g. "New", "Sale"). Displays uppercase text in a pill shape.
+
+```bash
+yarn add @leroy-merlin-pt/flag
+```
+
+```js
+import '@leroy-merlin-pt/flag/style.css'
+```
+
+```vue
+<script setup>
+import Flag from '@leroy-merlin-pt/flag'
+</script>
+
+<template>
+  <Flag label="New" appearance="accent" />
+</template>
+```
+
+**Props:** `label`, `appearance` (standard / danger / accent / inverse)
+
+---
+
+### Breadcrumb
+
+Navigation breadcrumb showing the hierarchical path within the application.
+
+```bash
+yarn add @leroy-merlin-pt/breadcrumb
+```
+
+```js
+import '@leroy-merlin-pt/breadcrumb/style.css'
+```
+
+```vue
+<script setup>
+import Breadcrumb from '@leroy-merlin-pt/breadcrumb'
+
+const items = [
+  { label: 'Home', href: '/' },
+  { label: 'Category', href: '/category' },
+  { label: 'Product', href: '/category/product' },
+]
+</script>
+
+<template>
+  <Breadcrumb :items="items" />
+</template>
+```
+
+**Props:** `items` (array of `{ label, href }`), `appearance` (light / dark)
+
+---
+
+### Avatar
+
+Displays a user avatar image or initials fallback in a circular shape.
+
+```bash
+yarn add @leroy-merlin-pt/avatar
+```
+
+```js
+import '@leroy-merlin-pt/avatar/style.css'
+```
+
+```vue
+<script setup>
+import Avatar from '@leroy-merlin-pt/avatar'
+</script>
+
+<template>
+  <Avatar size="medium">JD</Avatar>
+</template>
+```
+
+**Props:** `size` (small / medium / large) — Pass initials or an `<img>` via the default slot.
+
+---
+
+### Input
+
+Text input field with optional label, hint text, prefix/suffix, and validation states.
+
+```bash
+yarn add @leroy-merlin-pt/input
+```
+
+```js
+import '@leroy-merlin-pt/input/style.css'
+```
+
+```vue
+<script setup>
+import Input from '@leroy-merlin-pt/input'
+import { ref } from 'vue'
+
+const value = ref('')
+</script>
+
+<template>
+  <Input
+    v-model="value"
+    label="Email"
+    placeholder="name@example.com"
+    type="email"
+  />
+</template>
+```
+
+**Props:** `modelValue`, `label`, `placeholder`, `id`, `name`, `type`, `size`, `disabled`, `readonly`, `error`, `prefix`, `suffix`, `isClearable`, `clearLabel`
+
+---
+
+### Modal
+
+Accessible dialog overlay for focused user interactions. Rendered via `<Teleport>` to the document body.
+
+```bash
+yarn add @leroy-merlin-pt/modal
+```
+
+```js
+import '@leroy-merlin-pt/modal/style.css'
+```
+
+```vue
+<script setup>
+import Modal from '@leroy-merlin-pt/modal'
+import { ref } from 'vue'
+
+const isOpen = ref(false)
+</script>
+
+<template>
+  <button @click="isOpen = true">Open modal</button>
+
+  <Modal
+    :open="isOpen"
+    title="Confirm action"
+    description="Are you sure you want to continue?"
+    @close="isOpen = false"
+  />
+</template>
+```
+
+**Props:** `open`, `title`, `description`, `closable`, `size` (medium / small), `scroll`, `closeOnOverlay`
+**Slots:** `default` (body content), `footer`
+
+---
+
+### Tooltip
+
+Shows descriptive text on hover or focus. Supports four positions and an optional pointer arrow.
+
+```bash
+yarn add @leroy-merlin-pt/tooltip
+```
+
+```js
+import '@leroy-merlin-pt/tooltip/style.css'
+```
+
+```vue
+<script setup>
+import Tooltip from '@leroy-merlin-pt/tooltip'
+</script>
+
+<template>
+  <Tooltip id="save-tip" text="Save your changes" position="top">
+    <button>Save</button>
+  </Tooltip>
+</template>
+```
+
+**Props:** `id`, `text`, `position` (top / bottom / left / right), `pointer`, `standalone`
+**Slots:** `default` (trigger element)
+
+---
+
+### Tag
+
+Compact label for categorisation or filtering. Supports five behavioural types.
+
+```bash
+yarn add @leroy-merlin-pt/tag
+```
+
+```js
+import '@leroy-merlin-pt/tag/style.css'
+```
+
+```vue
+<script setup>
+import Tag from '@leroy-merlin-pt/tag'
+</script>
+
+<template>
+  <!-- Informative -->
+  <Tag label="In stock" type="informative" />
+
+  <!-- Removable -->
+  <Tag label="Filter: Red" type="removable" removableLabel="Remove filter" />
+</template>
+```
+
+**Props:** `label`, `type` (informative / interactive / selectable / removable / contextualised), `size` (medium / small), `id`, `name`, `modelValue`, `disabled`, `contextualisedNumber`, `removableLabel`
+
+---
+
+## Design Tokens
+
+The `@leroy-merlin-pt/tokens` package exposes the brand CSS custom properties (colors, typography, spacing) used by all components.
+
+```bash
+yarn add @leroy-merlin-pt/tokens
+```
+
+```js
+import '@leroy-merlin-pt/tokens/style.css'
+```
+
+Import once at the root of your application to make all tokens available globally.
 
 ---
 
 ## TypeScript Support
 
-All packages ship with TypeScript definitions (`.d.ts` files). No additional `@types/` packages are required — type information is included out of the box.
+All packages ship with TypeScript definitions (`.d.ts`). No additional `@types/` packages required.
 
 ---
 
