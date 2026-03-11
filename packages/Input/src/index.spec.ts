@@ -101,4 +101,36 @@ describe('Input', () => {
     const wrapper = mount(Input, { slots: { icon: '<svg data-testid="icon" />' } })
     expect(wrapper.find('.input__icon').exists()).toBe(true)
   })
+
+  it('does not render clear button when isClearable is false', () => {
+    const wrapper = mount(Input, { props: { modelValue: 'hello' } })
+    expect(wrapper.find('.input__clear').exists()).toBe(false)
+  })
+
+  it('does not render clear button when isClearable is true but modelValue is empty', () => {
+    const wrapper = mount(Input, { props: { isClearable: true, modelValue: '' } })
+    expect(wrapper.find('.input__clear').exists()).toBe(false)
+  })
+
+  it('renders clear button when isClearable is true and modelValue is set', () => {
+    const wrapper = mount(Input, { props: { isClearable: true, modelValue: 'hello' } })
+    expect(wrapper.find('.input__clear').exists()).toBe(true)
+  })
+
+  it('clear button has aria-label from clearLabel prop', () => {
+    const wrapper = mount(Input, { props: { isClearable: true, modelValue: 'hello', clearLabel: 'Remove' } })
+    expect(wrapper.find('.input__clear').attributes('aria-label')).toBe('Remove')
+  })
+
+  it('clear button defaults aria-label to Clear', () => {
+    const wrapper = mount(Input, { props: { isClearable: true, modelValue: 'hello' } })
+    expect(wrapper.find('.input__clear').attributes('aria-label')).toBe('Clear')
+  })
+
+  it('emits update:modelValue with empty string when clear button is clicked', async () => {
+    const wrapper = mount(Input, { props: { isClearable: true, modelValue: 'hello' } })
+    await wrapper.find('.input__clear').trigger('click')
+    expect(wrapper.emitted('update:modelValue')).toBeTruthy()
+    expect(wrapper.emitted('update:modelValue')![0]).toEqual([''])
+  })
 })

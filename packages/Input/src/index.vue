@@ -15,10 +15,15 @@ const props = withDefaults(
     size?: 's' | 'm'
     prefix?: string
     suffix?: string
+    /** When true, a clear (×) button is shown when the input has a value */
+    isClearable?: boolean
+    /** Accessible label for the clear button */
+    clearLabel?: string
   }>(),
   {
     type: 'text',
     size: 'm',
+    clearLabel: 'Clear',
   },
 )
 
@@ -30,10 +35,15 @@ const inputClasses = computed(() => [
   'input__control',
   props.size === 's' ? 'input__control--s' : null,
   props.error ? 'input__control--invalid' : null,
+  props.isClearable && props.modelValue ? 'input__control--clearable' : null,
 ])
 
 const onInput = (event: Event) => {
   emit('update:modelValue', (event.target as HTMLInputElement).value)
+}
+
+const onClear = () => {
+  emit('update:modelValue', '')
 }
 </script>
 
@@ -63,6 +73,16 @@ const onInput = (event: Event) => {
       />
 
       <span v-if="suffix" class="input__addon">{{ suffix }}</span>
+
+      <button
+        v-if="isClearable && modelValue"
+        type="button"
+        class="input__clear"
+        :aria-label="clearLabel"
+        @click="onClear"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
 
     <span v-if="error" class="input__error">{{ error }}</span>
@@ -116,5 +136,13 @@ const onInput = (event: Event) => {
 
 .input__error {
   @apply text-xs text-danger-500;
+}
+
+.input__clear {
+  @apply absolute right-3 flex items-center justify-center w-4 h-4 text-grey-500 bg-transparent border-0 cursor-pointer hover:text-grey-800 transition-colors;
+}
+
+.input__control--clearable {
+  @apply pr-8;
 }
 </style>

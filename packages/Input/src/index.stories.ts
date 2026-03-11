@@ -63,6 +63,14 @@ const meta: Meta<typeof Input> = {
       description: 'Static text rendered as an addon after the input (e.g. ".com").',
       control: 'text',
     },
+    isClearable: {
+      description: 'When true, shows a clear (×) button when the input has a value.',
+      control: 'boolean',
+    },
+    clearLabel: {
+      description: 'Accessible label for the clear button.',
+      control: 'text',
+    },
   },
 }
 
@@ -154,5 +162,15 @@ export const WithSuffix: Story = {
     placeholder: 'mysite',
     suffix: '.com',
     id: 'suffix-input',
+  },
+}
+
+export const Clearable: Story = {
+  args: {
+    label: 'Clearable Input',
+    modelValue: 'Some value',
+    isClearable: true,
+    clearLabel: 'Clear',
+    id: 'clearable-input',
   },
 }
