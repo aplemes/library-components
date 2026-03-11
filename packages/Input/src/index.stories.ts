@@ -8,7 +8,30 @@ const meta: Meta<typeof Input> = {
   parameters: {
     docs: {
       description: {
-        component: 'General-purpose text input field with optional label, error message, prefix/suffix addons and an icon slot. Supports multiple HTML input types, two sizes and read-only and disabled states.',
+        component: `General-purpose text input field with optional label, error message, prefix/suffix addons and an icon slot. Supports multiple HTML input types, two sizes and read-only and disabled states.
+
+## Installation
+
+\`\`\`bash
+yarn add @leroy-merlin-pt/input
+\`\`\`
+
+\`\`\`js
+import '@leroy-merlin-pt/input/style.css'
+\`\`\`
+
+\`\`\`vue
+<script setup>
+import Input from '@leroy-merlin-pt/input'
+import { ref } from 'vue'
+
+const value = ref('')
+</script>
+
+<template>
+  <Input v-model="value" label="Email" placeholder="name@example.com" type="email" />
+</template>
+\`\`\``,
       },
     },
   },

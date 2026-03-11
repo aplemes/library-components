@@ -8,7 +8,27 @@ const meta: Meta<typeof Avatar> = {
   parameters: {
     docs: {
       description: {
-        component: 'Circular avatar component used to represent a user or entity. Accepts initials or an image as slot content and supports three sizes.',
+        component: `Circular avatar component used to represent a user or entity. Accepts initials or an image as slot content and supports three sizes.
+
+## Installation
+
+\`\`\`bash
+yarn add @leroy-merlin-pt/avatar
+\`\`\`
+
+\`\`\`js
+import '@leroy-merlin-pt/avatar/style.css'
+\`\`\`
+
+\`\`\`vue
+<script setup>
+import Avatar from '@leroy-merlin-pt/avatar'
+</script>
+
+<template>
+  <Avatar size="m">JD</Avatar>
+</template>
+\`\`\``,
       },
     },
   },

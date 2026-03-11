@@ -16,7 +16,33 @@ const meta: Meta<typeof Breadcrumb> = {
     docs: {
       description: {
         component:
-          'A navigation breadcrumb displaying hierarchical page path. The last item automatically receives aria-current="page". Supports light and dark appearances.',
+          `A navigation breadcrumb displaying hierarchical page path. The last item automatically receives aria-current="page". Supports light and dark appearances.
+
+## Installation
+
+\`\`\`bash
+yarn add @leroy-merlin-pt/breadcrumb
+\`\`\`
+
+\`\`\`js
+import '@leroy-merlin-pt/breadcrumb/style.css'
+\`\`\`
+
+\`\`\`vue
+<script setup>
+import Breadcrumb from '@leroy-merlin-pt/breadcrumb'
+
+const items = [
+  { label: 'Home', href: '/' },
+  { label: 'Category', href: '/category' },
+  { label: 'Product', href: '/category/product', current: true },
+]
+</script>
+
+<template>
+  <Breadcrumb :items="items" />
+</template>
+\`\`\``,
       },
     },
   },

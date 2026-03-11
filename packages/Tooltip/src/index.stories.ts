@@ -8,7 +8,29 @@ const meta: Meta<typeof Tooltip> = {
   parameters: {
     docs: {
       description: {
-        component: 'A tooltip component that wraps a trigger element and shows descriptive text on hover or focus. Supports four positions, optional pointer arrow, and a standalone mode where the tooltip is always visible. Uses CSS opacity transitions for show/hide behavior.',
+        component: `A tooltip component that wraps a trigger element and shows descriptive text on hover or focus. Supports four positions, optional pointer arrow, and a standalone mode where the tooltip is always visible. Uses CSS opacity transitions for show/hide behavior.
+
+## Installation
+
+\`\`\`bash
+yarn add @leroy-merlin-pt/tooltip
+\`\`\`
+
+\`\`\`js
+import '@leroy-merlin-pt/tooltip/style.css'
+\`\`\`
+
+\`\`\`vue
+<script setup>
+import Tooltip from '@leroy-merlin-pt/tooltip'
+</script>
+
+<template>
+  <Tooltip id="save-tip" text="Save your changes" position="top">
+    <button>Save</button>
+  </Tooltip>
+</template>
+\`\`\``,
       },
     },
   },

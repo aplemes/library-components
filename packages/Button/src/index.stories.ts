@@ -8,7 +8,27 @@ const meta: Meta<typeof Button> = {
   parameters: {
     docs: {
       description: {
-        component: 'Interactive button component with multiple variants, appearances, sizes and states. Supports icon slots, loading state and form submission.',
+        component: `Interactive button component with multiple variants, appearances, sizes and states. Supports icon slots, loading state and form submission.
+
+## Installation
+
+\`\`\`bash
+yarn add @leroy-merlin-pt/button
+\`\`\`
+
+\`\`\`js
+import '@leroy-merlin-pt/button/style.css'
+\`\`\`
+
+\`\`\`vue
+<script setup>
+import Button from '@leroy-merlin-pt/button'
+</script>
+
+<template>
+  <Button label="Confirmar" variant="primary" @click="handleClick" />
+</template>
+\`\`\``,
       },
     },
   },

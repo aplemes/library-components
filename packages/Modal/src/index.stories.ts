@@ -7,7 +7,31 @@ const meta: Meta<typeof Modal> = {
   parameters: {
     docs: {
       description: {
-        component: 'A centered dialog overlay rendered via `<Teleport>`. Contains a header with a title and optional icon, a body area with an optional description prop and a default slot, and an optional footer slot for action buttons. Closes on backdrop click or Escape key when `closable` is true.',
+        component: `A centered dialog overlay rendered via Teleport. Contains a header with a title and optional icon, a body area with an optional description prop and a default slot, and an optional footer slot for action buttons. Closes on backdrop click or Escape key when \`closable\` is true.
+
+## Installation
+
+\`\`\`bash
+yarn add @leroy-merlin-pt/modal
+\`\`\`
+
+\`\`\`js
+import '@leroy-merlin-pt/modal/style.css'
+\`\`\`
+
+\`\`\`vue
+<script setup>
+import Modal from '@leroy-merlin-pt/modal'
+import { ref } from 'vue'
+
+const isOpen = ref(false)
+</script>
+
+<template>
+  <button @click="isOpen = true">Open modal</button>
+  <Modal :open="isOpen" title="Confirm action" @close="isOpen = false" />
+</template>
+\`\`\``,
       },
     },
   },

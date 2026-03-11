@@ -8,7 +8,27 @@ const meta: Meta<typeof Flag> = {
   parameters: {
     docs: {
       description: {
-        component: 'A compact label badge used to highlight product states or promotions (e.g. "New", "Sale"). Displays an uppercase text label in a pill shape with four color appearances.',
+        component: `A compact label badge used to highlight product states or promotions (e.g. "New", "Sale"). Displays an uppercase text label in a pill shape with four color appearances.
+
+## Installation
+
+\`\`\`bash
+yarn add @leroy-merlin-pt/flag
+\`\`\`
+
+\`\`\`js
+import '@leroy-merlin-pt/flag/style.css'
+\`\`\`
+
+\`\`\`vue
+<script setup>
+import Flag from '@leroy-merlin-pt/flag'
+</script>
+
+<template>
+  <Flag label="New" appearance="accent" />
+</template>
+\`\`\``,
       },
     },
   },

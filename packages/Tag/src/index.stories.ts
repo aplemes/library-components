@@ -8,7 +8,27 @@ const meta: Meta<typeof Tag> = {
   parameters: {
     docs: {
       description: {
-        component: 'A versatile label element with five behavioral types: `informative` (static display), `interactive` (clickable button), `selectable` (checkbox-backed toggle), `removable` (tag with a dismiss button that emits `remove-tag`) and `contextualised` (button with a numeric count badge). Supports three sizes.',
+        component: `A versatile label element with five behavioral types: \`informative\` (static display), \`interactive\` (clickable button), \`selectable\` (checkbox-backed toggle), \`removable\` (tag with a dismiss button that emits \`remove-tag\`) and \`contextualised\` (button with a numeric count badge). Supports three sizes.
+
+## Installation
+
+\`\`\`bash
+yarn add @leroy-merlin-pt/tag
+\`\`\`
+
+\`\`\`js
+import '@leroy-merlin-pt/tag/style.css'
+\`\`\`
+
+\`\`\`vue
+<script setup>
+import Tag from '@leroy-merlin-pt/tag'
+</script>
+
+<template>
+  <Tag label="In stock" type="informative" />
+</template>
+\`\`\``,
       },
     },
   },
