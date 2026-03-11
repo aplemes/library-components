@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/aplemes/library-components/compare/@leroy-merlin-pt/button@1.1.0...@leroy-merlin-pt/button@1.1.1) (2026-03-11)
+
+
+### Bug Fixes
+
+* revert Button default slot text to 'Button Label' ([2cbf624](https://github.com/aplemes/library-components/commit/2cbf624bf1a1f1ea79f7e294c4912a9c7d6247d5))
+
+
+
+
+
 # [1.1.0](https://github.com/aplemes/library-components/compare/@leroy-merlin-pt/button@1.0.3...@leroy-merlin-pt/button@1.1.0) (2026-03-11)
 
 
