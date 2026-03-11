@@ -2,6 +2,8 @@
 
 Monorepo de componentes Vue 3 publicados no npm, alinhados com o design system [Mozaic](https://mozaic.adeo.cloud/).
 
+**Storybook:** https://aplemes.github.io/library-components/?path=/docs/introduction--docs
+
 ## Stack
 
 | Ferramenta | Papel |
