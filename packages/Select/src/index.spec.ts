@@ -49,7 +49,7 @@ describe('Select', () => {
 
   it('applies invalid class when isInvalid', () => {
     const wrapper = mount(Select, { props: { id: 'sel-1', options: defaultOptions, isInvalid: true } })
-    expect(wrapper.find('select').classes()).toContain('select__control--invalid')
+    expect(wrapper.find('select').classes()).toContain('is-invalid')
   })
 
   it('applies size class for small', () => {
