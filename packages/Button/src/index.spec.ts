@@ -10,7 +10,7 @@ describe('Button', () => {
 
   it('renders default label text when no slot provided', () => {
     const wrapper = mount(Button)
-    expect(wrapper.text()).toBe('Button Label')
+    expect(wrapper.text()).toBe('Test new release')
   })
 
   it('is a button element', () => {
