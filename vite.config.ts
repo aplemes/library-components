@@ -1,12 +1,17 @@
 import path from 'path'
+import { fileURLToPath } from 'url'
 import { defineConfig } from 'vitest/config'
+import tailwindcss from '@tailwindcss/vite'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
+  plugins: [tailwindcss()],
   test: {
     environment: 'happy-dom'
   },
   resolve: {
-    alias: { '@': path.resolve('./') }
+    alias: { '@': __dirname }
   },
   build: {
     target: 'es2015',

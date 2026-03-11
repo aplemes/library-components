@@ -1,0 +1,23 @@
+{
+  "name": "@leroy-merlin-pt/tokens",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "./dist/index.umd.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.cjs"
+    }
+  },
+  "scripts": {
+    "build": "vite build",
+    "test": "vitest --run --passWithNoTests"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": ["dist/*"]
+}
