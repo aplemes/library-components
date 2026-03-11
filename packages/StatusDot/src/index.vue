@@ -1,23 +1,33 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
+/**
+ * A Status dot is a small visual indicator used to represent the state or condition of an element.
+ */
 const props = withDefaults(
   defineProps<{
+    /**
+     * Allows to define the status dot type.
+     */
     status?: 'info' | 'success' | 'warning' | 'error' | 'neutral'
+    /**
+     * Determines the size of the status dot.
+     */
     size?: 's' | 'm' | 'l'
   }>(),
   { status: 'info' }
 )
 
-const dotClass = computed(() => [
-  'status-dot',
-  `status-dot--${props.status}`,
-  props.size && props.size !== 'm' ? `status-dot--${props.size}` : null,
-])
+const classObject = computed(() => {
+  return {
+    [`status-dot--${props.status}`]: props.status && props.status !== 'info',
+    [`status-dot--${props.size}`]: props.size && props.size !== 'm',
+  }
+})
 </script>
 
 <template>
-  <span :class="dotClass" role="status" aria-label="status"></span>
+  <span class="status-dot" :class="classObject" role="status" aria-label="status"></span>
 </template>
 
 <style>
@@ -35,7 +45,6 @@ const dotClass = computed(() => [
   @apply w-4 h-4;
 }
 
-.status-dot--info { @apply bg-info-500; }
 .status-dot--success { @apply bg-success-500; }
 .status-dot--warning { @apply bg-warning-500; }
 .status-dot--error { @apply bg-danger-500; }

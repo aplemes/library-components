@@ -8,9 +8,9 @@ describe('StatusDot', () => {
     expect(wrapper.find('.status-dot').exists()).toBe(true)
   })
 
-  it('applies info class by default', () => {
+  it('does not apply status-dot--info class by default (base style handles it)', () => {
     const wrapper = mount(StatusDot)
-    expect(wrapper.find('.status-dot').classes()).toContain('status-dot--info')
+    expect(wrapper.find('.status-dot').classes()).not.toContain('status-dot--info')
   })
 
   it('applies success class', () => {
