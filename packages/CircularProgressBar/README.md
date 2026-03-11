@@ -1,6 +1,6 @@
 # CircularProgressBar
 
-A circular progress bar visually represents progress toward a goal or completion of a process using a circular shape. It is commonly used to indicate task completion or performance metrics.
+A circular progress bar visually represents progress toward a goal or completion of a process using a circular shape.
 
 ## Installation
 
@@ -23,12 +23,7 @@ yarn add @leroy-merlin-pt/circularprogressbar
 ## Basic Usage
 
 ```vue
-<script setup>
-import CircularProgressBar from '@leroy-merlin-pt/circularprogressbar'
-</script>
-
 <template>
   <CircularProgressBar :value="75" type="percentage" />
-  <CircularProgressBar :value="42" type="content" content-value="42" additional-info="items" />
 </template>
 ```

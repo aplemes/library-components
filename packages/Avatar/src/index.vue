@@ -2,8 +2,7 @@
 import { computed, type VNode } from 'vue'
 
 /**
- * An avatar is a graphical representation of a user, entity, or group,
- * commonly displayed as an image, initials, or an icon.
+ * An avatar is a graphical representation of a user, entity, or group, commonly displayed as an image, initials, or an icon.
  */
 const props = withDefaults(
   defineProps<{
@@ -12,24 +11,27 @@ const props = withDefaults(
      */
     size?: 's' | 'm' | 'l'
   }>(),
-  { size: 's' }
+  {
+    size: 's',
+  }
 )
 
-const avatarClass = computed(() => [
-  'avatar',
-  props.size !== 's' ? `avatar--${props.size}` : null,
-])
+const classObject = computed(() => {
+  return {
+    [`avatar--${props.size}`]: props.size && props.size !== 's',
+  }
+})
 
 defineSlots<{
   /**
    * Use this slot to insert the image, icon or initials of the avatar.
    */
-  default: VNode
+  default: () => VNode[]
 }>()
 </script>
 
 <template>
-  <span :class="avatarClass">
+  <span class="avatar" :class="classObject">
     <slot />
   </span>
 </template>

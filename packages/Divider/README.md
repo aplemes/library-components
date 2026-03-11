@@ -1,6 +1,6 @@
 # Divider
 
-A divider is a visual element used to separate content or sections within an interface. It helps improve readability and organization by creating clear distinctions between groups of information.
+A divider is a visual element used to separate content or sections within an interface.
 
 ## Installation
 
@@ -27,13 +27,8 @@ yarn add @leroy-merlin-pt/divider
 ## Basic Usage
 
 ```vue
-<script setup>
-import Divider from '@leroy-merlin-pt/divider'
-</script>
-
 <template>
   <Divider />
-  <Divider appearance="secondary" size="m" />
   <Divider><span>OR</span></Divider>
 </template>
 ```

@@ -32,15 +32,9 @@ yarn add @leroy-merlin-pt/iconbutton
 ## Basic Usage
 
 ```vue
-<script setup>
-import IconButton from '@leroy-merlin-pt/iconbutton'
-</script>
-
 <template>
   <IconButton aria-label="Close" ghost>
-    <template #icon>
-      <svg>...</svg>
-    </template>
+    <template #icon><svg>...</svg></template>
   </IconButton>
 </template>
 ```

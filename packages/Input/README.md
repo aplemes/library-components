@@ -1,6 +1,6 @@
 # Input
 
-A text input is a single-line input that allows users to enter and edit short text-based content. It is commonly used for names, email addresses, search queries, and form entries.
+A text input is a single-line input that allows users to enter and edit short text-based content.
 
 ## Installation
 

@@ -1,6 +1,6 @@
 # Flag
 
-A flag is used to display meta-information about a product or service, acting as a visual indicator of the main category of content. It is typically placed at the top of an element to ensure immediate visibility.
+A flag is used to display meta-information about a product or service, acting as a visual indicator of the main category of content.
 
 ## Installation
 
@@ -20,13 +20,8 @@ yarn add @leroy-merlin-pt/flag
 ## Basic Usage
 
 ```vue
-<script setup>
-import Flag from '@leroy-merlin-pt/flag'
-</script>
-
 <template>
   <Flag label="New" />
   <Flag label="Sale" appearance="danger" />
-  <Flag label="Featured" appearance="accent" />
 </template>
 ```

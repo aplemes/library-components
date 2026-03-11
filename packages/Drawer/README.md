@@ -50,12 +50,8 @@ const isOpen = ref(false)
 </script>
 
 <template>
-  <button @click="isOpen = true">Open Drawer</button>
   <Drawer v-model:open="isOpen" title="Settings">
     <p>Drawer content here.</p>
-    <template #footer>
-      <button @click="isOpen = false">Close</button>
-    </template>
   </Drawer>
 </template>
 ```

@@ -23,7 +23,7 @@ describe('Button', () => {
     expect(wrapper.classes()).toContain('btn')
   })
 
-  it('does not apply primary variant class by default (standard)', () => {
+  it('does not apply standard variant class by default', () => {
     const wrapper = mount(Button)
     expect(wrapper.classes()).not.toContain('btn--standard')
   })

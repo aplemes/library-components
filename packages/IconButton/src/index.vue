@@ -1,43 +1,76 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, type VNode } from 'vue'
 
+/**
+ * Buttons are key interactive elements used to perform actions and can be used as standalone element,
+ * or as part of another component. Their appearance depends on the type of action required from the user
+ * and the context in which they are used.
+ */
 const props = withDefaults(
   defineProps<{
+    /**
+     * Defines the visual style of the icon button.
+     */
     appearance?: 'standard' | 'accent' | 'danger' | 'inverse'
+    /**
+     * Determines the size of the icon button.
+     */
     size?: 's' | 'm' | 'l'
+    /**
+     * If `true`, disables the icon button, making it non-interactive.
+     */
     disabled?: boolean
+    /**
+     * If `true`, applies a "ghost" style to the icon button.
+     */
     ghost?: boolean
+    /**
+     * If `true`, the icon button gets an outlined style.
+     */
     outlined?: boolean
+    /**
+     * Specifies the button's HTML `type` attribute.
+     */
     type?: 'button' | 'reset' | 'submit'
+    /**
+     * If `true`, a loading state is displayed.
+     */
     isLoading?: boolean
-    ariaLabel?: string
   }>(),
   { appearance: 'standard', size: 'm', type: 'button' }
 )
 
-/**
- * Buttons are key interactive elements used to perform actions and can be used as standalone element,
- * or as part of another component. Their appearance depends on the type of action required from the user.
- */
+defineSlots<{
+  /**
+   * Use this slot to insert an icon for the Button.
+   */
+  icon: () => VNode[]
+}>()
 
-const btnClass = computed(() => [
-  'icon-btn',
-  props.size !== 'm' ? `icon-btn--${props.size}` : null,
-  props.appearance !== 'standard' ? `icon-btn--${props.appearance}` : null,
-  props.ghost ? 'icon-btn--ghost' : null,
-  props.outlined ? 'icon-btn--outlined' : null,
-  props.isLoading ? 'icon-btn--loading' : null,
-])
+const classObject = computed(() => {
+  return {
+    [`icon-btn--${props.appearance}`]: props.appearance && props.appearance !== 'standard',
+    [`icon-btn--${props.size}`]: props.size && props.size !== 'm',
+    'icon-btn--ghost': props.ghost,
+    'icon-btn--outlined': props.outlined,
+  }
+})
 </script>
 
 <template>
   <button
-    :class="btnClass"
-    :disabled="disabled || isLoading"
+    class="icon-btn"
+    :class="classObject"
+    :disabled="disabled"
     :type="type"
-    :aria-label="ariaLabel"
   >
-    <span v-if="isLoading" class="icon-btn__spinner" aria-hidden="true"></span>
+    <span
+      v-if="isLoading"
+      class="icon-btn__icon"
+      :style="{ position: 'absolute' }"
+    >
+      <span class="icon-btn__spinner" aria-hidden="true" />
+    </span>
     <span v-else class="icon-btn__icon">
       <slot name="icon" />
     </span>
@@ -105,9 +138,5 @@ const btnClass = computed(() => [
 
 .icon-btn__spinner {
   @apply absolute w-5 h-5 border-2 border-current border-t-transparent rounded-full animate-spin;
-}
-
-.icon-btn--loading {
-  @apply cursor-wait;
 }
 </style>

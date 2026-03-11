@@ -1,52 +1,89 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
-interface SelectOption {
-  id?: string
-  text: string
-  value: string | number
-  attributes?: Record<string, string | boolean | number>
-  disabled?: boolean
-}
-
+/**
+ * A select component allows users to choose a single option from a predefined list within a native dropdown menu.
+ */
 const props = withDefaults(
   defineProps<{
+    /**
+     * A unique identifier for the select, used to associate the label with the form element.
+     */
     id: string
+    /**
+     * The name attribute for the select element, used for form submission.
+     */
     name?: string
-    options: SelectOption[]
+    /**
+     * Define the available choices for the select element.
+     */
+    options: Array<{
+      id?: string
+      text: string
+      value: string | number
+      attributes?: Record<string, string | boolean | number>
+      disabled?: boolean
+    }>
+    /**
+     * The current value of the select.
+     */
     modelValue?: string | number
+    /**
+     * Text displayed when the select has no selected value.
+     */
     placeholder?: string
+    /**
+     * If `true`, the select is marked as invalid.
+     */
     isInvalid?: boolean
+    /**
+     * If `true`, the select is disabled and non-interactive.
+     */
     disabled?: boolean
+    /**
+     * Determines the size of the select.
+     */
     size?: 's' | 'm'
+    /**
+     * If `true`, the select is read-only (cannot be edited).
+     */
     readonly?: boolean
   }>(),
   { size: 'm' }
 )
 
 const emit = defineEmits<{
+  /**
+   * Emits when the select value changes, updating the modelValue prop.
+   */
   'update:modelValue': [value: string | number]
 }>()
 
-const wrapperClass = computed(() => [
-  'select',
-  props.size !== 'm' ? `select--${props.size}` : null,
-])
+const wrapperClass = computed(() => ({
+  [`select--${props.size}`]: props.size && props.size !== 'm',
+}))
 
-const controlClass = computed(() => [
-  'select__control',
-  props.isInvalid ? 'select__control--invalid' : null,
-  props.readonly ? 'select__control--readonly' : null,
-])
+const classObject = computed(() => {
+  return {
+    'select__control--readonly': props.readonly,
+    'is-invalid': props.isInvalid,
+  }
+})
 
 defineOptions({ inheritAttrs: false })
 </script>
 
 <template>
-  <div :class="wrapperClass">
+  <div
+    :class="{
+      'select': true,
+      [`select--${props.size}`]: props.size && props.size !== 'm',
+    }"
+  >
     <select
       :id="id"
-      :class="controlClass"
+      class="select__control"
+      :class="classObject"
       :name="name"
       :value="modelValue"
       :disabled="disabled"
@@ -90,7 +127,7 @@ defineOptions({ inheritAttrs: false })
   padding-right: 2rem;
 }
 
-.select__control--invalid {
+.select__control.is-invalid {
   @apply border-danger-500 focus:border-danger-500 focus:ring-danger-500;
 }
 

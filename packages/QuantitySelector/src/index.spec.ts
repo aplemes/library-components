@@ -47,9 +47,9 @@ describe('QuantitySelector', () => {
     const wrapper = mount(QuantitySelector, { props: { id: 'qty-1', disabled: true } })
     expect(wrapper.find('input').attributes('disabled')).toBeDefined()
   })
-  it('applies invalid class', () => {
+  it('applies is-invalid class when isInvalid', () => {
     const wrapper = mount(QuantitySelector, { props: { id: 'qty-1', isInvalid: true } })
-    expect(wrapper.find('.qty-selector').classes()).toContain('qty-selector--invalid')
+    expect(wrapper.find('.qty-selector').classes()).toContain('is-invalid')
   })
   it('applies size class for s', () => {
     const wrapper = mount(QuantitySelector, { props: { id: 'qty-1', size: 's' } })

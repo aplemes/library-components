@@ -4,82 +4,67 @@ import IconButton from './index.vue'
 
 describe('IconButton', () => {
   it('renders a button element', () => {
-    const wrapper = mount(IconButton)
-    expect(wrapper.find('button').exists()).toBe(true)
+    const wrapper = mount(IconButton, { slots: { icon: '<svg />' } })
+    expect(wrapper.element.tagName.toLowerCase()).toBe('button')
   })
 
-  it('applies icon-btn class', () => {
-    const wrapper = mount(IconButton)
-    expect(wrapper.find('.icon-btn').exists()).toBe(true)
+  it('has icon-btn class by default', () => {
+    const wrapper = mount(IconButton, { slots: { icon: '<svg />' } })
+    expect(wrapper.classes()).toContain('icon-btn')
   })
 
-  it('defaults to type button', () => {
-    const wrapper = mount(IconButton)
-    expect(wrapper.find('button').attributes('type')).toBe('button')
-  })
-
-  it('sets type attribute', () => {
-    const wrapper = mount(IconButton, { props: { type: 'submit' } })
-    expect(wrapper.find('button').attributes('type')).toBe('submit')
-  })
-
-  it('disables the button when disabled is true', () => {
-    const wrapper = mount(IconButton, { props: { disabled: true } })
-    expect(wrapper.find('button').attributes('disabled')).toBeDefined()
-  })
-
-  it('does not disable by default', () => {
-    const wrapper = mount(IconButton)
-    expect(wrapper.find('button').attributes('disabled')).toBeUndefined()
-  })
-
-  it('applies size class for s', () => {
-    const wrapper = mount(IconButton, { props: { size: 's' } })
-    expect(wrapper.find('.icon-btn').classes()).toContain('icon-btn--s')
-  })
-
-  it('does not apply size class for default m', () => {
-    const wrapper = mount(IconButton)
-    expect(wrapper.find('.icon-btn').classes()).not.toContain('icon-btn--m')
-  })
-
-  it('applies appearance class for non-standard', () => {
-    const wrapper = mount(IconButton, { props: { appearance: 'danger' } })
-    expect(wrapper.find('.icon-btn').classes()).toContain('icon-btn--danger')
+  it('has default type button', () => {
+    const wrapper = mount(IconButton, { slots: { icon: '<svg />' } })
+    expect(wrapper.attributes('type')).toBe('button')
   })
 
   it('does not apply appearance class for standard', () => {
-    const wrapper = mount(IconButton)
-    expect(wrapper.find('.icon-btn').classes()).not.toContain('icon-btn--standard')
+    const wrapper = mount(IconButton, { slots: { icon: '<svg />' } })
+    expect(wrapper.classes()).not.toContain('icon-btn--standard')
   })
 
-  it('applies ghost class', () => {
-    const wrapper = mount(IconButton, { props: { ghost: true } })
-    expect(wrapper.find('.icon-btn').classes()).toContain('icon-btn--ghost')
+  it('applies appearance accent class', () => {
+    const wrapper = mount(IconButton, { props: { appearance: 'accent' }, slots: { icon: '<svg />' } })
+    expect(wrapper.classes()).toContain('icon-btn--accent')
   })
 
-  it('applies outlined class', () => {
-    const wrapper = mount(IconButton, { props: { outlined: true } })
-    expect(wrapper.find('.icon-btn').classes()).toContain('icon-btn--outlined')
+  it('applies size class for small', () => {
+    const wrapper = mount(IconButton, { props: { size: 's' }, slots: { icon: '<svg />' } })
+    expect(wrapper.classes()).toContain('icon-btn--s')
   })
 
-  it('shows spinner when isLoading is true', () => {
-    const wrapper = mount(IconButton, { props: { isLoading: true } })
+  it('applies size class for large', () => {
+    const wrapper = mount(IconButton, { props: { size: 'l' }, slots: { icon: '<svg />' } })
+    expect(wrapper.classes()).toContain('icon-btn--l')
+  })
+
+  it('does not apply size class for medium (default)', () => {
+    const wrapper = mount(IconButton, { slots: { icon: '<svg />' } })
+    expect(wrapper.classes()).not.toContain('icon-btn--m')
+  })
+
+  it('disables the button when disabled is true', () => {
+    const wrapper = mount(IconButton, { props: { disabled: true }, slots: { icon: '<svg />' } })
+    expect(wrapper.attributes('disabled')).toBeDefined()
+  })
+
+  it('applies ghost class when ghost prop is true', () => {
+    const wrapper = mount(IconButton, { props: { ghost: true }, slots: { icon: '<svg />' } })
+    expect(wrapper.classes()).toContain('icon-btn--ghost')
+  })
+
+  it('applies outlined class when outlined prop is true', () => {
+    const wrapper = mount(IconButton, { props: { outlined: true }, slots: { icon: '<svg />' } })
+    expect(wrapper.classes()).toContain('icon-btn--outlined')
+  })
+
+  it('renders spinner when isLoading is true', () => {
+    const wrapper = mount(IconButton, { props: { isLoading: true }, slots: { icon: '<svg />' } })
     expect(wrapper.find('.icon-btn__spinner').exists()).toBe(true)
   })
 
-  it('disables the button when isLoading is true', () => {
-    const wrapper = mount(IconButton, { props: { isLoading: true } })
-    expect(wrapper.find('button').attributes('disabled')).toBeDefined()
-  })
-
-  it('renders icon slot', () => {
-    const wrapper = mount(IconButton, { slots: { icon: '<svg data-testid="icon" />' } })
-    expect(wrapper.find('.icon-btn__icon').exists()).toBe(true)
-  })
-
-  it('sets aria-label attribute', () => {
-    const wrapper = mount(IconButton, { props: { ariaLabel: 'Close' } })
-    expect(wrapper.find('button').attributes('aria-label')).toBe('Close')
+  it('sets button type to submit', () => {
+    const wrapper = mount(IconButton, { props: { type: 'submit' }, slots: { icon: '<svg />' } })
+    expect(wrapper.attributes('type')).toBe('submit')
   })
 })

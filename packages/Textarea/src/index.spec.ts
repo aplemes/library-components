@@ -62,12 +62,12 @@ describe('Textarea', () => {
 
   it('applies invalid class when isInvalid', () => {
     const wrapper = mount(Textarea, { props: { id: 'ta-1', isInvalid: true } })
-    expect(wrapper.find('textarea').classes()).toContain('textarea--invalid')
+    expect(wrapper.find('textarea').classes()).toContain('is-invalid')
   })
 
   it('does not apply invalid class by default', () => {
     const wrapper = mount(Textarea, { props: { id: 'ta-1' } })
-    expect(wrapper.find('textarea').classes()).not.toContain('textarea--invalid')
+    expect(wrapper.find('textarea').classes()).not.toContain('is-invalid')
   })
 
   it('sets aria-invalid when isInvalid', () => {

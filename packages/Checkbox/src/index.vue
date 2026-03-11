@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+
 /**
- * A checkbox is an interactive component used to select or deselect an option.
+ * A checkbox is an interactive component used to select or deselect an option, typically within a list of choices. It allows users to make multiple selections independently and is often accompanied by a label for clarity. Checkboxes are commonly used in forms, filters, settings, and preference selections to provide a simple and intuitive way to enable or disable specific options.
  */
 const props = defineProps<{
   /**
@@ -37,7 +39,22 @@ const props = defineProps<{
   indented?: boolean
 }>()
 
+const classObject = computed(() => {
+  return {
+    'is-invalid': props.isInvalid,
+  }
+})
+
+const classObjectCheckbox = computed(() => {
+  return {
+    'checkbox--indented': props.indented,
+  }
+})
+
 const emit = defineEmits<{
+  /**
+   * Emits when the checkbox value changes, updating the modelValue prop.
+   */
   'update:modelValue': [value: boolean]
 }>()
 
@@ -45,12 +62,12 @@ defineOptions({ inheritAttrs: false })
 </script>
 
 <template>
-  <div :class="['checkbox', indented && 'checkbox--indented']">
+  <div class="checkbox" :class="classObjectCheckbox">
     <input
       :id="id"
       type="checkbox"
       class="checkbox__input"
-      :class="{ 'checkbox__input--invalid': isInvalid }"
+      :class="classObject"
       :name="name"
       :checked="modelValue"
       :indeterminate="indeterminate"
@@ -80,7 +97,7 @@ defineOptions({ inheritAttrs: false })
   @apply disabled:opacity-50 disabled:cursor-not-allowed;
 }
 
-.checkbox__input--invalid {
+.checkbox__input.is-invalid {
   @apply border-danger-500 accent-danger-500;
 }
 

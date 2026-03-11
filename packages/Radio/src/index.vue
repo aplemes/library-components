@@ -1,14 +1,46 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+
+/**
+ * A radio button is a selection control that allows users to choose a single option from a list of mutually exclusive choices. Unlike checkboxes, only one option can be selected at a time within the same group.
+ */
 const props = defineProps<{
+  /**
+   * A unique identifier for the radio, used to associate the label with the form element.
+   */
   id: string
+  /**
+   * The name attribute for the radio element, typically used for form submission.
+   */
   name?: string
+  /**
+   * The text label displayed next to the radio.
+   */
   label?: string
+  /**
+   * The radio's checked state, bound via v-model.
+   */
   modelValue?: boolean
+  /**
+   * If `true`, applies an invalid state to the radio.
+   */
   isInvalid?: boolean
+  /**
+   * If `true`, disables the radio, making it non-interactive.
+   */
   disabled?: boolean
 }>()
 
+const classObject = computed(() => {
+  return {
+    'is-invalid': props.isInvalid,
+  }
+})
+
 const emit = defineEmits<{
+  /**
+   * Emits when the radio value changes, updating the modelValue prop.
+   */
   'update:modelValue': [value: boolean]
 }>()
 
@@ -21,7 +53,7 @@ defineOptions({ inheritAttrs: false })
       :id="id"
       type="radio"
       class="radio__input"
-      :class="{ 'radio__input--invalid': isInvalid }"
+      :class="classObject"
       :name="name"
       :checked="modelValue"
       :disabled="disabled"
@@ -46,7 +78,7 @@ defineOptions({ inheritAttrs: false })
   @apply disabled:opacity-50 disabled:cursor-not-allowed;
 }
 
-.radio__input--invalid {
+.radio__input.is-invalid {
   @apply border-danger-500;
 }
 

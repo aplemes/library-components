@@ -1,81 +1,166 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, watch } from 'vue'
+import { computed, onMounted, onUnmounted, watch, type VNode } from 'vue'
 
+/**
+ * A modal is a dialog window that appears on top of the main content, requiring user interaction before returning to the main interface.
+ */
 const props = withDefaults(
   defineProps<{
+    /**
+     * If `true`, display the modal.
+     */
     open?: boolean
+    /**
+     * Title of the modal.
+     */
     title: string
+    /**
+     * Description of the modal.
+     */
     description?: string
+    /**
+     * If `true`, display the close button.
+     */
     closable?: boolean
-    size?: 's' | 'm' | 'l'
-    /** When true, the modal body becomes scrollable */
+    /**
+     * If `false`, lock the scroll when open.
+     */
     scroll?: boolean
-    /** When true, clicking the backdrop closes the modal */
+    /**
+     * If `true`, close the modal when clicking the overlay.
+     */
     closeOnOverlay?: boolean
   }>(),
-  { closable: true, size: 'm', scroll: false, closeOnOverlay: false }
+  {
+    closable: true,
+    scroll: true,
+  }
 )
 
-const emit = defineEmits<{
-  close: []
-  'update:open': [value: boolean]
+defineSlots<{
+  /**
+   * Use this slot to insert an icon next to the title of the modal.
+   */
+  icon?: () => VNode[]
+  /**
+   * Use this slot to insert the content of the modal.
+   */
+  default?: () => VNode[]
+  /**
+   * Use this slot to insert a link in the footer.
+   */
+  link?: () => VNode[]
+  /**
+   * Use this slot to insert buttons in the footer.
+   */
+  footer?: () => VNode[]
 }>()
 
+const classObject = computed(() => {
+  return {
+    'is-open': props.open,
+  }
+})
+
+const isClient = typeof window !== 'undefined' && typeof document !== 'undefined'
+
+const lockScroll = () => {
+  if (!isClient) return
+  document.body.style.overflow = 'hidden'
+  document.documentElement.style.overflow = 'hidden'
+}
+
+const unlockScroll = () => {
+  if (!isClient) return
+  document.body.style.overflow = ''
+  document.documentElement.style.overflow = ''
+}
+
+onMounted(() => {
+  watch(
+    () => props.open,
+    (isOpen) => {
+      if (props.scroll === false) {
+        if (isOpen) lockScroll()
+        else unlockScroll()
+      }
+    },
+    { immediate: true }
+  )
+})
+
+onUnmounted(() => {
+  unlockScroll()
+})
+
+const onClickOverlay = () => {
+  if (props.closeOnOverlay) {
+    onClose()
+  }
+}
+
 const onClose = () => {
-  emit('close')
   emit('update:open', false)
 }
-const onOverlayClick = () => {
-  if (props.closeOnOverlay || props.closable) onClose()
-}
-const onKeydown = (e: KeyboardEvent) => { if (e.key === 'Escape' && props.open && props.closable) onClose() }
 
-onMounted(() => document.addEventListener('keydown', onKeydown))
-onUnmounted(() => document.removeEventListener('keydown', onKeydown))
+const emit = defineEmits<{
+  /**
+   * Emits when the modal display changes, updating the modelValue prop.
+   */
+  'update:open': [value: boolean | undefined]
+}>()
 
-watch(() => props.open, (val) => {
-  if (!props.scroll) {
-    document.body.style.overflow = val ? 'hidden' : ''
-  }
+defineOptions({
+  inheritAttrs: false,
 })
 </script>
 
 <template>
   <Teleport to="body">
-    <div v-if="open" class="modal-backdrop" @click="onOverlayClick">
+    <div v-if="open" class="modal-backdrop" @click="onClickOverlay">
       <section
         class="modal"
-        :class="size !== 'm' ? `modal--${size}` : null"
+        :class="classObject"
         role="dialog"
-        aria-modal="true"
-        :aria-labelledby="'modal-title'"
+        aria-labelledby="modalTitle"
+        :aria-modal="open ? 'true' : 'false'"
         tabindex="-1"
-        @click.stop
+        :aria-hidden="!open"
+        v-bind="$attrs"
         @keydown.esc="onClose"
+        @click.stop
       >
-        <header class="modal__header">
-          <span v-if="$slots.icon" class="modal__icon"><slot name="icon" /></span>
-          <h2 class="modal__title" id="modal-title">{{ title }}</h2>
-          <button
-            v-if="closable"
-            class="modal__close"
-            type="button"
-            aria-label="Close"
-            @click="onClose"
-          >
-            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
-              <path fill="currentColor" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
-            </svg>
-          </button>
-        </header>
-        <main class="modal__body" :class="{ 'modal__body--scroll': scroll }">
-          <p v-if="description">{{ description }}</p>
-          <slot />
-        </main>
-        <footer v-if="$slots.footer" class="modal__footer">
-          <slot name="link" />
-          <slot name="footer" />
-        </footer>
+        <div class="modal__dialog" role="document">
+          <header class="modal__header">
+            <span v-if="$slots.icon" class="modal__icon">
+              <slot name="icon" />
+            </span>
+            <h2 class="modal__title" id="modalTitle">
+              {{ title }}
+            </h2>
+            <button
+              v-if="closable"
+              class="modal__close"
+              type="button"
+              aria-label="Close"
+              @click="onClose"
+            >
+              <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+                <path fill="currentColor" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+              </svg>
+            </button>
+          </header>
+          <main class="modal__body">
+            <p>{{ description }}</p>
+            <slot />
+          </main>
+          <footer v-if="$slots.footer" class="modal__footer">
+            <span class="modal__link">
+              <slot name="link" />
+            </span>
+            <slot name="footer" />
+          </footer>
+        </div>
       </section>
     </div>
   </Teleport>
@@ -91,9 +176,6 @@ watch(() => props.open, (val) => {
 .modal {
   @apply relative bg-white rounded-l shadow-l w-full max-w-lg mx-4 max-h-screen overflow-y-auto;
 }
-
-.modal--s { @apply max-w-sm; }
-.modal--l { @apply max-w-2xl; }
 
 .modal__header {
   @apply flex items-start gap-3 px-6 pt-6 pb-4 border-b border-grey-100;
@@ -117,12 +199,11 @@ watch(() => props.open, (val) => {
 
 .modal__body p { @apply m-0; }
 
-.modal__body--scroll {
-  @apply overflow-y-auto;
-  max-height: 60vh;
-}
-
 .modal__footer {
   @apply flex items-center justify-end gap-2 px-6 pb-6 pt-4 border-t border-grey-100;
+}
+
+.modal__link {
+  @apply flex-1;
 }
 </style>
