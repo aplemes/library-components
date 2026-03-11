@@ -52,7 +52,7 @@ describe('Checkbox', () => {
 
   it('applies invalid class when isInvalid', () => {
     const wrapper = mount(Checkbox, { props: { id: 'cb-1', isInvalid: true } })
-    expect(wrapper.find('input').classes()).toContain('checkbox__input--invalid')
+    expect(wrapper.find('input').classes()).toContain('is-invalid')
   })
 
   it('applies indented class when indented', () => {

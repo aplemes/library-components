@@ -1,16 +1,60 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+
+/**
+ * A checkbox is an interactive component used to select or deselect an option, typically within a list of choices. It allows users to make multiple selections independently and is often accompanied by a label for clarity. Checkboxes are commonly used in forms, filters, settings, and preference selections to provide a simple and intuitive way to enable or disable specific options.
+ */
 const props = defineProps<{
+  /**
+   * A unique identifier for the checkbox, used to associate the label with the form element.
+   */
   id: string
+  /**
+   * The name attribute for the checkbox element, typically used for form submission.
+   */
   name?: string
+  /**
+   * The text label displayed next to the checkbox.
+   */
   label?: string
+  /**
+   * The checkbox's checked state, bound via v-model.
+   */
   modelValue?: boolean
+  /**
+   * Sets the checkbox to an indeterminate state (partially selected).
+   */
   indeterminate?: boolean
+  /**
+   * If `true`, applies an invalid state to the checkbox.
+   */
   isInvalid?: boolean
+  /**
+   * If `true`, disables the checkbox, making it non-interactive.
+   */
   disabled?: boolean
+  /**
+   * If `true`, indent the checkbox.
+   */
   indented?: boolean
 }>()
 
+const classObject = computed(() => {
+  return {
+    'is-invalid': props.isInvalid,
+  }
+})
+
+const classObjectCheckbox = computed(() => {
+  return {
+    'checkbox--indented': props.indented,
+  }
+})
+
 const emit = defineEmits<{
+  /**
+   * Emits when the checkbox value changes, updating the modelValue prop.
+   */
   'update:modelValue': [value: boolean]
 }>()
 
@@ -18,14 +62,15 @@ defineOptions({ inheritAttrs: false })
 </script>
 
 <template>
-  <div :class="['checkbox', indented && 'checkbox--indented']">
+  <div class="checkbox" :class="classObjectCheckbox">
     <input
       :id="id"
       type="checkbox"
       class="checkbox__input"
-      :class="{ 'checkbox__input--invalid': isInvalid }"
+      :class="classObject"
       :name="name"
       :checked="modelValue"
+      :indeterminate="indeterminate"
       :disabled="disabled"
       :aria-invalid="isInvalid"
       v-bind="$attrs"
@@ -52,7 +97,7 @@ defineOptions({ inheritAttrs: false })
   @apply disabled:opacity-50 disabled:cursor-not-allowed;
 }
 
-.checkbox__input--invalid {
+.checkbox__input.is-invalid {
   @apply border-danger-500 accent-danger-500;
 }
 
