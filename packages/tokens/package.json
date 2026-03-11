@@ -22,5 +22,6 @@
   },
   "files": [
     "dist/*"
-  ]
+  ],
+  "gitHead": "6ee3777118c094e03070cebb2a6f80e0d107892b"
 }
