@@ -1,8 +1,18 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
+/**
+ * A flag is used to display meta-information about a product or service,
+ * acting as a visual indicator of the main category of content.
+ */
 const props = defineProps<{
+  /**
+   * Label text of the Flag.
+   */
   label: string
+  /**
+   * Allows to define the Flag appearance.
+   */
   appearance?: 'danger' | 'accent' | 'inverse' | 'standard'
 }>()
 
