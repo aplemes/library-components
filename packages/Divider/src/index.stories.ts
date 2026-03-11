@@ -5,10 +5,29 @@ const meta: Meta<typeof Divider> = {
   title: 'Components/Divider',
   component: Divider,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: 'A thin rule used to separate sections of content. Supports horizontal and vertical orientations, multiple color appearances and three thickness sizes. An optional slot allows placing a label (e.g. "OR") in the middle of the line.',
+      },
+    },
+  },
   argTypes: {
-    orientation: { control: 'select', options: ['horizontal', 'vertical'] },
-    appearance: { control: 'select', options: ['primary', 'secondary', 'tertiary', 'inverse'] },
-    size: { control: 'select', options: ['s', 'm', 'l'] },
+    orientation: {
+      description: 'Direction of the dividing line.',
+      control: 'select',
+      options: ['horizontal', 'vertical'],
+    },
+    appearance: {
+      description: 'Color tone of the divider line.',
+      control: 'select',
+      options: ['primary', 'secondary', 'tertiary', 'inverse'],
+    },
+    size: {
+      description: 'Thickness of the divider line.',
+      control: 'select',
+      options: ['s', 'm', 'l'],
+    },
   },
 }
 export default meta

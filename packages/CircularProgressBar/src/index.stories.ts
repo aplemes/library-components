@@ -4,10 +4,36 @@ const meta: Meta<typeof CircularProgressBar> = {
   title: 'Components/CircularProgressBar',
   component: CircularProgressBar,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: 'Circular SVG progress indicator that displays a value from 0 to 100. Supports a percentage label mode or a custom content mode for showing arbitrary text such as step counts. Available in three sizes.',
+      },
+    },
+  },
   argTypes: {
-    value: { control: { type: 'range', min: 0, max: 100, step: 1 } },
-    type: { control: 'select', options: ['percentage', 'content'] },
-    size: { control: 'select', options: ['s', 'm', 'l'] },
+    value: {
+      description: 'Current progress value between 0 and 100.',
+      control: { type: 'range', min: 0, max: 100, step: 1 },
+    },
+    size: {
+      description: 'Size of the circular progress bar.',
+      control: 'select',
+      options: ['s', 'm', 'l'],
+    },
+    type: {
+      description: 'Label display mode. `percentage` shows the numeric value with a % sign; `content` shows the `contentValue` string with an optional `additionalInfo` subtitle.',
+      control: 'select',
+      options: ['percentage', 'content'],
+    },
+    contentValue: {
+      description: 'Primary text shown inside the circle when `type` is `content`.',
+      control: 'text',
+    },
+    additionalInfo: {
+      description: 'Secondary subtitle text shown below `contentValue` when `type` is `content`.',
+      control: 'text',
+    },
   },
 }
 export default meta

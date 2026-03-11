@@ -5,17 +5,64 @@ const meta: Meta<typeof Input> = {
   title: 'Components/Input',
   component: Input,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: 'General-purpose text input field with optional label, error message, prefix/suffix addons and an icon slot. Supports multiple HTML input types, two sizes and read-only and disabled states.',
+      },
+    },
+  },
   argTypes: {
+    modelValue: {
+      description: 'Bound input value. Use with `v-model` for two-way binding.',
+      control: 'text',
+    },
+    label: {
+      description: 'Text label rendered above the input.',
+      control: 'text',
+    },
+    placeholder: {
+      description: 'Placeholder text shown when the input has no value.',
+      control: 'text',
+    },
+    id: {
+      description: 'HTML id attribute used to associate the label with the input.',
+      control: 'text',
+    },
+    name: {
+      description: 'HTML name attribute used for form submission.',
+      control: 'text',
+    },
     type: {
+      description: 'HTML input type.',
       control: 'select',
       options: ['text', 'email', 'password', 'number', 'search', 'tel', 'date'],
     },
     size: {
+      description: 'Size of the input field.',
       control: 'select',
       options: ['s', 'm'],
     },
-    disabled: { control: 'boolean' },
-    readonly: { control: 'boolean' },
+    disabled: {
+      description: 'Disables the input, preventing interaction.',
+      control: 'boolean',
+    },
+    readonly: {
+      description: 'Makes the input read-only; the value is visible but cannot be edited.',
+      control: 'boolean',
+    },
+    error: {
+      description: 'Validation error message shown below the input. Also applies invalid styling.',
+      control: 'text',
+    },
+    prefix: {
+      description: 'Static text rendered as an addon before the input (e.g. "https://").',
+      control: 'text',
+    },
+    suffix: {
+      description: 'Static text rendered as an addon after the input (e.g. ".com").',
+      control: 'text',
+    },
   },
 }
 

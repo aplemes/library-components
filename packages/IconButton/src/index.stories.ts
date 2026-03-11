@@ -5,13 +5,49 @@ const meta: Meta<typeof IconButton> = {
   title: 'Components/IconButton',
   component: IconButton,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: 'A square button that displays only an icon, provided via the `icon` named slot. Supports the same color appearances as Button plus ghost and outlined variants, three sizes, a loading spinner state and an accessible `ariaLabel`.',
+      },
+    },
+  },
   argTypes: {
-    appearance: { control: 'select', options: ['standard', 'accent', 'danger', 'inverse'] },
-    size: { control: 'select', options: ['s', 'm', 'l'] },
-    ghost: { control: 'boolean' },
-    outlined: { control: 'boolean' },
-    disabled: { control: 'boolean' },
-    isLoading: { control: 'boolean' },
+    appearance: {
+      description: 'Color appearance of the button.',
+      control: 'select',
+      options: ['standard', 'accent', 'danger', 'inverse'],
+    },
+    size: {
+      description: 'Size of the button.',
+      control: 'select',
+      options: ['s', 'm', 'l'],
+    },
+    ghost: {
+      description: 'Renders the button with a transparent background and no border.',
+      control: 'boolean',
+    },
+    outlined: {
+      description: 'Renders the button with a transparent background and a visible border.',
+      control: 'boolean',
+    },
+    disabled: {
+      description: 'Disables the button, preventing interaction.',
+      control: 'boolean',
+    },
+    isLoading: {
+      description: 'Replaces the icon with a spinning loader and disables the button.',
+      control: 'boolean',
+    },
+    type: {
+      description: 'HTML button type attribute.',
+      control: 'select',
+      options: ['button', 'reset', 'submit'],
+    },
+    ariaLabel: {
+      description: 'Accessible label for screen readers, required because the button has no visible text.',
+      control: 'text',
+    },
   },
 }
 export default meta

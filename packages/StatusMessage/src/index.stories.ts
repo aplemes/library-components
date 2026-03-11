@@ -5,8 +5,23 @@ const meta: Meta<typeof StatusMessage> = {
   title: 'Components/StatusMessage',
   component: StatusMessage,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: 'An inline status message that pairs a semantic icon with a short text label. The `inprogress` status renders an animated spinning icon. Useful for communicating operation results inline, without the full weight of a StatusNotification.',
+      },
+    },
+  },
   argTypes: {
-    status: { control: 'select', options: ['info', 'success', 'warning', 'error', 'neutral', 'inprogress'] },
+    label: {
+      description: 'Text message displayed next to the status icon.',
+      control: 'text',
+    },
+    status: {
+      description: 'Semantic status that controls the icon and text color.',
+      control: 'select',
+      options: ['info', 'success', 'warning', 'error', 'neutral', 'inprogress'],
+    },
   },
 }
 export default meta

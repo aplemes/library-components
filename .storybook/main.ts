@@ -2,12 +2,13 @@ import type { StorybookConfig } from '@storybook/vue3-vite'
 import { mergeConfig } from 'vite'
 
 const config: StorybookConfig = {
-  stories: ['../packages/*/src/**/*.stories.@(js|jsx|ts|tsx)'],
+  stories: [
+    '../.storybook/Introduction.mdx',
+    '../packages/*/src/**/*.stories.@(js|jsx|ts|tsx)',
+    '../packages/*/src/**/*.mdx',
+  ],
   addons: [
-    {
-      name: '@storybook/addon-essentials',
-      options: { docs: false },
-    },
+    '@storybook/addon-essentials',
     '@storybook/addon-interactions',
   ],
   framework: {

@@ -5,10 +5,38 @@ const meta: Meta<typeof Radio> = {
   title: 'Form/Radio',
   component: Radio,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: 'Single radio button input with an optional label. Binds to a boolean value via `v-model`. Supports invalid and disabled states. Use `RadioGroup` when you need to manage multiple mutually exclusive options together.',
+      },
+    },
+  },
   argTypes: {
-    disabled: { control: 'boolean' },
-    isInvalid: { control: 'boolean' },
-    modelValue: { control: 'boolean' },
+    id: {
+      description: 'Unique HTML id for the input element, used to associate it with the label.',
+      control: 'text',
+    },
+    name: {
+      description: 'HTML name attribute grouping radio buttons together for mutual exclusion.',
+      control: 'text',
+    },
+    label: {
+      description: 'Text label displayed next to the radio button.',
+      control: 'text',
+    },
+    modelValue: {
+      description: 'Bound boolean value indicating whether this radio button is selected.',
+      control: 'boolean',
+    },
+    isInvalid: {
+      description: 'Marks the radio button as invalid, applying error styling and setting `aria-invalid`.',
+      control: 'boolean',
+    },
+    disabled: {
+      description: 'Disables the radio button, preventing interaction.',
+      control: 'boolean',
+    },
   },
 }
 export default meta

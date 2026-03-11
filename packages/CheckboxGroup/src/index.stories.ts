@@ -5,8 +5,28 @@ const meta: Meta<typeof CheckboxGroup> = {
   title: 'Form/CheckboxGroup',
   component: CheckboxGroup,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: 'A group of related checkboxes rendered from a structured options array. Manages multi-selection state internally and emits the selected values array via `v-model`. Supports inline layout, per-option disabled and invalid states.',
+      },
+    },
+  },
   argTypes: {
-    inline: { control: 'boolean' },
+    name: {
+      description: 'HTML name attribute shared by all checkboxes in the group, used for form submission.',
+      control: 'text',
+    },
+    modelValue: {
+      description: 'Array of currently selected option values.',
+    },
+    options: {
+      description: 'Array of option objects, each with `id`, `label`, `value`, and optional `disabled`, `isInvalid`, and `indented` fields.',
+    },
+    inline: {
+      description: 'Renders the checkboxes in a horizontal row instead of a vertical stack.',
+      control: 'boolean',
+    },
   },
 }
 export default meta

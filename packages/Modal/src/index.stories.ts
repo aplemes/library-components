@@ -4,10 +4,35 @@ const meta: Meta<typeof Modal> = {
   title: 'Components/Modal',
   component: Modal,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: 'A centered dialog overlay rendered via `<Teleport>`. Contains a header with a title and optional icon, a body area with an optional description prop and a default slot, and an optional footer slot for action buttons. Closes on backdrop click or Escape key when `closable` is true.',
+      },
+    },
+  },
   argTypes: {
-    open: { control: 'boolean' },
-    closable: { control: 'boolean' },
-    size: { control: 'select', options: ['s', 'm', 'l'] },
+    open: {
+      description: 'Controls whether the modal is visible.',
+      control: 'boolean',
+    },
+    title: {
+      description: 'Text displayed in the modal header.',
+      control: 'text',
+    },
+    description: {
+      description: 'Optional paragraph text rendered at the top of the modal body.',
+      control: 'text',
+    },
+    closable: {
+      description: 'When true, shows a close button and allows closing via backdrop click or Escape key.',
+      control: 'boolean',
+    },
+    size: {
+      description: 'Maximum width of the modal panel.',
+      control: 'select',
+      options: ['s', 'm', 'l'],
+    },
   },
 }
 export default meta

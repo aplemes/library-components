@@ -4,11 +4,44 @@ const meta: Meta<typeof StarRating> = {
   title: 'Components/StarRating',
   component: StarRating,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: 'Star rating display and input component. In read-only mode it renders full and half stars based on the numeric value. In interactive mode the user can hover and click to select a rating. Compact mode shows a single star with a value label beside it. Supports three sizes and two color appearances.',
+      },
+    },
+  },
   argTypes: {
-    size: { control: 'select', options: ['s', 'm', 'l'] },
-    appearance: { control: 'select', options: ['standard', 'accent'] },
-    readonly: { control: 'boolean' },
-    compact: { control: 'boolean' },
+    modelValue: {
+      description: 'Current rating value. Supports decimals (e.g. 3.5) for half-star display in read-only mode.',
+      control: 'number',
+    },
+    readonly: {
+      description: 'When true, stars are display-only and cannot be clicked. Defaults to true.',
+      control: 'boolean',
+    },
+    size: {
+      description: 'Size of each star icon.',
+      control: 'select',
+      options: ['s', 'm', 'l'],
+    },
+    compact: {
+      description: 'When true, renders a single star alongside the value instead of the full star row.',
+      control: 'boolean',
+    },
+    appearance: {
+      description: 'Color of the filled stars.',
+      control: 'select',
+      options: ['standard', 'accent'],
+    },
+    text: {
+      description: 'Optional text label displayed after the stars (e.g. "(256 reviews)").',
+      control: 'text',
+    },
+    maxValue: {
+      description: 'Total number of stars to render. Defaults to 5.',
+      control: 'number',
+    },
   },
 }
 export default meta

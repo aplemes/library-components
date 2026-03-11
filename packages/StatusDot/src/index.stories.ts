@@ -5,9 +5,24 @@ const meta: Meta<typeof StatusDot> = {
   title: 'Components/StatusDot',
   component: StatusDot,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: 'A small circular dot used as a compact status indicator. Useful in tables, lists or alongside labels where space is limited. Supports five semantic statuses and three sizes.',
+      },
+    },
+  },
   argTypes: {
-    status: { control: 'select', options: ['info', 'success', 'warning', 'error', 'neutral'] },
-    size: { control: 'select', options: ['s', 'm', 'l'] },
+    status: {
+      description: 'Semantic status that determines the dot color.',
+      control: 'select',
+      options: ['info', 'success', 'warning', 'error', 'neutral'],
+    },
+    size: {
+      description: 'Size of the dot.',
+      control: 'select',
+      options: ['s', 'm', 'l'],
+    },
   },
 }
 export default meta

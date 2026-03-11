@@ -5,8 +5,28 @@ const meta: Meta<typeof ToggleGroup> = {
   title: 'Form/ToggleGroup',
   component: ToggleGroup,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: 'A group of toggle switches rendered from an options array, supporting multiple simultaneous selections. Manages selection state internally and emits the array of active values via `v-model`. Supports inline layout and per-option disabled state.',
+      },
+    },
+  },
   argTypes: {
-    inline: { control: 'boolean' },
+    name: {
+      description: 'HTML name attribute shared by all toggle inputs in the group, used for form submission.',
+      control: 'text',
+    },
+    modelValue: {
+      description: 'Array of currently enabled option values. Use with `v-model`.',
+    },
+    options: {
+      description: 'Array of option objects, each with `id`, `label`, `value`, optional `disabled` flag and optional `size` override.',
+    },
+    inline: {
+      description: 'Renders the toggles in a horizontal row instead of a vertical stack.',
+      control: 'boolean',
+    },
   },
 }
 export default meta

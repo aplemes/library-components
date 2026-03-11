@@ -5,12 +5,46 @@ const meta: Meta<typeof Checkbox> = {
   title: 'Form/Checkbox',
   component: Checkbox,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: 'Single checkbox input with an optional label. Supports checked, indeterminate, invalid and disabled states. Binds to a boolean value via `v-model`.',
+      },
+    },
+  },
   argTypes: {
-    disabled: { control: 'boolean' },
-    isInvalid: { control: 'boolean' },
-    indeterminate: { control: 'boolean' },
-    indented: { control: 'boolean' },
-    modelValue: { control: 'boolean' },
+    id: {
+      description: 'Unique HTML id for the input element, used to associate it with the label.',
+      control: 'text',
+    },
+    name: {
+      description: 'HTML name attribute for the input, used when submitting forms.',
+      control: 'text',
+    },
+    label: {
+      description: 'Text label displayed next to the checkbox.',
+      control: 'text',
+    },
+    modelValue: {
+      description: 'Bound boolean value indicating whether the checkbox is checked.',
+      control: 'boolean',
+    },
+    indeterminate: {
+      description: 'Puts the checkbox into an indeterminate (mixed) visual state, typically used for "select all" patterns.',
+      control: 'boolean',
+    },
+    isInvalid: {
+      description: 'Marks the checkbox as invalid, applying error styling and setting `aria-invalid`.',
+      control: 'boolean',
+    },
+    disabled: {
+      description: 'Disables the checkbox, preventing interaction.',
+      control: 'boolean',
+    },
+    indented: {
+      description: 'Adds left padding to visually indent the checkbox, useful for nested option hierarchies.',
+      control: 'boolean',
+    },
   },
 }
 export default meta

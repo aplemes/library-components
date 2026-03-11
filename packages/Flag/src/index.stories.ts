@@ -5,8 +5,23 @@ const meta: Meta<typeof Flag> = {
   title: 'Components/Flag',
   component: Flag,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: 'A compact label badge used to highlight product states or promotions (e.g. "New", "Sale"). Displays an uppercase text label in a pill shape with four color appearances.',
+      },
+    },
+  },
   argTypes: {
-    appearance: { control: 'select', options: ['standard', 'danger', 'accent', 'inverse'] },
+    label: {
+      description: 'Text content displayed inside the flag.',
+      control: 'text',
+    },
+    appearance: {
+      description: 'Color scheme of the flag.',
+      control: 'select',
+      options: ['standard', 'danger', 'accent', 'inverse'],
+    },
   },
 }
 export default meta

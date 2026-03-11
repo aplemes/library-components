@@ -5,11 +5,54 @@ const meta: Meta<typeof Textarea> = {
   title: 'Form/Textarea',
   component: Textarea,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: 'A multi-line text input field. Supports placeholder text, min/max length constraints, a configurable number of visible rows, invalid state, disabled and read-only modes. Vertically resizable by default.',
+      },
+    },
+  },
   argTypes: {
-    disabled: { control: 'boolean' },
-    isInvalid: { control: 'boolean' },
-    readonly: { control: 'boolean' },
-    rows: { control: 'number' },
+    id: {
+      description: 'Unique HTML id for the textarea element.',
+      control: 'text',
+    },
+    name: {
+      description: 'HTML name attribute for form submission.',
+      control: 'text',
+    },
+    modelValue: {
+      description: 'Bound text value. Use with `v-model`.',
+      control: 'text',
+    },
+    placeholder: {
+      description: 'Placeholder text shown when the textarea has no value.',
+      control: 'text',
+    },
+    rows: {
+      description: 'Number of visible text lines. Sets the initial height of the textarea.',
+      control: 'number',
+    },
+    minLength: {
+      description: 'Minimum number of characters allowed.',
+      control: 'number',
+    },
+    maxLength: {
+      description: 'Maximum number of characters allowed.',
+      control: 'number',
+    },
+    disabled: {
+      description: 'Disables the textarea, preventing interaction.',
+      control: 'boolean',
+    },
+    isInvalid: {
+      description: 'Applies error styling and sets `aria-invalid`.',
+      control: 'boolean',
+    },
+    readonly: {
+      description: 'Makes the textarea read-only; value is visible but cannot be edited.',
+      control: 'boolean',
+    },
   },
 }
 export default meta
