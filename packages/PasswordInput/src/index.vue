@@ -14,9 +14,13 @@ const props = withDefaults(
     clearLabel?: string
     showLabel?: string
     hideLabel?: string
+    buttonLabel?: { show: string; hide: string }
   }>(),
   { clearLabel: 'Clear', showLabel: 'Show', hideLabel: 'Hide' }
 )
+
+const resolvedShowLabel = computed(() => props.buttonLabel?.show ?? props.showLabel ?? 'Show')
+const resolvedHideLabel = computed(() => props.buttonLabel?.hide ?? props.hideLabel ?? 'Hide')
 
 const emit = defineEmits<{ 'update:modelValue': [value: string | number] }>()
 defineOptions({ inheritAttrs: false })
@@ -62,7 +66,7 @@ const inputClass = computed(() => ['pwd-input', props.isInvalid ? 'pwd-input--in
         :disabled="disabled"
         @click="toggleVisibility"
       >
-        {{ isVisible ? hideLabel : showLabel }}
+        {{ isVisible ? resolvedHideLabel : resolvedShowLabel }}
       </button>
     </div>
   </div>
