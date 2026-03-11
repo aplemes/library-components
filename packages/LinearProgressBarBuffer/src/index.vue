@@ -9,6 +9,8 @@ const props = withDefaults(
   { value: 0 }
 )
 
+defineOptions({ inheritAttrs: false })
+
 const wrapperClass = computed(() => [
   'linear-buffer',
   props.size && props.size !== 'm' ? `linear-buffer--${props.size}` : null,
@@ -25,7 +27,7 @@ const indicatorStyle = computed(() => ({ width: `${props.value}%` }))
       :aria-valuenow="value"
       :aria-valuemin="0"
       :aria-valuemax="100"
-      :aria-label="`Loading: ${value}%`"
+      v-bind="$attrs"
     >
       <div class="linear-buffer__indicator" :style="indicatorStyle"></div>
     </div>

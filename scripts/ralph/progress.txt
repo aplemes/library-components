@@ -1,0 +1,15 @@
+# Ralph Progress Log
+Started: 2026-03-10
+
+## Codebase Patterns
+- Components with `<Teleport>` need `global: { stubs: { Teleport: true } }` in spec so `wrapper.find()` works correctly
+- Vitest and Vite are in root node_modules — run from inside a package requires the root binary: `/node_modules/.bin/vitest`
+- Build of each package generates: `dist/index.js`, `dist/index.umd.cjs`, `dist/index.d.ts`, `dist/style.css`
+- New components are scaffolded with: `bash scripts/create-component.sh ComponentName` from repo root
+- mozaic-vue reference components are at: `/home/apaneto/leroy-projects/mozaic-vue/src/components/{name}/M{Name}.vue`
+- All stories must have `tags: ['autodocs']` and `parameters.docs.description.component` for autodoc generation
+- argTypes must include `description` field for every prop for Storybook controls documentation
+- Storybook runs unified at root: `yarn storybook` (port 6006)
+- Tests run from repo root: `yarn test` runs all packages; individual: `cd packages/Button && ../../node_modules/.bin/vitest --run`
+
+---

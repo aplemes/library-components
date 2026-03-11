@@ -3,8 +3,11 @@ import { computed } from 'vue'
 
 const props = withDefaults(
   defineProps<{
+    /** Specifies the visual appearance of the loader. */
     appearance?: 'standard' | 'accent' | 'inverse'
+    /** Defines the size of the loader. */
     size?: 'xs' | 's' | 'm' | 'l'
+    /** Text to display alongside the loader, e.g. when used inside an Overlay. */
     text?: string
   }>(),
   { appearance: 'standard', size: 'm' }

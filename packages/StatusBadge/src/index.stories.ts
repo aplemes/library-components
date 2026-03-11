@@ -5,8 +5,23 @@ const meta: Meta<typeof StatusBadge> = {
   title: 'Components/StatusBadge',
   component: StatusBadge,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: 'An inline badge combining a colored dot with a text label to communicate a status at a glance. Available in five semantic statuses, each with a distinct background and text color.',
+      },
+    },
+  },
   argTypes: {
-    status: { control: 'select', options: ['info', 'success', 'warning', 'error', 'neutral'] },
+    label: {
+      description: 'Text describing the current status.',
+      control: 'text',
+    },
+    status: {
+      description: 'Semantic status that controls the badge color scheme.',
+      control: 'select',
+      options: ['info', 'success', 'warning', 'error', 'neutral'],
+    },
   },
 }
 export default meta

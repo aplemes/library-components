@@ -5,8 +5,19 @@ const meta: Meta<typeof Avatar> = {
   title: 'Components/Avatar',
   component: Avatar,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: 'Circular avatar component used to represent a user or entity. Accepts initials or an image as slot content and supports three sizes.',
+      },
+    },
+  },
   argTypes: {
-    size: { control: 'select', options: ['s', 'm', 'l'] },
+    size: {
+      description: 'Size of the avatar circle.',
+      control: 'select',
+      options: ['s', 'm', 'l'],
+    },
   },
 }
 export default meta

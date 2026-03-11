@@ -5,10 +5,28 @@ const meta: Meta<typeof NumberBadge> = {
   title: 'Components/NumberBadge',
   component: NumberBadge,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: 'A small circular badge that displays a numeric count (e.g. unread messages or cart items). Supports four color appearances and two sizes.',
+      },
+    },
+  },
   argTypes: {
-    appearance: { control: 'select', options: ['standard', 'danger', 'accent', 'inverse'] },
-    size: { control: 'select', options: ['s', 'm'] },
-    label: { control: 'number' },
+    label: {
+      description: 'Numeric value displayed inside the badge.',
+      control: 'number',
+    },
+    appearance: {
+      description: 'Color scheme of the badge.',
+      control: 'select',
+      options: ['standard', 'danger', 'accent', 'inverse'],
+    },
+    size: {
+      description: 'Size of the badge.',
+      control: 'select',
+      options: ['s', 'm'],
+    },
   },
 }
 export default meta

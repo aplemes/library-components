@@ -15,9 +15,10 @@ const props = withDefaults(
   { appearance: 'standard', size: 'm', type: 'button' }
 )
 
-const emit = defineEmits<{
-  click: [event: MouseEvent]
-}>()
+/**
+ * Buttons are key interactive elements used to perform actions and can be used as standalone element,
+ * or as part of another component. Their appearance depends on the type of action required from the user.
+ */
 
 const btnClass = computed(() => [
   'icon-btn',
@@ -35,7 +36,6 @@ const btnClass = computed(() => [
     :disabled="disabled || isLoading"
     :type="type"
     :aria-label="ariaLabel"
-    @click="emit('click', $event)"
   >
     <span v-if="isLoading" class="icon-btn__spinner" aria-hidden="true"></span>
     <span v-else class="icon-btn__icon">
@@ -105,5 +105,9 @@ const btnClass = computed(() => [
 
 .icon-btn__spinner {
   @apply absolute w-5 h-5 border-2 border-current border-t-transparent rounded-full animate-spin;
+}
+
+.icon-btn--loading {
+  @apply cursor-wait;
 }
 </style>

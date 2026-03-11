@@ -4,7 +4,59 @@ const meta: Meta<typeof PasswordInput> = {
   title: 'Form/PasswordInput',
   component: PasswordInput,
   tags: ['autodocs'],
-  argTypes: { disabled: { control: 'boolean' }, isInvalid: { control: 'boolean' }, isClearable: { control: 'boolean' } },
+  parameters: {
+    docs: {
+      description: {
+        component: 'A password input field with a built-in toggle button to show or hide the value. Optionally displays a clear button when a value is present and `isClearable` is enabled. Supports invalid and disabled states.',
+      },
+    },
+  },
+  argTypes: {
+    id: {
+      description: 'Unique HTML id for the input element.',
+      control: 'text',
+    },
+    name: {
+      description: 'HTML name attribute for form submission.',
+      control: 'text',
+    },
+    modelValue: {
+      description: 'Bound input value. Use with `v-model`.',
+      control: 'text',
+    },
+    placeholder: {
+      description: 'Placeholder text shown when the input has no value.',
+      control: 'text',
+    },
+    disabled: {
+      description: 'Disables the input and the show/hide toggle.',
+      control: 'boolean',
+    },
+    readonly: {
+      description: 'Makes the input read-only.',
+      control: 'boolean',
+    },
+    isInvalid: {
+      description: 'Applies error styling and sets `aria-invalid` on the input.',
+      control: 'boolean',
+    },
+    isClearable: {
+      description: 'When true and a value is present, shows a clear button to reset the field.',
+      control: 'boolean',
+    },
+    clearLabel: {
+      description: 'Accessible aria-label for the clear button.',
+      control: 'text',
+    },
+    showLabel: {
+      description: 'Text label for the show-password toggle button when password is hidden.',
+      control: 'text',
+    },
+    hideLabel: {
+      description: 'Text label for the show-password toggle button when password is visible.',
+      control: 'text',
+    },
+  },
 }
 export default meta
 type Story = StoryObj<typeof meta>

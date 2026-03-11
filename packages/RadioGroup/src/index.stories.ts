@@ -5,9 +5,33 @@ const meta: Meta<typeof RadioGroup> = {
   title: 'Form/RadioGroup',
   component: RadioGroup,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: 'A group of mutually exclusive radio buttons rendered from a structured options array. Manages selection state and emits the selected string value via `v-model`. Supports inline layout, per-option disabled state and a group-level invalid state.',
+      },
+    },
+  },
   argTypes: {
-    inline: { control: 'boolean' },
-    isInvalid: { control: 'boolean' },
+    name: {
+      description: 'HTML name attribute shared by all radio inputs in the group, ensuring mutual exclusion.',
+      control: 'text',
+    },
+    modelValue: {
+      description: 'Value of the currently selected option. Use with `v-model`.',
+      control: 'text',
+    },
+    options: {
+      description: 'Array of option objects, each with `id`, `label`, `value`, and an optional `disabled` flag.',
+    },
+    isInvalid: {
+      description: 'Applies invalid styling to all radio inputs in the group.',
+      control: 'boolean',
+    },
+    inline: {
+      description: 'Renders the radio buttons in a horizontal row instead of a vertical stack.',
+      control: 'boolean',
+    },
   },
 }
 export default meta

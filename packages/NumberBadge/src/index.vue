@@ -3,8 +3,11 @@ import { computed } from 'vue'
 
 const props = withDefaults(
   defineProps<{
+    /** Numeric content of the badge. */
     label: number
+    /** Defines the badge appearance. */
     appearance?: 'danger' | 'accent' | 'inverse' | 'standard'
+    /** Defines the badge size. */
     size?: 's' | 'm'
   }>(),
   { appearance: 'standard', size: 's' }

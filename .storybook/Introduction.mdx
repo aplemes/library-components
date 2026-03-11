@@ -1,0 +1,134 @@
+import { Meta } from '@storybook/blocks'
+
+<Meta title="Introduction" />
+
+# Leroy Merlin PT — Component Library
+
+A library of reusable Vue 3 UI components for Leroy Merlin Portugal, built with Tailwind CSS v4.
+
+---
+
+## Getting Started
+
+This library provides a collection of accessible, themeable, and composable UI components built with Vue 3 and Tailwind CSS v4. All packages are published to GitHub Packages under the `@leroy-merlin-pt` npm scope and can be installed individually — only bring in what your project needs.
+
+---
+
+## Installation
+
+### 1. Configure the GitHub Packages registry
+
+Add a `.npmrc` file to the root of your project to point the `@leroy-merlin-pt` scope at the GitHub Packages registry:
+
+```
+@leroy-merlin-pt:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=YOUR_TOKEN
+```
+
+Replace `YOUR_TOKEN` with a GitHub Personal Access Token that has the `read:packages` scope.
+
+### 2. Install individual packages
+
+Install only the components your project requires:
+
+```bash
+# npm
+npm install @leroy-merlin-pt/button @leroy-merlin-pt/input
+
+# yarn
+yarn add @leroy-merlin-pt/button @leroy-merlin-pt/input
+
+# pnpm
+pnpm add @leroy-merlin-pt/button @leroy-merlin-pt/input
+```
+
+### 3. Set up Tailwind CSS
+
+Components require Tailwind CSS v4. Each package ships a self-contained `style.css` that already includes the Tailwind utilities it needs. Import each component's stylesheet in your project's main entry file:
+
+```js
+import '@leroy-merlin-pt/button/style.css'
+// Import each component's styles individually as needed
+```
+
+Component styles are self-contained — they include all required Tailwind utilities and do not depend on a global Tailwind build in your application.
+
+---
+
+## Usage
+
+### Basic example
+
+```vue
+<script setup>
+import Button from '@leroy-merlin-pt/button'
+</script>
+
+<template>
+  <Button label="Click me" variant="primary" @click="handleClick" />
+</template>
+```
+
+### With Vue plugin (optional global registration)
+
+You can register components globally if preferred:
+
+```js
+import { createApp } from 'vue'
+import Button from '@leroy-merlin-pt/button'
+import App from './App.vue'
+
+const app = createApp(App)
+app.component('Button', Button)
+app.mount('#app')
+```
+
+---
+
+## Available Components
+
+| Component | Package | Description |
+|-----------|---------|-------------|
+| Avatar | `@leroy-merlin-pt/avatar` | Displays a user avatar image or initials fallback |
+| Button | `@leroy-merlin-pt/button` | Interactive button with multiple variants and states |
+| Checkbox | `@leroy-merlin-pt/checkbox` | Single checkbox input with label support |
+| Checkbox Group | `@leroy-merlin-pt/checkbox-group` | Group of related checkboxes with shared state |
+| Circular Progress Bar | `@leroy-merlin-pt/circular-progress-bar` | Circular indicator showing task or loading progress |
+| Divider | `@leroy-merlin-pt/divider` | Horizontal or vertical visual separator |
+| Drawer | `@leroy-merlin-pt/drawer` | Slide-in panel anchored to a screen edge |
+| Flag | `@leroy-merlin-pt/flag` | Country or locale flag indicator |
+| Icon Button | `@leroy-merlin-pt/icon-button` | Button that displays an icon without a text label |
+| Input | `@leroy-merlin-pt/input` | Text input field with label, hint, and validation states |
+| Linear Progress Bar Buffer | `@leroy-merlin-pt/linear-progress-bar-buffer` | Linear progress bar with a buffered secondary track |
+| Linear Progress Bar Percentage | `@leroy-merlin-pt/linear-progress-bar-percentage` | Linear progress bar showing a percentage value |
+| Link | `@leroy-merlin-pt/link` | Styled anchor element with accessible focus handling |
+| Loader | `@leroy-merlin-pt/loader` | Animated spinner for indeterminate loading states |
+| Modal | `@leroy-merlin-pt/modal` | Accessible dialog overlay for focused user interactions |
+| Number Badge | `@leroy-merlin-pt/number-badge` | Small numeric badge for counts and notifications |
+| Overlay | `@leroy-merlin-pt/overlay` | Semi-transparent backdrop used behind modals and drawers |
+| Password Input | `@leroy-merlin-pt/password-input` | Text input with toggle to show or hide the password value |
+| Quantity Selector | `@leroy-merlin-pt/quantity-selector` | Stepper control for incrementing and decrementing a numeric value |
+| Radio | `@leroy-merlin-pt/radio` | Single radio button input with label support |
+| Radio Group | `@leroy-merlin-pt/radio-group` | Group of mutually exclusive radio button options |
+| Select | `@leroy-merlin-pt/select` | Dropdown select field with label and validation states |
+| Star Rating | `@leroy-merlin-pt/star-rating` | Interactive or read-only star rating display |
+| Status Badge | `@leroy-merlin-pt/status-badge` | Badge conveying a status with contextual colour coding |
+| Status Dot | `@leroy-merlin-pt/status-dot` | Small coloured dot indicating an item's current status |
+| Status Message | `@leroy-merlin-pt/status-message` | Inline message block for success, warning, error, or info states |
+| Status Notification | `@leroy-merlin-pt/status-notification` | Toast-style notification with a status icon and message |
+| Tag | `@leroy-merlin-pt/tag` | Compact label for categorisation or filtering |
+| Textarea | `@leroy-merlin-pt/textarea` | Multi-line text input with label and validation states |
+| Toggle | `@leroy-merlin-pt/toggle` | Binary on/off switch control |
+| Toggle Group | `@leroy-merlin-pt/toggle-group` | Group of toggles acting as a single selection control |
+
+---
+
+## TypeScript Support
+
+All packages ship with TypeScript definitions (`.d.ts` files). No additional `@types/` packages are required — type information is included out of the box.
+
+---
+
+## Browser Support
+
+Modern browsers with ES2015+ support. Internet Explorer 11 is not supported.

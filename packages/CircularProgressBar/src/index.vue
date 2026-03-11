@@ -1,12 +1,31 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
+/**
+ * A circular progress bar visually represents progress using a circular shape,
+ * optionally displaying a percentage or custom content value.
+ */
 const props = withDefaults(
   defineProps<{
+    /**
+     * The current value of the progress bar (0–100).
+     */
     value?: number
+    /**
+     * Sets the size of the progress bar.
+     */
     size?: 's' | 'm' | 'l'
+    /**
+     * Shows either a percentage or custom content inside the circle.
+     */
     type?: 'percentage' | 'content'
+    /**
+     * Main content shown when `type` is `'content'`.
+     */
     contentValue?: string
+    /**
+     * Additional text shown to define the `contentValue`.
+     */
     additionalInfo?: string
   }>(),
   { value: 0, type: 'percentage' }

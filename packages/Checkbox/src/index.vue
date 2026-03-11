@@ -1,12 +1,39 @@
 <script setup lang="ts">
+/**
+ * A checkbox is an interactive component used to select or deselect an option.
+ */
 const props = defineProps<{
+  /**
+   * A unique identifier for the checkbox, used to associate the label with the form element.
+   */
   id: string
+  /**
+   * The name attribute for the checkbox element, typically used for form submission.
+   */
   name?: string
+  /**
+   * The text label displayed next to the checkbox.
+   */
   label?: string
+  /**
+   * The checkbox's checked state, bound via v-model.
+   */
   modelValue?: boolean
+  /**
+   * Sets the checkbox to an indeterminate state (partially selected).
+   */
   indeterminate?: boolean
+  /**
+   * If `true`, applies an invalid state to the checkbox.
+   */
   isInvalid?: boolean
+  /**
+   * If `true`, disables the checkbox, making it non-interactive.
+   */
   disabled?: boolean
+  /**
+   * If `true`, indent the checkbox.
+   */
   indented?: boolean
 }>()
 
@@ -26,6 +53,7 @@ defineOptions({ inheritAttrs: false })
       :class="{ 'checkbox__input--invalid': isInvalid }"
       :name="name"
       :checked="modelValue"
+      :indeterminate="indeterminate"
       :disabled="disabled"
       :aria-invalid="isInvalid"
       v-bind="$attrs"

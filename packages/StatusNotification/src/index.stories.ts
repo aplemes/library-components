@@ -5,9 +5,31 @@ const meta: Meta<typeof StatusNotification> = {
   title: 'Components/StatusNotification',
   component: StatusNotification,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: 'A banner-style notification block with a semantic icon, title, description text and an optional footer slot for action buttons. Supports four statuses with matching colors. Can be dismissed when `closable` is true, emitting a `close` event.',
+      },
+    },
+  },
   argTypes: {
-    status: { control: 'select', options: ['info', 'success', 'warning', 'error'] },
-    closable: { control: 'boolean' },
+    title: {
+      description: 'Heading text of the notification.',
+      control: 'text',
+    },
+    description: {
+      description: 'Body text providing further detail about the notification.',
+      control: 'text',
+    },
+    status: {
+      description: 'Semantic status that controls the icon and color scheme.',
+      control: 'select',
+      options: ['info', 'success', 'warning', 'error'],
+    },
+    closable: {
+      description: 'When true, shows a dismiss button that emits the `close` event when clicked.',
+      control: 'boolean',
+    },
   },
 }
 export default meta

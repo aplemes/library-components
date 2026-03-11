@@ -1,0 +1,1120 @@
+{
+  "project": "Leroy Merlin PT \u2014 Design System (@leroy-merlin-pt)",
+  "branchName": "ralph/mozaic-alignment",
+  "description": "Compare every component in packages/ with the mozaic-vue reference at /home/apaneto/leroy-projects/mozaic-vue, align API/behavior/documentation, and implement all missing components.",
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "Align Avatar with mozaic-vue reference",
+      "description": "As a developer, I want Avatar to match the mozaic-vue MAvatar component so the API and visual output are consistent.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/avatar/MAvatar.vue as source of truth",
+        "Verify prop `size: 's' | 'm' | 'l'` exists and default matches mozaic",
+        "Verify default slot is supported for initials/content",
+        "Update packages/Avatar/src/index.stories.ts: add parameters.docs.description.component and description to every argType",
+        "Run yarn test from repo root for packages/Avatar \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 1,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-002",
+      "title": "Align Button with mozaic-vue reference",
+      "description": "As a developer, I want Button to match the mozaic-vue MButton component API, including slot-based label support.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/button/MButton.vue as source of truth",
+        "Add support for default slot as label (mozaic uses slot, not prop)",
+        "Keep existing `label` prop for backwards compat but render slot content when provided",
+        "Verify props: appearance, size, disabled, ghost, outlined, iconPosition ('left'|'right'|'only'), type, isLoading",
+        "Verify icon slot is supported",
+        "Update packages/Button/src/index.stories.ts: add parameters.docs.description.component and description to every argType",
+        "Run yarn test from repo root for packages/Button \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 2,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-003",
+      "title": "Align Checkbox with mozaic-vue reference",
+      "description": "As a developer, I want Checkbox to match the mozaic-vue MCheckbox component.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/checkbox/MCheckbox.vue as source of truth",
+        "Verify props: id, name, label, modelValue, indeterminate, isInvalid, disabled, indented",
+        "Verify emit: update:modelValue",
+        "Update packages/Checkbox/src/index.stories.ts with full prop descriptions",
+        "Run yarn test from repo root for packages/Checkbox \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 3,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-004",
+      "title": "Align CheckboxGroup with mozaic-vue reference",
+      "description": "As a developer, I want CheckboxGroup to match the mozaic-vue MCheckboxGroup component.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/checkboxgroup/MCheckboxGroup.vue as source of truth",
+        "Verify props: name, modelValue (string[]), options (array of {id, label, disabled?}), inline",
+        "Verify emit: update:modelValue",
+        "Update packages/CheckboxGroup/src/index.stories.ts with full prop descriptions",
+        "Run yarn test from repo root for packages/CheckboxGroup \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 4,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-005",
+      "title": "Align CircularProgressBar with mozaic-vue reference",
+      "description": "As a developer, I want CircularProgressBar to match the mozaic-vue MCircularProgressbar component.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/circularprogressbar/MCircularProgressbar.vue as source of truth",
+        "Verify props: value (0-100), size, type, contentValue, additionalInfo",
+        "Update packages/CircularProgressBar/src/index.stories.ts with full prop descriptions",
+        "Run yarn test from repo root for packages/CircularProgressBar \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 5,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-006",
+      "title": "Align Divider with mozaic-vue reference",
+      "description": "As a developer, I want Divider to match the mozaic-vue MDivider component.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/divider/MDivider.vue as source of truth",
+        "Verify props: orientation ('horizontal'|'vertical'), appearance, size",
+        "Verify default slot for label content",
+        "Update packages/Divider/src/index.stories.ts with full prop descriptions",
+        "Run yarn test from repo root for packages/Divider \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 6,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-007",
+      "title": "Align Drawer with mozaic-vue reference",
+      "description": "As a developer, I want Drawer to match the mozaic-vue MDrawer component API including extended mode, back navigation, scroll control and overlay close.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/drawer/MDrawer.vue as source of truth",
+        "Add prop `extended: boolean` \u2014 wider layout mode",
+        "Add prop `back: boolean` \u2014 shows back button",
+        "Add prop `contentTitle: string` \u2014 secondary title in content area",
+        "Add prop `scroll: boolean` \u2014 enables scrollable content area",
+        "Add prop `closeOnOverlay: boolean` \u2014 closes drawer when overlay is clicked",
+        "Add emit `update:open` (in addition to or replacing `close`)",
+        "Add emit `back` \u2014 fired when back button is clicked",
+        "Update packages/Drawer/src/index.stories.ts with full prop descriptions and new stories for extended/back modes",
+        "Run yarn test from repo root for packages/Drawer \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 7,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-008",
+      "title": "Align Flag with mozaic-vue reference",
+      "description": "As a developer, I want Flag to match the mozaic-vue MFlag component.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/flag/MFlag.vue as source of truth",
+        "Verify props: label, appearance",
+        "Update packages/Flag/src/index.stories.ts with full prop descriptions",
+        "Run yarn test from repo root for packages/Flag \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 8,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-009",
+      "title": "Align IconButton with mozaic-vue reference",
+      "description": "As a developer, I want IconButton to match the mozaic-vue MIconButton component.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/iconbutton/MIconButton.vue as source of truth",
+        "Verify props: appearance, size, disabled, ghost, outlined, type, isLoading, ariaLabel",
+        "Verify icon slot is required",
+        "Update packages/IconButton/src/index.stories.ts with full prop descriptions",
+        "Run yarn test from repo root for packages/IconButton \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 9,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-010",
+      "title": "Align Input with mozaic-vue reference (TextInput)",
+      "description": "As a developer, I want Input to match the mozaic-vue MTextInput component including clearable support.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/textinput/MTextInput.vue as source of truth",
+        "Add prop `isClearable: boolean` \u2014 shows clear button when input has value",
+        "Add prop `clearLabel: string` \u2014 accessible label for the clear button",
+        "Verify props: id, name, modelValue, placeholder, inputType (type rename), isInvalid, disabled, size, readonly, prefix, suffix",
+        "Verify icon slot is supported",
+        "Update packages/Input/src/index.stories.ts with full prop descriptions and Clearable story",
+        "Run yarn test from repo root for packages/Input \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 10,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-011",
+      "title": "Align LinearProgressBarBuffer with mozaic-vue reference",
+      "description": "As a developer, I want LinearProgressBarBuffer to match the mozaic-vue MLinearProgressbarBuffer component.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/linearprogressbarbuffer/MLinearProgressbarBuffer.vue as source of truth",
+        "Verify props: value (0-100), size",
+        "Update packages/LinearProgressBarBuffer/src/index.stories.ts with full prop descriptions",
+        "Run yarn test from repo root for packages/LinearProgressBarBuffer \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 11,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-012",
+      "title": "Align LinearProgressBarPercentage with mozaic-vue reference",
+      "description": "As a developer, I want LinearProgressBarPercentage to match the mozaic-vue MLinearProgressbarPercentage component.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/linearprogressbarpercentage/MLinearProgressbarPercentage.vue as source of truth",
+        "Verify prop: value (0-100)",
+        "Update packages/LinearProgressBarPercentage/src/index.stories.ts with full prop descriptions",
+        "Run yarn test from repo root for packages/LinearProgressBarPercentage \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 12,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-013",
+      "title": "Align Link with mozaic-vue reference",
+      "description": "As a developer, I want Link to match the mozaic-vue MLink component.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/link/MLink.vue as source of truth",
+        "Verify props: href, iconPosition, appearance, size, target, inline, router",
+        "Verify slots: default, icon",
+        "Update packages/Link/src/index.stories.ts with full prop descriptions",
+        "Run yarn test from repo root for packages/Link \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 13,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-014",
+      "title": "Align Loader with mozaic-vue reference",
+      "description": "As a developer, I want Loader to match the mozaic-vue MLoader component.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/loader/MLoader.vue as source of truth",
+        "Verify props: appearance, size, text",
+        "Update packages/Loader/src/index.stories.ts with full prop descriptions",
+        "Run yarn test from repo root for packages/Loader \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 14,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-015",
+      "title": "Align Modal with mozaic-vue reference",
+      "description": "As a developer, I want Modal to match the mozaic-vue MModal component including scroll control and overlay-close behavior.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/modal/MModal.vue as source of truth",
+        "Add prop `scroll: boolean` \u2014 enables scrollable modal body",
+        "Add prop `closeOnOverlay: boolean` \u2014 closes modal when backdrop is clicked",
+        "Add emit `update:open` (in addition to or replacing `close`)",
+        "Verify slots: default, icon, footer, link",
+        "Update packages/Modal/src/index.stories.ts with full prop descriptions and Scrollable/CloseOnOverlay stories",
+        "Run yarn test from repo root for packages/Modal \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 15,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-016",
+      "title": "Align NumberBadge with mozaic-vue reference",
+      "description": "As a developer, I want NumberBadge to match the mozaic-vue MNumberBadge component.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/numberbadge/MNumberBadge.vue as source of truth",
+        "Verify props: label (number), appearance, size",
+        "Update packages/NumberBadge/src/index.stories.ts with full prop descriptions",
+        "Run yarn test from repo root for packages/NumberBadge \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 16,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-017",
+      "title": "Align Overlay with mozaic-vue reference",
+      "description": "As a developer, I want Overlay to match the mozaic-vue MOverlay component.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/overlay/MOverlay.vue as source of truth",
+        "Verify props: isVisible, dialogLabel",
+        "Verify default slot for content rendered on top of overlay",
+        "Update packages/Overlay/src/index.stories.ts with full prop descriptions",
+        "Run yarn test from repo root for packages/Overlay \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 17,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-018",
+      "title": "Align PasswordInput with mozaic-vue reference",
+      "description": "As a developer, I want PasswordInput to match the mozaic-vue MPasswordInput component.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/passwordinput/MPasswordInput.vue as source of truth",
+        "Verify/add prop `buttonLabel: string` (unified show/hide toggle label used in mozaic)",
+        "Verify props: id, name, modelValue, placeholder, isInvalid, disabled, readonly, isClearable, clearLabel",
+        "Update packages/PasswordInput/src/index.stories.ts with full prop descriptions",
+        "Run yarn test from repo root for packages/PasswordInput \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 18,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-019",
+      "title": "Align QuantitySelector with mozaic-vue reference",
+      "description": "As a developer, I want QuantitySelector to match the mozaic-vue MQuantitySelector component.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/quantityselector/MQuantitySelector.vue as source of truth",
+        "Verify props: id, name, modelValue, isInvalid, disabled, size, min, max, step, readonly, incrementLabel, decrementLabel",
+        "Update packages/QuantitySelector/src/index.stories.ts with full prop descriptions",
+        "Run yarn test from repo root for packages/QuantitySelector \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 19,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-020",
+      "title": "Align Radio with mozaic-vue reference",
+      "description": "As a developer, I want Radio to match the mozaic-vue MRadio component.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/radio/MRadio.vue as source of truth",
+        "Verify props: id, name, label, modelValue, isInvalid, disabled",
+        "Verify emit: update:modelValue",
+        "Update packages/Radio/src/index.stories.ts with full prop descriptions",
+        "Run yarn test from repo root for packages/Radio \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 20,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-021",
+      "title": "Align RadioGroup with mozaic-vue reference",
+      "description": "As a developer, I want RadioGroup to match the mozaic-vue MRadioGroup component.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/radiogroup/MRadioGroup.vue as source of truth",
+        "Verify props: name, modelValue, options (array of {id, label, disabled?}), isInvalid, inline",
+        "Verify emit: update:modelValue",
+        "Update packages/RadioGroup/src/index.stories.ts with full prop descriptions",
+        "Run yarn test from repo root for packages/RadioGroup \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 21,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-022",
+      "title": "Align Select with mozaic-vue reference",
+      "description": "As a developer, I want Select to match the mozaic-vue MSelect component.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/select/MSelect.vue as source of truth",
+        "Verify props: id, name, options, modelValue, placeholder, isInvalid, disabled, size, readonly",
+        "Verify emit: update:modelValue",
+        "Update packages/Select/src/index.stories.ts with full prop descriptions",
+        "Run yarn test from repo root for packages/Select \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 22,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-023",
+      "title": "Align StarRating with mozaic-vue reference",
+      "description": "As a developer, I want StarRating to match the mozaic-vue MStarRating component, adding link behavior for read-only display mode.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/starrating/MStarRating.vue as source of truth",
+        "Add prop `href: string` \u2014 makes the rating a link",
+        "Add prop `target: string` \u2014 link target attribute",
+        "Add prop `router: boolean` \u2014 uses router-link instead of anchor",
+        "Verify props: modelValue, readonly, size, compact, appearance, text, maxValue",
+        "Update packages/StarRating/src/index.stories.ts with full prop descriptions and LinkedRating story",
+        "Run yarn test from repo root for packages/StarRating \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 23,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-024",
+      "title": "Align StatusBadge with mozaic-vue reference",
+      "description": "As a developer, I want StatusBadge to match the mozaic-vue MStatusBadge component.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/statusbadge/MStatusBadge.vue as source of truth",
+        "Verify props: label, status",
+        "Update packages/StatusBadge/src/index.stories.ts with full prop descriptions",
+        "Run yarn test from repo root for packages/StatusBadge \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 24,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-025",
+      "title": "Align StatusDot with mozaic-vue reference",
+      "description": "As a developer, I want StatusDot to match the mozaic-vue MStatusDot component.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/statusdot/MStatusDot.vue as source of truth",
+        "Verify props: status, size",
+        "Update packages/StatusDot/src/index.stories.ts with full prop descriptions",
+        "Run yarn test from repo root for packages/StatusDot \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 25,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-026",
+      "title": "Align StatusMessage with mozaic-vue reference",
+      "description": "As a developer, I want StatusMessage to match the mozaic-vue MStatusMessage component.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/statusmessage/MStatusMessage.vue as source of truth",
+        "Verify props: status, label",
+        "Update packages/StatusMessage/src/index.stories.ts with full prop descriptions",
+        "Run yarn test from repo root for packages/StatusMessage \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 26,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-027",
+      "title": "Align StatusNotification with mozaic-vue reference",
+      "description": "As a developer, I want StatusNotification to match the mozaic-vue MStatusNotification component.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/statusnotification/MStatusNotification.vue as source of truth",
+        "Verify props: title, description, status, closable",
+        "Verify emit: close",
+        "Verify footer slot",
+        "Update packages/StatusNotification/src/index.stories.ts with full prop descriptions",
+        "Run yarn test from repo root for packages/StatusNotification \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 27,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-028",
+      "title": "Align Tag with mozaic-vue reference",
+      "description": "As a developer, I want Tag to match the mozaic-vue MTag component.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/tag/MTag.vue as source of truth",
+        "Verify props: type ('informative'|'interactive'|'selectable'|'removable'), size, id, name, label, modelValue, disabled, contextualisedNumber, removableLabel",
+        "Verify emits: update:modelValue, remove-tag",
+        "Update packages/Tag/src/index.stories.ts with full prop descriptions",
+        "Run yarn test from repo root for packages/Tag \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 28,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-029",
+      "title": "Align Textarea with mozaic-vue reference",
+      "description": "As a developer, I want Textarea to match the mozaic-vue MTextArea component.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/textarea/MTextArea.vue as source of truth",
+        "Verify props: id, name, modelValue, placeholder, isInvalid, disabled, rows, minLength, maxLength, readonly",
+        "Verify emit: update:modelValue",
+        "Update packages/Textarea/src/index.stories.ts with full prop descriptions",
+        "Run yarn test from repo root for packages/Textarea \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 29,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-030",
+      "title": "Align Toggle with mozaic-vue reference",
+      "description": "As a developer, I want Toggle to match the mozaic-vue MToggle component.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/toggle/MToggle.vue as source of truth",
+        "Verify props: id, name, label, modelValue, size, disabled",
+        "Verify emit: update:modelValue",
+        "Update packages/Toggle/src/index.stories.ts with full prop descriptions",
+        "Run yarn test from repo root for packages/Toggle \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 30,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-031",
+      "title": "Align ToggleGroup with mozaic-vue reference",
+      "description": "As a developer, I want ToggleGroup to match the mozaic-vue MToggleGroup component.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/togglegroup/MToggleGroup.vue as source of truth",
+        "Verify props: name, modelValue (string[]), options (array), inline",
+        "Verify emit: update:modelValue",
+        "Update packages/ToggleGroup/src/index.stories.ts with full prop descriptions",
+        "Run yarn test from repo root for packages/ToggleGroup \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 31,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-032",
+      "title": "Implement Field component",
+      "description": "As a developer, I want a Field component that wraps form inputs with label, help text, validation messages and required indicator.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/field/MField.vue as reference",
+        "Run `bash scripts/create-component.sh Field` from repo root to scaffold the package",
+        "Implement props: id (string), label (string), requirementText (string), helpText (string), helpId (string), isValid (boolean), isInvalid (boolean), isLoading (boolean), messageId (string), message (string)",
+        "Implement default slot for the wrapped form input",
+        "Renders label element linked to id, help text, and validation message with correct aria attributes",
+        "Write tests in packages/Field/src/index.spec.ts covering label render, invalid state, message display",
+        "Write stories in packages/Field/src/index.stories.ts with autodocs and all argTypes described",
+        "Run yarn test from repo root for packages/Field \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 32,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-033",
+      "title": "Implement FieldGroup component",
+      "description": "As a developer, I want a FieldGroup component that groups related form fields under a legend with shared validation.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/fieldgroup/MFieldGroup.vue as reference",
+        "Run `bash scripts/create-component.sh FieldGroup` from repo root to scaffold the package",
+        "Implement props: id (string), legend (string), requirementText (string), helpText (string), isValid (boolean), isInvalid (boolean), message (string)",
+        "Implement default slot for grouped inputs",
+        "Renders fieldset with legend, help text and validation message",
+        "Write tests in packages/FieldGroup/src/index.spec.ts",
+        "Write stories in packages/FieldGroup/src/index.stories.ts with autodocs",
+        "Run yarn test from repo root for packages/FieldGroup \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 33,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-034",
+      "title": "Implement DatePicker component",
+      "description": "As a developer, I want a DatePicker component for date input with validation and clearable support.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/datepicker/MDatepicker.vue as reference",
+        "Run `bash scripts/create-component.sh DatePicker` from repo root to scaffold the package",
+        "Implement props: id, name, modelValue (string ISO date), isInvalid, disabled, size ('s'|'m'), readonly, isClearable, clearLabel",
+        "Implement emit: update:modelValue",
+        "Renders a date input with clear button when isClearable and value is set",
+        "Write tests in packages/DatePicker/src/index.spec.ts covering render, emit, clearable",
+        "Write stories in packages/DatePicker/src/index.stories.ts with autodocs",
+        "Run yarn test from repo root for packages/DatePicker \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 34,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-035",
+      "title": "Implement PinCode component",
+      "description": "As a developer, I want a PinCode component for entering fixed-length numeric codes.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/pincode/MPincode.vue as reference",
+        "Run `bash scripts/create-component.sh PinCode` from repo root to scaffold the package",
+        "Implement props: id, name, length (number, default 4), modelValue (string), isInvalid, disabled, readonly",
+        "Implement emit: update:modelValue",
+        "Renders `length` individual digit inputs; focus advances to next on input",
+        "Write tests in packages/PinCode/src/index.spec.ts covering render, length prop, invalid state",
+        "Write stories in packages/PinCode/src/index.stories.ts with autodocs",
+        "Run yarn test from repo root for packages/PinCode \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 35,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-036",
+      "title": "Implement PhoneNumber component",
+      "description": "As a developer, I want a PhoneNumber component for international phone number input with country code selector.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/phonenumber/MPhoneNumber.vue as reference",
+        "Run `bash scripts/create-component.sh PhoneNumber` from repo root to scaffold the package",
+        "Implement props: id, modelValue, defaultCountry (string, e.g. 'PT'), placeholder, size, isInvalid, disabled, readonly",
+        "Implement emits: update:modelValue, valid (boolean)",
+        "Renders country code prefix selector alongside phone number input",
+        "Write tests in packages/PhoneNumber/src/index.spec.ts",
+        "Write stories in packages/PhoneNumber/src/index.stories.ts with autodocs",
+        "Run yarn test from repo root for packages/PhoneNumber \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 36,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-037",
+      "title": "Implement Combobox component",
+      "description": "As a developer, I want a Combobox component for searchable single/multi-select with grouped options.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/combobox/MCombobox.vue as reference",
+        "Run `bash scripts/create-component.sh Combobox` from repo root to scaffold the package",
+        "Implement props: modelValue, multiple (boolean), size, disabled, readonly, invalid, clearable, search (boolean), placeholder, counterLabel, searchPlaceholder, selectLabel, clearLabel, options (array of {label, value, disabled?})",
+        "Implement emits: update:modelValue, update:open",
+        "Implement optionPrefix slot for custom option prefix content",
+        "Supports single and multi-select mode",
+        "Write tests in packages/Combobox/src/index.spec.ts covering single select, multi select, search filter",
+        "Write stories in packages/Combobox/src/index.stories.ts with autodocs",
+        "Run yarn test from repo root for packages/Combobox \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 37,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-038",
+      "title": "Implement OptionListbox component",
+      "description": "As a developer, I want an OptionListbox component as the base dropdown panel for Combobox.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/optionListbox/MOptionListbox.vue as reference",
+        "Run `bash scripts/create-component.sh OptionListbox` from repo root to scaffold the package",
+        "Implement props: modelValue, id, open, multiple, readonly, search, searchPlaceholder, selectLabel, clearLabel, options",
+        "Implement emits: update:modelValue, open, close",
+        "Implement optionPrefix slot",
+        "Write tests in packages/OptionListbox/src/index.spec.ts",
+        "Write stories in packages/OptionListbox/src/index.stories.ts with autodocs",
+        "Run yarn test from repo root for packages/OptionListbox \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 38,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-039",
+      "title": "Implement Breadcrumb component",
+      "description": "As a developer, I want a Breadcrumb component for hierarchical navigation.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/breadcrumb/MBreadcrumb.vue as reference",
+        "Run `bash scripts/create-component.sh Breadcrumb` from repo root to scaffold the package",
+        "Implement props: appearance ('light'|'dark'), links (array of {label: string, href: string, current?: boolean})",
+        "Renders ordered list of links with separators; last item styled as current page",
+        "Write tests in packages/Breadcrumb/src/index.spec.ts",
+        "Write stories in packages/Breadcrumb/src/index.stories.ts with autodocs",
+        "Run yarn test from repo root for packages/Breadcrumb \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 39,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-040",
+      "title": "Implement Container component",
+      "description": "As a developer, I want a Container component for centering page content with a max-width.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/container/MContainer.vue as reference",
+        "Run `bash scripts/create-component.sh Container` from repo root to scaffold the package",
+        "Implement prop: fluid (boolean) \u2014 removes max-width constraint",
+        "Implement default slot",
+        "Write tests in packages/Container/src/index.spec.ts",
+        "Write stories in packages/Container/src/index.stories.ts with autodocs",
+        "Run yarn test from repo root for packages/Container \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 40,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-041",
+      "title": "Implement ActionBottomBar component",
+      "description": "As a developer, I want an ActionBottomBar component for fixed action bars at the bottom of the screen.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/actionbottombar/MActionBottomBar.vue as reference",
+        "Run `bash scripts/create-component.sh ActionBottomBar` from repo root to scaffold the package",
+        "Implement prop: shadow (boolean) \u2014 adds top shadow",
+        "Implement slots: left, right",
+        "Write tests in packages/ActionBottomBar/src/index.spec.ts",
+        "Write stories in packages/ActionBottomBar/src/index.stories.ts with autodocs",
+        "Run yarn test from repo root for packages/ActionBottomBar \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 41,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-042",
+      "title": "Implement Tile and TileClickable components",
+      "description": "As a developer, I want Tile and TileClickable components for content cards.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/tile/MTile.vue and tileclickable/MTileClickable.vue as references",
+        "Run `bash scripts/create-component.sh Tile` and `bash scripts/create-component.sh TileClickable` from repo root",
+        "Tile props: appearance, bordered; slots: default, action, details",
+        "TileClickable props: appearance, bordered, href, to, target, iconPosition; emit: action; slots: default, icon",
+        "Write tests for both in their respective spec files",
+        "Write stories for both with autodocs",
+        "Run yarn test from repo root for packages/Tile and packages/TileClickable \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 42,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-043",
+      "title": "Implement TileExpandable and TileSelectable components",
+      "description": "As a developer, I want TileExpandable and TileSelectable components for interactive tile variants.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/tileexpandable/MTileExpandable.vue and tileselectable/MTileSelectable.vue as references",
+        "Run `bash scripts/create-component.sh TileExpandable` and `bash scripts/create-component.sh TileSelectable` from repo root",
+        "TileExpandable props: appearance, bordered, trigger, label; slots: default, details",
+        "TileSelectable props: modelValue, bordered, inputType ('checkbox'|'radio'), inputPosition, centered, hideInput; emit: update:modelValue; slots: default, details",
+        "Write tests for both",
+        "Write stories for both with autodocs",
+        "Run yarn test from repo root for packages/TileExpandable and packages/TileSelectable \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 43,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-044",
+      "title": "Implement Tabs component",
+      "description": "As a developer, I want a Tabs component for tabbed navigation.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/tabs/MTabs.vue as reference",
+        "Run `bash scripts/create-component.sh Tabs` from repo root to scaffold the package",
+        "Implement props: description (string), divider (boolean), centered (boolean), modelValue (string|number), tabs (array of {id, label, disabled?})",
+        "Implement emit: update:modelValue",
+        "Active tab highlighted; disabled tabs not clickable",
+        "Write tests in packages/Tabs/src/index.spec.ts",
+        "Write stories in packages/Tabs/src/index.stories.ts with autodocs",
+        "Run yarn test from repo root for packages/Tabs \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 44,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-045",
+      "title": "Implement BuiltInMenu and CheckListMenu components",
+      "description": "As a developer, I want BuiltInMenu and CheckListMenu components for navigation menus.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/builtinmenu/MBuiltInMenu.vue and checklistmenu/MCheckListMenu.vue as references",
+        "Run `bash scripts/create-component.sh BuiltInMenu` and `bash scripts/create-component.sh CheckListMenu` from repo root",
+        "BuiltInMenu props: modelValue, items (array of {id, label, href?}), outlined; emit: update:modelValue",
+        "CheckListMenu props: modelValue (array), items (array of {id, label}), outlined; emit: update:modelValue",
+        "Write tests for both",
+        "Write stories for both with autodocs",
+        "Run yarn test from repo root for packages/BuiltInMenu and packages/CheckListMenu \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 45,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-046",
+      "title": "Implement SegmentedControl component",
+      "description": "As a developer, I want a SegmentedControl component for mutually exclusive option selection.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/segmentedcontrol/MSegmentedControl.vue as reference",
+        "Run `bash scripts/create-component.sh SegmentedControl` from repo root to scaffold the package",
+        "Implement props: modelValue, full (boolean \u2014 stretch to full width), size, segments (array of {id, label, disabled?})",
+        "Implement emit: update:modelValue",
+        "Write tests in packages/SegmentedControl/src/index.spec.ts",
+        "Write stories in packages/SegmentedControl/src/index.stories.ts with autodocs",
+        "Run yarn test from repo root for packages/SegmentedControl \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 46,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-047",
+      "title": "Implement Pagination component",
+      "description": "As a developer, I want a Pagination component for navigating between pages of results.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/pagination/MPagination.vue as reference",
+        "Run `bash scripts/create-component.sh Pagination` from repo root to scaffold the package",
+        "Implement props: id, modelValue (current page number), compact (boolean), options (total pages or array), selectLabel",
+        "Implement emit: update:modelValue",
+        "Write tests in packages/Pagination/src/index.spec.ts",
+        "Write stories in packages/Pagination/src/index.stories.ts with autodocs",
+        "Run yarn test from repo root for packages/Pagination \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 47,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-048",
+      "title": "Implement ActionListbox component",
+      "description": "As a developer, I want an ActionListbox component for dropdown action menus.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/actionlistbox/MActionListbox.vue as reference",
+        "Run `bash scripts/create-component.sh ActionListbox` from repo root to scaffold the package",
+        "Implement props: title (string), position ('bottom-left'|'bottom-right'|'top-left'|'top-right'), items (array of {id, label, disabled?})",
+        "Implement emits: close, action (item id)",
+        "Implement activator slot for the trigger element",
+        "Write tests in packages/ActionListbox/src/index.spec.ts",
+        "Write stories in packages/ActionListbox/src/index.stories.ts with autodocs",
+        "Run yarn test from repo root for packages/ActionListbox \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 48,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-049",
+      "title": "Implement StepperStacked and StepperInline components",
+      "description": "As a developer, I want StepperStacked and StepperInline components for displaying multi-step progress.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/stepperstacked/MStepperStacked.vue and stepperinline/MStepperInline.vue as references",
+        "Run `bash scripts/create-component.sh StepperStacked` and `bash scripts/create-component.sh StepperInline` from repo root",
+        "Both components: props currentStep (number), steps (array of {label, description?})",
+        "StepperStacked: vertical layout with step details below each label",
+        "StepperInline: horizontal layout with compact step indicators",
+        "Write tests for both",
+        "Write stories for both with autodocs",
+        "Run yarn test from repo root for packages/StepperStacked and packages/StepperInline \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 49,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-050",
+      "title": "Implement StepperCompact and StepperBottomBar components",
+      "description": "As a developer, I want StepperCompact for a minimal step indicator and StepperBottomBar for a full navigation bar.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/steppercompact/MStepperCompact.vue and stepperbottombar/MStepperBottomBar.vue as references",
+        "Run `bash scripts/create-component.sh StepperCompact` and `bash scripts/create-component.sh StepperBottomBar` from repo root",
+        "StepperCompact props: value (current step), maxSteps, label, description",
+        "StepperBottomBar props: modelValue, steps (array), cancel (boolean), cancelLabel, previousLabel, nextLabel, validateLabel; emits: cancel, update:modelValue, validate",
+        "Write tests for both",
+        "Write stories for both with autodocs",
+        "Run yarn test from repo root for packages/StepperCompact and packages/StepperBottomBar \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 50,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-051",
+      "title": "Implement NavigationIndicator component",
+      "description": "As a developer, I want a NavigationIndicator component for carousel-style step indicators.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/navigationindicator/MNavigationIndicator.vue as reference",
+        "Run `bash scripts/create-component.sh NavigationIndicator` from repo root to scaffold the package",
+        "Implement props: steps (number), modelValue (current), action (boolean \u2014 show prev/next), label (string), player (boolean \u2014 autoplay)",
+        "Implement emits: update:modelValue, action",
+        "Write tests in packages/NavigationIndicator/src/index.spec.ts",
+        "Write stories in packages/NavigationIndicator/src/index.stories.ts with autodocs",
+        "Run yarn test from repo root for packages/NavigationIndicator \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 51,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-052",
+      "title": "Implement LoadingOverlay component",
+      "description": "As a developer, I want a LoadingOverlay component that blocks the UI with a loader during async operations.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/loadingoverlay/MLoadingOverlay.vue as reference",
+        "Run `bash scripts/create-component.sh LoadingOverlay` from repo root to scaffold the package",
+        "Implement props: isVisible (boolean), text (string \u2014 optional loading message)",
+        "Renders a full-screen overlay with centered Loader when isVisible is true",
+        "Uses <Teleport to='body'> \u2014 add global: { stubs: { Teleport: true } } in spec",
+        "Write tests in packages/LoadingOverlay/src/index.spec.ts",
+        "Write stories in packages/LoadingOverlay/src/index.stories.ts with autodocs",
+        "Run yarn test from repo root for packages/LoadingOverlay \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 52,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-053",
+      "title": "Implement Popover component",
+      "description": "As a developer, I want a Popover component for rich floating content panels with an activator.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/popover/MPopover.vue as reference",
+        "Run `bash scripts/create-component.sh Popover` from repo root to scaffold the package",
+        "Implement props: appearance, position ('top'|'bottom'|'left'|'right'), pointer (boolean), size, closable (boolean), title, description",
+        "Implement slots: default (content), activator (trigger element), footer",
+        "Write tests in packages/Popover/src/index.spec.ts",
+        "Write stories in packages/Popover/src/index.stories.ts with autodocs",
+        "Run yarn test from repo root for packages/Popover \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 53,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-054",
+      "title": "Implement Tooltip component",
+      "description": "As a developer, I want a Tooltip component for contextual help text on hover/focus.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/tooltip/MTooltip.vue as reference",
+        "Run `bash scripts/create-component.sh Tooltip` from repo root to scaffold the package",
+        "Implement props: id, text (string), position ('top'|'bottom'|'left'|'right'), pointer (boolean), standalone (boolean)",
+        "Implement default slot for the trigger element",
+        "Write tests in packages/Tooltip/src/index.spec.ts",
+        "Write stories in packages/Tooltip/src/index.stories.ts with autodocs",
+        "Run yarn test from repo root for packages/Tooltip \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 54,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-055",
+      "title": "Implement AccordionList and AccordionListItem components",
+      "description": "As a developer, I want AccordionList and AccordionListItem components for collapsible content sections.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/accordionlist/MAccordionList.vue and accordionlistitem/MAccordionListItem.vue as references",
+        "Run `bash scripts/create-component.sh AccordionList` and `bash scripts/create-component.sh AccordionListItem` from repo root",
+        "AccordionList props: appearance, behavior ('single'|'multiple'), modelValue (open item id or ids); emit: update:modelValue; slot: default",
+        "AccordionListItem props: id, title, subtitle, content, icon; slot: default (custom content)",
+        "Write tests for both",
+        "Write stories for both with autodocs",
+        "Run yarn test from repo root for packages/AccordionList and packages/AccordionListItem \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 55,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-056",
+      "title": "Implement Carousel component",
+      "description": "As a developer, I want a Carousel component for sliding content panels.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/carousel/MCarousel.vue as reference",
+        "Run `bash scripts/create-component.sh Carousel` from repo root to scaffold the package",
+        "Implement props: previousButtonAriaLabel (string), nextButtonAriaLabel (string)",
+        "Implement slots: header, default (slides)",
+        "Previous/next buttons navigate between slides",
+        "Write tests in packages/Carousel/src/index.spec.ts",
+        "Write stories in packages/Carousel/src/index.stories.ts with autodocs",
+        "Run yarn test from repo root for packages/Carousel \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 56,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-057",
+      "title": "Implement Callout component",
+      "description": "As a developer, I want a Callout component for highlighted informational or warning panels.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/callout/MCallout.vue as reference",
+        "Run `bash scripts/create-component.sh Callout` from repo root to scaffold the package",
+        "Implement props: title (string), description (string), appearance ('info'|'warning'|'success'|'danger'|'neutral')",
+        "Implement slots: icon (custom icon), footer (actions)",
+        "Write tests in packages/Callout/src/index.spec.ts",
+        "Write stories in packages/Callout/src/index.stories.ts with autodocs",
+        "Run yarn test from repo root for packages/Callout \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 57,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-058",
+      "title": "Implement PageHeader component",
+      "description": "As a developer, I want a PageHeader component for page-level headers with title, actions and tabs.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/pageheader/MPageHeader.vue as reference",
+        "Run `bash scripts/create-component.sh PageHeader` from repo root to scaffold the package",
+        "Implement props: title, shadow (boolean), backButton (boolean), status, statusLabel, extraInfo",
+        "Implement emits: back, toggle-menu",
+        "Implement slots: content, actions, tabs",
+        "Write tests in packages/PageHeader/src/index.spec.ts",
+        "Write stories in packages/PageHeader/src/index.stories.ts with autodocs",
+        "Run yarn test from repo root for packages/PageHeader \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 58,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-059",
+      "title": "Implement FileUploader and FileUploaderItem components",
+      "description": "As a developer, I want FileUploader and FileUploaderItem components for file upload with drag-and-drop support.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/fileuploader/MFileUploader.vue and fileuploaderitem/MFileUploaderItem.vue as references",
+        "Run `bash scripts/create-component.sh FileUploader` and `bash scripts/create-component.sh FileUploaderItem` from repo root",
+        "FileUploader props: modelValue (File[]), accept, multiple, allowedExtensions, maxSize, format, errorMessage, deleteButtonLabel, information, hasDragDrop, showFilesList, disabled, title, subtitle, uploadButtonLabel; emits: update:modelValue, validation; slots: name, information, errorMessage",
+        "FileUploaderItem props: file, format, valid, errorMessage, deleteButtonLabel, information; emit: delete; slots: name, information, errorMessage",
+        "Write tests for both",
+        "Write stories for both with autodocs",
+        "Run yarn test from repo root for packages/FileUploader and packages/FileUploaderItem \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 59,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-060",
+      "title": "Implement Toaster component",
+      "description": "As a developer, I want a Toaster component for dismissible toast notifications with auto-timeout.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/toaster/MToaster.vue as reference",
+        "Run `bash scripts/create-component.sh Toaster` from repo root to scaffold the package",
+        "Implement props: open (boolean), position ('top-left'|'top-right'|'bottom-left'|'bottom-right'), description (string), status ('info'|'success'|'warning'|'danger'), closable (boolean), progress (boolean \u2014 show timeout bar), timeout (number ms)",
+        "Implement emit: update:open",
+        "Implement action slot for action buttons",
+        "Uses <Teleport to='body'> \u2014 add global: { stubs: { Teleport: true } } in spec",
+        "Write tests in packages/Toaster/src/index.spec.ts",
+        "Write stories in packages/Toaster/src/index.stories.ts with autodocs",
+        "Run yarn test from repo root for packages/Toaster \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 60,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-061",
+      "title": "Implement KpiItem component",
+      "description": "As a developer, I want a KpiItem component for displaying key performance indicators.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/kpiitem/MKpiItem.vue as reference",
+        "Run `bash scripts/create-component.sh KpiItem` from repo root to scaffold the package",
+        "Implement props: value (string|number), trend ('up'|'down'|'neutral'), label, status, information, size ('s'|'m'|'l')",
+        "Write tests in packages/KpiItem/src/index.spec.ts",
+        "Write stories in packages/KpiItem/src/index.stories.ts with autodocs",
+        "Run yarn test from repo root for packages/KpiItem \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 61,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-062",
+      "title": "Implement Sidebar core components (Sidebar, SidebarHeader, SidebarFooter)",
+      "description": "As a developer, I want the core Sidebar shell with header and footer slots.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/sidebar/MSidebar.vue, sidebarheader/MSidebarHeader.vue and sidebarfooter/MSidebarFooter.vue as references",
+        "Run `bash scripts/create-component.sh Sidebar`, `bash scripts/create-component.sh SidebarHeader`, `bash scripts/create-component.sh SidebarFooter` from repo root",
+        "Sidebar props: modelValue (boolean \u2014 open/collapsed); emits: update:modelValue, close; slots: header, shortcuts, nav, footer",
+        "SidebarHeader and SidebarFooter: default slot for content",
+        "Write tests for all three",
+        "Write stories for all three with autodocs",
+        "Run yarn test from repo root for packages/Sidebar, packages/SidebarHeader, packages/SidebarFooter \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 62,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-063",
+      "title": "Implement Sidebar navigation components (SidebarNavItem, SidebarExpandableItem, SidebarShortcuts, SidebarShortcutItem)",
+      "description": "As a developer, I want the Sidebar navigation and shortcut sub-components.",
+      "acceptanceCriteria": [
+        "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/sidebarnavitem/MSidebarNavItem.vue, sidebarexpandableitem/MSidebarExpandableItem.vue, sidebarshortcuts/MSidebarShortcuts.vue and sidebarshortcutitem/MSidebarShortcutItem.vue as references",
+        "Run `bash scripts/create-component.sh SidebarNavItem`, `bash scripts/create-component.sh SidebarExpandableItem`, `bash scripts/create-component.sh SidebarShortcuts`, `bash scripts/create-component.sh SidebarShortcutItem` from repo root",
+        "SidebarNavItem: navigation link item with active state and icon slot",
+        "SidebarExpandableItem: collapsible nav item with sub-items slot",
+        "SidebarShortcuts: container for shortcut items",
+        "SidebarShortcutItem: individual shortcut with icon and label",
+        "Write tests for all four",
+        "Write stories for all four with autodocs",
+        "Run yarn test from repo root for all four packages \u2014 all tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 63,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-064",
+      "title": "Full structural alignment with mozaic-vue",
+      "description": "As a developer, I want the library-components structure to mirror mozaic-vue exactly \u2014 same prop names, defaults, slot names, emit names, component behavior and per-package README documentation.",
+      "acceptanceCriteria": [
+        "For EVERY component, read /home/apaneto/leroy-projects/mozaic-vue/src/components/{name}/M{Name}.vue and diff against packages/{Name}/src/index.vue",
+        "Fix any prop name mismatches (e.g. different casing, missing props, wrong defaults)",
+        "Fix any emit name mismatches (e.g. close vs update:open)",
+        "Fix any slot name mismatches between mozaic and our implementation",
+        "Fix any behavioral differences (e.g. missing keyboard nav, missing aria attributes, wrong class names)",
+        "Add README.md to every package (packages/{Name}/README.md) documenting: description, installation, props table, emits table, slots table, usage example \u2014 matching the style of /home/apaneto/leroy-projects/mozaic-vue/src/components/button/README.md",
+        "Ensure every component file has JSDoc comments on all props, emits and slots matching mozaic style",
+        "Verify all tests still pass after changes: yarn test from repo root",
+        "Commit all changes with: feat: [US-064] - Full structural alignment with mozaic-vue",
+        "Typecheck passes"
+      ],
+      "priority": 64,
+      "passes": false,
+      "notes": ""
+    }
+  ]
+}

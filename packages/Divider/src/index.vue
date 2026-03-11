@@ -1,14 +1,33 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, type VNode } from 'vue'
 
+/**
+ * A divider is a visual element used to separate content or sections within an interface.
+ */
 const props = withDefaults(
   defineProps<{
+    /**
+     * Determines the orientation of the divider.
+     */
     orientation?: 'horizontal' | 'vertical'
+    /**
+     * Determines the appearance of the divider.
+     */
     appearance?: 'primary' | 'secondary' | 'tertiary' | 'inverse'
+    /**
+     * Determines the size (thickness) of the divider.
+     */
     size?: 's' | 'm' | 'l'
   }>(),
   { orientation: 'horizontal', appearance: 'primary', size: 's' }
 )
+
+defineSlots<{
+  /**
+   * Use this slot to insert content that needs a divider (e.g. "OR" label).
+   */
+  default?: () => VNode[]
+}>()
 
 const dividerLineClass = computed(() => [
   'divider__line',

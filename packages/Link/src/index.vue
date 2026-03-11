@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, type VNode } from 'vue'
 
 const props = withDefaults(
   defineProps<{
@@ -13,6 +13,13 @@ const props = withDefaults(
   }>(),
   { appearance: 'standard', size: 's', iconPosition: 'left' }
 )
+
+defineSlots<{
+  /** Use this slot to insert the textual content of the Link. */
+  default: string
+  /** Use this slot to insert an icon for the Link. */
+  icon?: VNode
+}>()
 
 const linkClass = computed(() => [
   'mc-link',

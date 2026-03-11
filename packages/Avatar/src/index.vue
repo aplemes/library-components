@@ -1,8 +1,15 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, type VNode } from 'vue'
 
+/**
+ * An avatar is a graphical representation of a user, entity, or group,
+ * commonly displayed as an image, initials, or an icon.
+ */
 const props = withDefaults(
   defineProps<{
+    /**
+     * Allows to define the avatar size.
+     */
     size?: 's' | 'm' | 'l'
   }>(),
   { size: 's' }
@@ -12,6 +19,13 @@ const avatarClass = computed(() => [
   'avatar',
   props.size !== 's' ? `avatar--${props.size}` : null,
 ])
+
+defineSlots<{
+  /**
+   * Use this slot to insert the image, icon or initials of the avatar.
+   */
+  default: VNode
+}>()
 </script>
 
 <template>

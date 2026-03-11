@@ -1,0 +1,19 @@
+# Ralph Progress Log
+Started: 2026-03-10
+
+## Codebase Patterns
+- Componentes com `<Teleport>` precisam de `global: { stubs: { Teleport: true } }` no spec para que `wrapper.find()` funcione corretamente
+- Vitest e Vite estão no root node_modules — rodar de dentro do pacote requer usar o binário do root: `/node_modules/.bin/vitest`
+- Build de cada pacote gera: `dist/index.js`, `dist/index.umd.cjs`, `dist/index.d.ts`, `dist/style.css`
+
+---
+
+## 2026-03-10 - US-025
+- Validados e commitados: CircularProgressBar, LinearProgressBarBuffer, LinearProgressBarPercentage, Overlay
+- Todos tinham index.vue, index.spec.ts, index.stories.ts completos
+- Overlay spec estava falhando devido ao `<Teleport to="body">` — corrigido adicionando `global: { stubs: { Teleport: true } }`
+- 36 arquivos adicionados, todos os testes passando, todos os builds gerando dist/ corretamente
+- **Learnings for future iterations:**
+  - Qualquer componente com `<Teleport>` precisa do stub no spec
+  - O pattern de stub é: `global: { stubs: { Teleport: true } }` no objeto de opções do `mount()`
+---

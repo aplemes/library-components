@@ -4,7 +4,19 @@ const meta: Meta<typeof LinearProgressBarPercentage> = {
   title: 'Components/LinearProgressBarPercentage',
   component: LinearProgressBarPercentage,
   tags: ['autodocs'],
-  argTypes: { value: { control: { type: 'range', min: 0, max: 100, step: 1 } } },
+  parameters: {
+    docs: {
+      description: {
+        component: 'A horizontal progress bar with a fixed height that displays the percentage value as a label inside the colored fill. The fill width animates proportionally to the 0–100 value.',
+      },
+    },
+  },
+  argTypes: {
+    value: {
+      description: 'Current progress value between 0 and 100. Displayed as a percentage label inside the fill.',
+      control: { type: 'range', min: 0, max: 100, step: 1 },
+    },
+  },
 }
 export default meta
 type Story = StoryObj<typeof meta>
