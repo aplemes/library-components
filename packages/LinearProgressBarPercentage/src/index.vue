@@ -6,6 +6,8 @@ const props = withDefaults(
   { value: 0 }
 )
 
+defineOptions({ inheritAttrs: false })
+
 const indicatorStyle = computed(() => ({ width: `${props.value}%` }))
 </script>
 
@@ -17,8 +19,8 @@ const indicatorStyle = computed(() => ({ width: `${props.value}%` }))
       :aria-valuenow="value"
       :aria-valuemin="0"
       :aria-valuemax="100"
-      :aria-label="`Progress: ${value}%`"
       :style="indicatorStyle"
+      v-bind="$attrs"
     >
       <div class="linear-percent__label">
         <span class="linear-percent__value">{{ value }}<span class="linear-percent__unit">%</span></span>
