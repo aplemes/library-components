@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
 
+/**
+ * A checkbox option definition used in CheckboxGroup.
+ */
 interface CheckboxOption {
   id: string
   label: string
@@ -10,10 +13,25 @@ interface CheckboxOption {
   indented?: boolean
 }
 
+/**
+ * A group of checkboxes allowing multiple selections, bound via v-model.
+ */
 const props = defineProps<{
+  /**
+   * The name attribute for all checkbox inputs in the group.
+   */
   name: string
+  /**
+   * Array of currently selected values, bound via v-model.
+   */
   modelValue?: string[]
+  /**
+   * List of checkbox option definitions.
+   */
   options: CheckboxOption[]
+  /**
+   * If `true`, renders the checkboxes inline (horizontal layout).
+   */
   inline?: boolean
 }>()
 
