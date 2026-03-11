@@ -43,9 +43,9 @@ describe('Link', () => {
     expect(wrapper.find('.mc-link').classes()).toContain('mc-link--inline')
   })
 
-  it('applies standalone class when not inline', () => {
+  it('applies stand-alone class when not inline', () => {
     const wrapper = mount(Link)
-    expect(wrapper.find('.mc-link').classes()).toContain('mc-link--standalone')
+    expect(wrapper.find('.mc-link').classes()).toContain('mc-link--stand-alone')
   })
 
   it('renders icon slot on the left by default', () => {
