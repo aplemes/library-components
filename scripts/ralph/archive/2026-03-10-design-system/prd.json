@@ -1,0 +1,118 @@
+{
+  "project": "Mosaic ESM Design System (@leroy-merlin-pt)",
+  "branchName": "ralph/design-system",
+  "description": "Finalizar e publicar a biblioteca pública de Design System baseada no Mosaic, com componentes Vue 3 ESM distribuídos via GitHub Packages.",
+  "userStories": [
+    {
+      "id": "US-025",
+      "title": "Commitar Wave 2 — Grupo A (CircularProgressBar, LinearProgressBarBuffer, LinearProgressBarPercentage, Overlay)",
+      "description": "Como desenvolvedor, preciso que os componentes do Wave 2 (Grupo A) sejam validados e commitados no repositório.",
+      "acceptanceCriteria": [
+        "Verificar que CircularProgressBar, LinearProgressBarBuffer, LinearProgressBarPercentage e Overlay têm index.vue, index.spec.ts e index.stories.ts",
+        "Rodar yarn test nos 4 pacotes e confirmar que os testes passam",
+        "Rodar yarn build nos 4 pacotes e confirmar que o build gera dist/ corretamente",
+        "Commitar todos os arquivos com: feat: [US-025] - Wave 2 Grupo A: CircularProgressBar, LinearProgressBarBuffer, LinearProgressBarPercentage, Overlay",
+        "Typecheck passes"
+      ],
+      "priority": 1,
+      "passes": true,
+      "notes": "Overlay spec corrigido para usar global.stubs: { Teleport: true } pois Teleport insere DOM fora do wrapper."
+    },
+    {
+      "id": "US-026",
+      "title": "Commitar Wave 2 — Grupo B (Drawer, Modal, PasswordInput)",
+      "description": "Como desenvolvedor, preciso que os componentes do Wave 2 (Grupo B) sejam validados e commitados.",
+      "acceptanceCriteria": [
+        "Verificar que Drawer, Modal e PasswordInput têm index.vue, index.spec.ts e index.stories.ts",
+        "Rodar yarn test nos 3 pacotes e confirmar que os testes passam",
+        "Rodar yarn build nos 3 pacotes e confirmar que o build gera dist/ corretamente",
+        "Commitar todos os arquivos com: feat: [US-026] - Wave 2 Grupo B: Drawer, Modal, PasswordInput",
+        "Typecheck passes"
+      ],
+      "priority": 2,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-027",
+      "title": "Commitar Wave 2 — Grupo C (QuantitySelector, StarRating) e stories pendentes (IconButton, Toggle, ToggleGroup)",
+      "description": "Como desenvolvedor, preciso finalizar os últimos componentes do Wave 2 e garantir que os stories pendentes de componentes já existentes sejam commitados.",
+      "acceptanceCriteria": [
+        "Verificar que QuantitySelector e StarRating têm index.vue, index.spec.ts e index.stories.ts",
+        "Verificar que IconButton, Toggle e ToggleGroup têm index.spec.ts e index.stories.ts",
+        "Rodar yarn test em todos os pacotes do grupo e confirmar que passam",
+        "Rodar yarn build em todos os pacotes do grupo e confirmar dist/ correto",
+        "Commitar todos os arquivos com: feat: [US-027] - Wave 2 Grupo C + stories IconButton, Toggle, ToggleGroup",
+        "Typecheck passes"
+      ],
+      "priority": 3,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-028",
+      "title": "GitHub Actions — Pipeline de CI (test + build + typecheck)",
+      "description": "Como desenvolvedor, preciso de um pipeline de CI no GitHub Actions que rode testes, typecheck e build em cada Pull Request.",
+      "acceptanceCriteria": [
+        "Criar .github/workflows/ci.yml",
+        "Pipeline executa em push para main e em pull_request",
+        "Steps: checkout, setup Node 20, yarn install, yarn build, yarn test",
+        "Usar cache de yarn para acelerar execução",
+        "Arquivo yml válido (yaml lint passa)",
+        "Typecheck passes"
+      ],
+      "priority": 4,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-029",
+      "title": "GitHub Actions — Pipeline de publicação automática no GitHub Packages",
+      "description": "Como mantenedor, preciso de um pipeline que publique automaticamente os pacotes no GitHub Packages quando uma nova versão é criada via release.",
+      "acceptanceCriteria": [
+        "Criar .github/workflows/publish.yml",
+        "Pipeline executa em push de tags com padrão v* (ex: v1.0.0)",
+        "Steps: checkout, setup Node 20 com registry-url para npm.pkg.github.com, yarn install, yarn build, lerna publish from-package",
+        "Usar NODE_AUTH_TOKEN via secrets.GITHUB_TOKEN",
+        "Arquivo yml válido",
+        "Typecheck passes"
+      ],
+      "priority": 5,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-030",
+      "title": "App consumidor de exemplo (apps/example-app)",
+      "description": "Como desenvolvedor externo, preciso de um projeto de exemplo que demonstre como instalar e usar os componentes da biblioteca.",
+      "acceptanceCriteria": [
+        "Criar apps/example-app/ com projeto Vue 3 + Vite + TypeScript",
+        "package.json com nome example-app e dependências de @leroy-merlin-pt/button e @leroy-merlin-pt/tokens",
+        "App.vue importa e usa Button, Input e pelo menos mais 1 componente",
+        "README.md no apps/example-app explicando como rodar: yarn install && yarn dev",
+        "yarn build no example-app executa sem erros",
+        "Commitar com: feat: [US-030] - App consumidor de exemplo",
+        "Typecheck passes"
+      ],
+      "priority": 6,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-031",
+      "title": "README.md raiz — documentação de uso e publicação",
+      "description": "Como desenvolvedor externo, preciso de uma documentação clara no README raiz explicando como instalar, usar e contribuir com a biblioteca.",
+      "acceptanceCriteria": [
+        "README.md na raiz do projeto com seções: Instalação, Uso por componente, Lista de componentes disponíveis, Como contribuir, Como publicar",
+        "Documentar instalação: npm install @leroy-merlin-pt/button",
+        "Documentar importação Vue: import Button from '@leroy-merlin-pt/button'",
+        "Listar todos os pacotes disponíveis em packages/",
+        "Documentar o fluxo de publicação (lerna version + push de tag)",
+        "Typecheck passes"
+      ],
+      "priority": 7,
+      "passes": false,
+      "notes": ""
+    }
+  ]
+}

@@ -2,18 +2,14 @@
 Started: 2026-03-10
 
 ## Codebase Patterns
-- Componentes com `<Teleport>` precisam de `global: { stubs: { Teleport: true } }` no spec para que `wrapper.find()` funcione corretamente
-- Vitest e Vite estão no root node_modules — rodar de dentro do pacote requer usar o binário do root: `/node_modules/.bin/vitest`
-- Build de cada pacote gera: `dist/index.js`, `dist/index.umd.cjs`, `dist/index.d.ts`, `dist/style.css`
+- Components with `<Teleport>` need `global: { stubs: { Teleport: true } }` in spec so `wrapper.find()` works correctly
+- Vitest and Vite are in root node_modules — run from inside a package requires the root binary: `/node_modules/.bin/vitest`
+- Build of each package generates: `dist/index.js`, `dist/index.umd.cjs`, `dist/index.d.ts`, `dist/style.css`
+- New components are scaffolded with: `bash scripts/create-component.sh ComponentName` from repo root
+- mozaic-vue reference components are at: `/home/apaneto/leroy-projects/mozaic-vue/src/components/{name}/M{Name}.vue`
+- All stories must have `tags: ['autodocs']` and `parameters.docs.description.component` for autodoc generation
+- argTypes must include `description` field for every prop for Storybook controls documentation
+- Storybook runs unified at root: `yarn storybook` (port 6006)
+- Tests run from repo root: `yarn test` runs all packages; individual: `cd packages/Button && ../../node_modules/.bin/vitest --run`
 
----
-
-## 2026-03-10 - US-025
-- Validados e commitados: CircularProgressBar, LinearProgressBarBuffer, LinearProgressBarPercentage, Overlay
-- Todos tinham index.vue, index.spec.ts, index.stories.ts completos
-- Overlay spec estava falhando devido ao `<Teleport to="body">` — corrigido adicionando `global: { stubs: { Teleport: true } }`
-- 36 arquivos adicionados, todos os testes passando, todos os builds gerando dist/ corretamente
-- **Learnings for future iterations:**
-  - Qualquer componente com `<Teleport>` precisa do stub no spec
-  - O pattern de stub é: `global: { stubs: { Teleport: true } }` no objeto de opções do `mount()`
 ---
