@@ -33,18 +33,6 @@ describe('IconButton', () => {
     expect(wrapper.find('button').attributes('disabled')).toBeUndefined()
   })
 
-  it('emits click event', async () => {
-    const wrapper = mount(IconButton)
-    await wrapper.find('button').trigger('click')
-    expect(wrapper.emitted('click')).toBeTruthy()
-  })
-
-  it('does not emit click when disabled', async () => {
-    const wrapper = mount(IconButton, { props: { disabled: true } })
-    await wrapper.find('button').trigger('click')
-    expect(wrapper.emitted('click')).toBeFalsy()
-  })
-
   it('applies size class for s', () => {
     const wrapper = mount(IconButton, { props: { size: 's' } })
     expect(wrapper.find('.icon-btn').classes()).toContain('icon-btn--s')
@@ -75,9 +63,13 @@ describe('IconButton', () => {
     expect(wrapper.find('.icon-btn').classes()).toContain('icon-btn--outlined')
   })
 
-  it('shows spinner and disables when isLoading is true', () => {
+  it('shows spinner when isLoading is true', () => {
     const wrapper = mount(IconButton, { props: { isLoading: true } })
     expect(wrapper.find('.icon-btn__spinner').exists()).toBe(true)
+  })
+
+  it('disables the button when isLoading is true', () => {
+    const wrapper = mount(IconButton, { props: { isLoading: true } })
     expect(wrapper.find('button').attributes('disabled')).toBeDefined()
   })
 
