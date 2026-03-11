@@ -8,6 +8,15 @@
     "build-storybook": "lerna run build-storybook --stream",
     "publish": "lerna publish"
   },
+  "resolutions": {
+    "vue": "3.5.29",
+    "@vue/runtime-core": "3.5.29",
+    "@vue/runtime-dom": "3.5.29",
+    "@vue/reactivity": "3.5.29",
+    "@vue/shared": "3.5.29",
+    "@vue/compiler-core": "3.5.29",
+    "@vue/compiler-dom": "3.5.29"
+  },
   "devDependencies": {
     "@tailwindcss/vite": "^4.0.0",
     "@vitejs/plugin-vue": "^4.0.0",
