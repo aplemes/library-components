@@ -8,21 +8,35 @@ const props = withDefaults(
     description?: string
     closable?: boolean
     size?: 's' | 'm' | 'l'
+    /** When true, the modal body becomes scrollable */
+    scroll?: boolean
+    /** When true, clicking the backdrop closes the modal */
+    closeOnOverlay?: boolean
   }>(),
-  { closable: true, size: 'm' }
+  { closable: true, size: 'm', scroll: false, closeOnOverlay: false }
 )
 
-const emit = defineEmits<{ close: [] }>()
+const emit = defineEmits<{
+  close: []
+  'update:open': [value: boolean]
+}>()
 
-const onClose = () => emit('close')
-const onOverlayClick = () => { if (props.closable) onClose() }
+const onClose = () => {
+  emit('close')
+  emit('update:open', false)
+}
+const onOverlayClick = () => {
+  if (props.closeOnOverlay || props.closable) onClose()
+}
 const onKeydown = (e: KeyboardEvent) => { if (e.key === 'Escape' && props.open && props.closable) onClose() }
 
 onMounted(() => document.addEventListener('keydown', onKeydown))
 onUnmounted(() => document.removeEventListener('keydown', onKeydown))
 
 watch(() => props.open, (val) => {
-  document.body.style.overflow = val ? 'hidden' : ''
+  if (!props.scroll) {
+    document.body.style.overflow = val ? 'hidden' : ''
+  }
 })
 </script>
 
@@ -54,7 +68,7 @@ watch(() => props.open, (val) => {
             </svg>
           </button>
         </header>
-        <main class="modal__body">
+        <main class="modal__body" :class="{ 'modal__body--scroll': scroll }">
           <p v-if="description">{{ description }}</p>
           <slot />
         </main>
@@ -102,6 +116,11 @@ watch(() => props.open, (val) => {
 }
 
 .modal__body p { @apply m-0; }
+
+.modal__body--scroll {
+  @apply overflow-y-auto;
+  max-height: 60vh;
+}
 
 .modal__footer {
   @apply flex items-center justify-end gap-2 px-6 pb-6 pt-4 border-t border-grey-100;

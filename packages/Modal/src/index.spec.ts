@@ -49,7 +49,14 @@ describe('Modal', () => {
     expect(wrapper.emitted('close')).toBeTruthy()
     wrapper.unmount()
   })
-  it('emits close when backdrop is clicked', async () => {
+  it('emits update:open with false when close button is clicked', async () => {
+    const wrapper = mount(Modal, { ...mountOptions, props: { title: 'T', open: true } })
+    await wrapper.find('.modal__close').trigger('click')
+    expect(wrapper.emitted('update:open')).toBeTruthy()
+    expect(wrapper.emitted('update:open')![0]).toEqual([false])
+    wrapper.unmount()
+  })
+  it('emits close when backdrop is clicked and closable is true', async () => {
     const wrapper = mount(Modal, { ...mountOptions, props: { title: 'T', open: true } })
     await wrapper.find('.modal-backdrop').trigger('click')
     expect(wrapper.emitted('close')).toBeTruthy()
@@ -67,6 +74,29 @@ describe('Modal', () => {
   it('applies size class for l', () => {
     const wrapper = mount(Modal, { ...mountOptions, props: { title: 'T', open: true, size: 'l' } })
     expect(wrapper.find('.modal').classes()).toContain('modal--l')
+    wrapper.unmount()
+  })
+  it('emits close and update:open when closeOnOverlay is true and backdrop is clicked', async () => {
+    const wrapper = mount(Modal, { ...mountOptions, props: { title: 'T', open: true, closable: false, closeOnOverlay: true } })
+    await wrapper.find('.modal-backdrop').trigger('click')
+    expect(wrapper.emitted('close')).toBeTruthy()
+    expect(wrapper.emitted('update:open')![0]).toEqual([false])
+    wrapper.unmount()
+  })
+  it('does not close on backdrop click when closable is false and closeOnOverlay is false', async () => {
+    const wrapper = mount(Modal, { ...mountOptions, props: { title: 'T', open: true, closable: false, closeOnOverlay: false } })
+    await wrapper.find('.modal-backdrop').trigger('click')
+    expect(wrapper.emitted('close')).toBeFalsy()
+    wrapper.unmount()
+  })
+  it('applies scroll class to modal body when scroll is true', () => {
+    const wrapper = mount(Modal, { ...mountOptions, props: { title: 'T', open: true, scroll: true } })
+    expect(wrapper.find('.modal__body').classes()).toContain('modal__body--scroll')
+    wrapper.unmount()
+  })
+  it('does not apply scroll class when scroll is false (default)', () => {
+    const wrapper = mount(Modal, { ...mountOptions, props: { title: 'T', open: true } })
+    expect(wrapper.find('.modal__body').classes()).not.toContain('modal__body--scroll')
     wrapper.unmount()
   })
 })

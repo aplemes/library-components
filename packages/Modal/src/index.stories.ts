@@ -33,6 +33,14 @@ const meta: Meta<typeof Modal> = {
       control: 'select',
       options: ['s', 'm', 'l'],
     },
+    scroll: {
+      description: 'When true, the modal body becomes scrollable (adds overflow-y-auto with max height).',
+      control: 'boolean',
+    },
+    closeOnOverlay: {
+      description: 'When true, clicking the backdrop closes the modal even when closable is false.',
+      control: 'boolean',
+    },
   },
 }
 export default meta
@@ -44,3 +52,5 @@ export const WithFooter: Story = {
 }
 export const Small: Story = { args: { title: 'Small Modal', description: 'A smaller dialog.', open: true, size: 's' } }
 export const NotClosable: Story = { args: { title: 'Required Action', description: 'You must take action.', open: true, closable: false } }
+export const Scrollable: Story = { args: { title: 'Scrollable Modal', description: 'This modal body can scroll independently.', open: true, scroll: true } }
+export const CloseOnOverlay: Story = { args: { title: 'Close On Overlay', description: 'Click the backdrop to close this modal.', open: true, closable: false, closeOnOverlay: true } }
