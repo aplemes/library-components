@@ -1,5 +1,5 @@
 {
-  "project": "Leroy Merlin PT — Design System (@leroy-merlin-pt)",
+  "project": "Leroy Merlin PT \u2014 Design System (@leroy-merlin-pt)",
   "branchName": "ralph/mozaic-alignment",
   "description": "Compare every component in packages/ with the mozaic-vue reference at /home/apaneto/leroy-projects/mozaic-vue, align API/behavior/documentation, and implement all missing components.",
   "userStories": [
@@ -12,7 +12,7 @@
         "Verify prop `size: 's' | 'm' | 'l'` exists and default matches mozaic",
         "Verify default slot is supported for initials/content",
         "Update packages/Avatar/src/index.stories.ts: add parameters.docs.description.component and description to every argType",
-        "Run yarn test from repo root for packages/Avatar — all tests pass",
+        "Run yarn test from repo root for packages/Avatar \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 1,
@@ -30,7 +30,7 @@
         "Verify props: appearance, size, disabled, ghost, outlined, iconPosition ('left'|'right'|'only'), type, isLoading",
         "Verify icon slot is supported",
         "Update packages/Button/src/index.stories.ts: add parameters.docs.description.component and description to every argType",
-        "Run yarn test from repo root for packages/Button — all tests pass",
+        "Run yarn test from repo root for packages/Button \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 2,
@@ -46,7 +46,7 @@
         "Verify props: id, name, label, modelValue, indeterminate, isInvalid, disabled, indented",
         "Verify emit: update:modelValue",
         "Update packages/Checkbox/src/index.stories.ts with full prop descriptions",
-        "Run yarn test from repo root for packages/Checkbox — all tests pass",
+        "Run yarn test from repo root for packages/Checkbox \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 3,
@@ -62,7 +62,7 @@
         "Verify props: name, modelValue (string[]), options (array of {id, label, disabled?}), inline",
         "Verify emit: update:modelValue",
         "Update packages/CheckboxGroup/src/index.stories.ts with full prop descriptions",
-        "Run yarn test from repo root for packages/CheckboxGroup — all tests pass",
+        "Run yarn test from repo root for packages/CheckboxGroup \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 4,
@@ -77,7 +77,7 @@
         "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/circularprogressbar/MCircularProgressbar.vue as source of truth",
         "Verify props: value (0-100), size, type, contentValue, additionalInfo",
         "Update packages/CircularProgressBar/src/index.stories.ts with full prop descriptions",
-        "Run yarn test from repo root for packages/CircularProgressBar — all tests pass",
+        "Run yarn test from repo root for packages/CircularProgressBar \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 5,
@@ -93,7 +93,7 @@
         "Verify props: orientation ('horizontal'|'vertical'), appearance, size",
         "Verify default slot for label content",
         "Update packages/Divider/src/index.stories.ts with full prop descriptions",
-        "Run yarn test from repo root for packages/Divider — all tests pass",
+        "Run yarn test from repo root for packages/Divider \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 6,
@@ -106,15 +106,15 @@
       "description": "As a developer, I want Drawer to match the mozaic-vue MDrawer component API including extended mode, back navigation, scroll control and overlay close.",
       "acceptanceCriteria": [
         "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/drawer/MDrawer.vue as source of truth",
-        "Add prop `extended: boolean` — wider layout mode",
-        "Add prop `back: boolean` — shows back button",
-        "Add prop `contentTitle: string` — secondary title in content area",
-        "Add prop `scroll: boolean` — enables scrollable content area",
-        "Add prop `closeOnOverlay: boolean` — closes drawer when overlay is clicked",
+        "Add prop `extended: boolean` \u2014 wider layout mode",
+        "Add prop `back: boolean` \u2014 shows back button",
+        "Add prop `contentTitle: string` \u2014 secondary title in content area",
+        "Add prop `scroll: boolean` \u2014 enables scrollable content area",
+        "Add prop `closeOnOverlay: boolean` \u2014 closes drawer when overlay is clicked",
         "Add emit `update:open` (in addition to or replacing `close`)",
-        "Add emit `back` — fired when back button is clicked",
+        "Add emit `back` \u2014 fired when back button is clicked",
         "Update packages/Drawer/src/index.stories.ts with full prop descriptions and new stories for extended/back modes",
-        "Run yarn test from repo root for packages/Drawer — all tests pass",
+        "Run yarn test from repo root for packages/Drawer \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 7,
@@ -129,7 +129,7 @@
         "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/flag/MFlag.vue as source of truth",
         "Verify props: label, appearance",
         "Update packages/Flag/src/index.stories.ts with full prop descriptions",
-        "Run yarn test from repo root for packages/Flag — all tests pass",
+        "Run yarn test from repo root for packages/Flag \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 8,
@@ -145,7 +145,7 @@
         "Verify props: appearance, size, disabled, ghost, outlined, type, isLoading, ariaLabel",
         "Verify icon slot is required",
         "Update packages/IconButton/src/index.stories.ts with full prop descriptions",
-        "Run yarn test from repo root for packages/IconButton — all tests pass",
+        "Run yarn test from repo root for packages/IconButton \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 9,
@@ -158,12 +158,12 @@
       "description": "As a developer, I want Input to match the mozaic-vue MTextInput component including clearable support.",
       "acceptanceCriteria": [
         "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/textinput/MTextInput.vue as source of truth",
-        "Add prop `isClearable: boolean` — shows clear button when input has value",
-        "Add prop `clearLabel: string` — accessible label for the clear button",
+        "Add prop `isClearable: boolean` \u2014 shows clear button when input has value",
+        "Add prop `clearLabel: string` \u2014 accessible label for the clear button",
         "Verify props: id, name, modelValue, placeholder, inputType (type rename), isInvalid, disabled, size, readonly, prefix, suffix",
         "Verify icon slot is supported",
         "Update packages/Input/src/index.stories.ts with full prop descriptions and Clearable story",
-        "Run yarn test from repo root for packages/Input — all tests pass",
+        "Run yarn test from repo root for packages/Input \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 10,
@@ -178,7 +178,7 @@
         "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/linearprogressbarbuffer/MLinearProgressbarBuffer.vue as source of truth",
         "Verify props: value (0-100), size",
         "Update packages/LinearProgressBarBuffer/src/index.stories.ts with full prop descriptions",
-        "Run yarn test from repo root for packages/LinearProgressBarBuffer — all tests pass",
+        "Run yarn test from repo root for packages/LinearProgressBarBuffer \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 11,
@@ -193,7 +193,7 @@
         "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/linearprogressbarpercentage/MLinearProgressbarPercentage.vue as source of truth",
         "Verify prop: value (0-100)",
         "Update packages/LinearProgressBarPercentage/src/index.stories.ts with full prop descriptions",
-        "Run yarn test from repo root for packages/LinearProgressBarPercentage — all tests pass",
+        "Run yarn test from repo root for packages/LinearProgressBarPercentage \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 12,
@@ -209,7 +209,7 @@
         "Verify props: href, iconPosition, appearance, size, target, inline, router",
         "Verify slots: default, icon",
         "Update packages/Link/src/index.stories.ts with full prop descriptions",
-        "Run yarn test from repo root for packages/Link — all tests pass",
+        "Run yarn test from repo root for packages/Link \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 13,
@@ -224,7 +224,7 @@
         "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/loader/MLoader.vue as source of truth",
         "Verify props: appearance, size, text",
         "Update packages/Loader/src/index.stories.ts with full prop descriptions",
-        "Run yarn test from repo root for packages/Loader — all tests pass",
+        "Run yarn test from repo root for packages/Loader \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 14,
@@ -237,12 +237,12 @@
       "description": "As a developer, I want Modal to match the mozaic-vue MModal component including scroll control and overlay-close behavior.",
       "acceptanceCriteria": [
         "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/modal/MModal.vue as source of truth",
-        "Add prop `scroll: boolean` — enables scrollable modal body",
-        "Add prop `closeOnOverlay: boolean` — closes modal when backdrop is clicked",
+        "Add prop `scroll: boolean` \u2014 enables scrollable modal body",
+        "Add prop `closeOnOverlay: boolean` \u2014 closes modal when backdrop is clicked",
         "Add emit `update:open` (in addition to or replacing `close`)",
         "Verify slots: default, icon, footer, link",
         "Update packages/Modal/src/index.stories.ts with full prop descriptions and Scrollable/CloseOnOverlay stories",
-        "Run yarn test from repo root for packages/Modal — all tests pass",
+        "Run yarn test from repo root for packages/Modal \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 15,
@@ -257,7 +257,7 @@
         "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/numberbadge/MNumberBadge.vue as source of truth",
         "Verify props: label (number), appearance, size",
         "Update packages/NumberBadge/src/index.stories.ts with full prop descriptions",
-        "Run yarn test from repo root for packages/NumberBadge — all tests pass",
+        "Run yarn test from repo root for packages/NumberBadge \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 16,
@@ -273,7 +273,7 @@
         "Verify props: isVisible, dialogLabel",
         "Verify default slot for content rendered on top of overlay",
         "Update packages/Overlay/src/index.stories.ts with full prop descriptions",
-        "Run yarn test from repo root for packages/Overlay — all tests pass",
+        "Run yarn test from repo root for packages/Overlay \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 17,
@@ -289,7 +289,7 @@
         "Verify/add prop `buttonLabel: string` (unified show/hide toggle label used in mozaic)",
         "Verify props: id, name, modelValue, placeholder, isInvalid, disabled, readonly, isClearable, clearLabel",
         "Update packages/PasswordInput/src/index.stories.ts with full prop descriptions",
-        "Run yarn test from repo root for packages/PasswordInput — all tests pass",
+        "Run yarn test from repo root for packages/PasswordInput \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 18,
@@ -304,7 +304,7 @@
         "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/quantityselector/MQuantitySelector.vue as source of truth",
         "Verify props: id, name, modelValue, isInvalid, disabled, size, min, max, step, readonly, incrementLabel, decrementLabel",
         "Update packages/QuantitySelector/src/index.stories.ts with full prop descriptions",
-        "Run yarn test from repo root for packages/QuantitySelector — all tests pass",
+        "Run yarn test from repo root for packages/QuantitySelector \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 19,
@@ -320,7 +320,7 @@
         "Verify props: id, name, label, modelValue, isInvalid, disabled",
         "Verify emit: update:modelValue",
         "Update packages/Radio/src/index.stories.ts with full prop descriptions",
-        "Run yarn test from repo root for packages/Radio — all tests pass",
+        "Run yarn test from repo root for packages/Radio \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 20,
@@ -336,7 +336,7 @@
         "Verify props: name, modelValue, options (array of {id, label, disabled?}), isInvalid, inline",
         "Verify emit: update:modelValue",
         "Update packages/RadioGroup/src/index.stories.ts with full prop descriptions",
-        "Run yarn test from repo root for packages/RadioGroup — all tests pass",
+        "Run yarn test from repo root for packages/RadioGroup \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 21,
@@ -352,7 +352,7 @@
         "Verify props: id, name, options, modelValue, placeholder, isInvalid, disabled, size, readonly",
         "Verify emit: update:modelValue",
         "Update packages/Select/src/index.stories.ts with full prop descriptions",
-        "Run yarn test from repo root for packages/Select — all tests pass",
+        "Run yarn test from repo root for packages/Select \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 22,
@@ -365,12 +365,12 @@
       "description": "As a developer, I want StarRating to match the mozaic-vue MStarRating component, adding link behavior for read-only display mode.",
       "acceptanceCriteria": [
         "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/starrating/MStarRating.vue as source of truth",
-        "Add prop `href: string` — makes the rating a link",
-        "Add prop `target: string` — link target attribute",
-        "Add prop `router: boolean` — uses router-link instead of anchor",
+        "Add prop `href: string` \u2014 makes the rating a link",
+        "Add prop `target: string` \u2014 link target attribute",
+        "Add prop `router: boolean` \u2014 uses router-link instead of anchor",
         "Verify props: modelValue, readonly, size, compact, appearance, text, maxValue",
         "Update packages/StarRating/src/index.stories.ts with full prop descriptions and LinkedRating story",
-        "Run yarn test from repo root for packages/StarRating — all tests pass",
+        "Run yarn test from repo root for packages/StarRating \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 23,
@@ -385,7 +385,7 @@
         "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/statusbadge/MStatusBadge.vue as source of truth",
         "Verify props: label, status",
         "Update packages/StatusBadge/src/index.stories.ts with full prop descriptions",
-        "Run yarn test from repo root for packages/StatusBadge — all tests pass",
+        "Run yarn test from repo root for packages/StatusBadge \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 24,
@@ -400,7 +400,7 @@
         "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/statusdot/MStatusDot.vue as source of truth",
         "Verify props: status, size",
         "Update packages/StatusDot/src/index.stories.ts with full prop descriptions",
-        "Run yarn test from repo root for packages/StatusDot — all tests pass",
+        "Run yarn test from repo root for packages/StatusDot \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 25,
@@ -415,7 +415,7 @@
         "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/statusmessage/MStatusMessage.vue as source of truth",
         "Verify props: status, label",
         "Update packages/StatusMessage/src/index.stories.ts with full prop descriptions",
-        "Run yarn test from repo root for packages/StatusMessage — all tests pass",
+        "Run yarn test from repo root for packages/StatusMessage \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 26,
@@ -432,7 +432,7 @@
         "Verify emit: close",
         "Verify footer slot",
         "Update packages/StatusNotification/src/index.stories.ts with full prop descriptions",
-        "Run yarn test from repo root for packages/StatusNotification — all tests pass",
+        "Run yarn test from repo root for packages/StatusNotification \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 27,
@@ -448,7 +448,7 @@
         "Verify props: type ('informative'|'interactive'|'selectable'|'removable'), size, id, name, label, modelValue, disabled, contextualisedNumber, removableLabel",
         "Verify emits: update:modelValue, remove-tag",
         "Update packages/Tag/src/index.stories.ts with full prop descriptions",
-        "Run yarn test from repo root for packages/Tag — all tests pass",
+        "Run yarn test from repo root for packages/Tag \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 28,
@@ -464,7 +464,7 @@
         "Verify props: id, name, modelValue, placeholder, isInvalid, disabled, rows, minLength, maxLength, readonly",
         "Verify emit: update:modelValue",
         "Update packages/Textarea/src/index.stories.ts with full prop descriptions",
-        "Run yarn test from repo root for packages/Textarea — all tests pass",
+        "Run yarn test from repo root for packages/Textarea \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 29,
@@ -480,7 +480,7 @@
         "Verify props: id, name, label, modelValue, size, disabled",
         "Verify emit: update:modelValue",
         "Update packages/Toggle/src/index.stories.ts with full prop descriptions",
-        "Run yarn test from repo root for packages/Toggle — all tests pass",
+        "Run yarn test from repo root for packages/Toggle \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 30,
@@ -496,7 +496,7 @@
         "Verify props: name, modelValue (string[]), options (array), inline",
         "Verify emit: update:modelValue",
         "Update packages/ToggleGroup/src/index.stories.ts with full prop descriptions",
-        "Run yarn test from repo root for packages/ToggleGroup — all tests pass",
+        "Run yarn test from repo root for packages/ToggleGroup \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 31,
@@ -515,7 +515,7 @@
         "Renders label element linked to id, help text, and validation message with correct aria attributes",
         "Write tests in packages/Field/src/index.spec.ts covering label render, invalid state, message display",
         "Write stories in packages/Field/src/index.stories.ts with autodocs and all argTypes described",
-        "Run yarn test from repo root for packages/Field — all tests pass",
+        "Run yarn test from repo root for packages/Field \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 32,
@@ -534,7 +534,7 @@
         "Renders fieldset with legend, help text and validation message",
         "Write tests in packages/FieldGroup/src/index.spec.ts",
         "Write stories in packages/FieldGroup/src/index.stories.ts with autodocs",
-        "Run yarn test from repo root for packages/FieldGroup — all tests pass",
+        "Run yarn test from repo root for packages/FieldGroup \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 33,
@@ -553,7 +553,7 @@
         "Renders a date input with clear button when isClearable and value is set",
         "Write tests in packages/DatePicker/src/index.spec.ts covering render, emit, clearable",
         "Write stories in packages/DatePicker/src/index.stories.ts with autodocs",
-        "Run yarn test from repo root for packages/DatePicker — all tests pass",
+        "Run yarn test from repo root for packages/DatePicker \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 34,
@@ -572,7 +572,7 @@
         "Renders `length` individual digit inputs; focus advances to next on input",
         "Write tests in packages/PinCode/src/index.spec.ts covering render, length prop, invalid state",
         "Write stories in packages/PinCode/src/index.stories.ts with autodocs",
-        "Run yarn test from repo root for packages/PinCode — all tests pass",
+        "Run yarn test from repo root for packages/PinCode \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 35,
@@ -591,7 +591,7 @@
         "Renders country code prefix selector alongside phone number input",
         "Write tests in packages/PhoneNumber/src/index.spec.ts",
         "Write stories in packages/PhoneNumber/src/index.stories.ts with autodocs",
-        "Run yarn test from repo root for packages/PhoneNumber — all tests pass",
+        "Run yarn test from repo root for packages/PhoneNumber \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 36,
@@ -611,7 +611,7 @@
         "Supports single and multi-select mode",
         "Write tests in packages/Combobox/src/index.spec.ts covering single select, multi select, search filter",
         "Write stories in packages/Combobox/src/index.stories.ts with autodocs",
-        "Run yarn test from repo root for packages/Combobox — all tests pass",
+        "Run yarn test from repo root for packages/Combobox \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 37,
@@ -630,7 +630,7 @@
         "Implement optionPrefix slot",
         "Write tests in packages/OptionListbox/src/index.spec.ts",
         "Write stories in packages/OptionListbox/src/index.stories.ts with autodocs",
-        "Run yarn test from repo root for packages/OptionListbox — all tests pass",
+        "Run yarn test from repo root for packages/OptionListbox \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 38,
@@ -648,7 +648,7 @@
         "Renders ordered list of links with separators; last item styled as current page",
         "Write tests in packages/Breadcrumb/src/index.spec.ts",
         "Write stories in packages/Breadcrumb/src/index.stories.ts with autodocs",
-        "Run yarn test from repo root for packages/Breadcrumb — all tests pass",
+        "Run yarn test from repo root for packages/Breadcrumb \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 39,
@@ -662,11 +662,11 @@
       "acceptanceCriteria": [
         "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/container/MContainer.vue as reference",
         "Run `bash scripts/create-component.sh Container` from repo root to scaffold the package",
-        "Implement prop: fluid (boolean) — removes max-width constraint",
+        "Implement prop: fluid (boolean) \u2014 removes max-width constraint",
         "Implement default slot",
         "Write tests in packages/Container/src/index.spec.ts",
         "Write stories in packages/Container/src/index.stories.ts with autodocs",
-        "Run yarn test from repo root for packages/Container — all tests pass",
+        "Run yarn test from repo root for packages/Container \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 40,
@@ -680,11 +680,11 @@
       "acceptanceCriteria": [
         "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/actionbottombar/MActionBottomBar.vue as reference",
         "Run `bash scripts/create-component.sh ActionBottomBar` from repo root to scaffold the package",
-        "Implement prop: shadow (boolean) — adds top shadow",
+        "Implement prop: shadow (boolean) \u2014 adds top shadow",
         "Implement slots: left, right",
         "Write tests in packages/ActionBottomBar/src/index.spec.ts",
         "Write stories in packages/ActionBottomBar/src/index.stories.ts with autodocs",
-        "Run yarn test from repo root for packages/ActionBottomBar — all tests pass",
+        "Run yarn test from repo root for packages/ActionBottomBar \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 41,
@@ -702,7 +702,7 @@
         "TileClickable props: appearance, bordered, href, to, target, iconPosition; emit: action; slots: default, icon",
         "Write tests for both in their respective spec files",
         "Write stories for both with autodocs",
-        "Run yarn test from repo root for packages/Tile and packages/TileClickable — all tests pass",
+        "Run yarn test from repo root for packages/Tile and packages/TileClickable \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 42,
@@ -720,7 +720,7 @@
         "TileSelectable props: modelValue, bordered, inputType ('checkbox'|'radio'), inputPosition, centered, hideInput; emit: update:modelValue; slots: default, details",
         "Write tests for both",
         "Write stories for both with autodocs",
-        "Run yarn test from repo root for packages/TileExpandable and packages/TileSelectable — all tests pass",
+        "Run yarn test from repo root for packages/TileExpandable and packages/TileSelectable \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 43,
@@ -739,7 +739,7 @@
         "Active tab highlighted; disabled tabs not clickable",
         "Write tests in packages/Tabs/src/index.spec.ts",
         "Write stories in packages/Tabs/src/index.stories.ts with autodocs",
-        "Run yarn test from repo root for packages/Tabs — all tests pass",
+        "Run yarn test from repo root for packages/Tabs \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 44,
@@ -757,7 +757,7 @@
         "CheckListMenu props: modelValue (array), items (array of {id, label}), outlined; emit: update:modelValue",
         "Write tests for both",
         "Write stories for both with autodocs",
-        "Run yarn test from repo root for packages/BuiltInMenu and packages/CheckListMenu — all tests pass",
+        "Run yarn test from repo root for packages/BuiltInMenu and packages/CheckListMenu \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 45,
@@ -771,11 +771,11 @@
       "acceptanceCriteria": [
         "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/segmentedcontrol/MSegmentedControl.vue as reference",
         "Run `bash scripts/create-component.sh SegmentedControl` from repo root to scaffold the package",
-        "Implement props: modelValue, full (boolean — stretch to full width), size, segments (array of {id, label, disabled?})",
+        "Implement props: modelValue, full (boolean \u2014 stretch to full width), size, segments (array of {id, label, disabled?})",
         "Implement emit: update:modelValue",
         "Write tests in packages/SegmentedControl/src/index.spec.ts",
         "Write stories in packages/SegmentedControl/src/index.stories.ts with autodocs",
-        "Run yarn test from repo root for packages/SegmentedControl — all tests pass",
+        "Run yarn test from repo root for packages/SegmentedControl \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 46,
@@ -793,7 +793,7 @@
         "Implement emit: update:modelValue",
         "Write tests in packages/Pagination/src/index.spec.ts",
         "Write stories in packages/Pagination/src/index.stories.ts with autodocs",
-        "Run yarn test from repo root for packages/Pagination — all tests pass",
+        "Run yarn test from repo root for packages/Pagination \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 47,
@@ -812,7 +812,7 @@
         "Implement activator slot for the trigger element",
         "Write tests in packages/ActionListbox/src/index.spec.ts",
         "Write stories in packages/ActionListbox/src/index.stories.ts with autodocs",
-        "Run yarn test from repo root for packages/ActionListbox — all tests pass",
+        "Run yarn test from repo root for packages/ActionListbox \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 48,
@@ -831,7 +831,7 @@
         "StepperInline: horizontal layout with compact step indicators",
         "Write tests for both",
         "Write stories for both with autodocs",
-        "Run yarn test from repo root for packages/StepperStacked and packages/StepperInline — all tests pass",
+        "Run yarn test from repo root for packages/StepperStacked and packages/StepperInline \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 49,
@@ -849,7 +849,7 @@
         "StepperBottomBar props: modelValue, steps (array), cancel (boolean), cancelLabel, previousLabel, nextLabel, validateLabel; emits: cancel, update:modelValue, validate",
         "Write tests for both",
         "Write stories for both with autodocs",
-        "Run yarn test from repo root for packages/StepperCompact and packages/StepperBottomBar — all tests pass",
+        "Run yarn test from repo root for packages/StepperCompact and packages/StepperBottomBar \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 50,
@@ -863,11 +863,11 @@
       "acceptanceCriteria": [
         "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/navigationindicator/MNavigationIndicator.vue as reference",
         "Run `bash scripts/create-component.sh NavigationIndicator` from repo root to scaffold the package",
-        "Implement props: steps (number), modelValue (current), action (boolean — show prev/next), label (string), player (boolean — autoplay)",
+        "Implement props: steps (number), modelValue (current), action (boolean \u2014 show prev/next), label (string), player (boolean \u2014 autoplay)",
         "Implement emits: update:modelValue, action",
         "Write tests in packages/NavigationIndicator/src/index.spec.ts",
         "Write stories in packages/NavigationIndicator/src/index.stories.ts with autodocs",
-        "Run yarn test from repo root for packages/NavigationIndicator — all tests pass",
+        "Run yarn test from repo root for packages/NavigationIndicator \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 51,
@@ -881,12 +881,12 @@
       "acceptanceCriteria": [
         "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/loadingoverlay/MLoadingOverlay.vue as reference",
         "Run `bash scripts/create-component.sh LoadingOverlay` from repo root to scaffold the package",
-        "Implement props: isVisible (boolean), text (string — optional loading message)",
+        "Implement props: isVisible (boolean), text (string \u2014 optional loading message)",
         "Renders a full-screen overlay with centered Loader when isVisible is true",
-        "Uses <Teleport to='body'> — add global: { stubs: { Teleport: true } } in spec",
+        "Uses <Teleport to='body'> \u2014 add global: { stubs: { Teleport: true } } in spec",
         "Write tests in packages/LoadingOverlay/src/index.spec.ts",
         "Write stories in packages/LoadingOverlay/src/index.stories.ts with autodocs",
-        "Run yarn test from repo root for packages/LoadingOverlay — all tests pass",
+        "Run yarn test from repo root for packages/LoadingOverlay \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 52,
@@ -904,7 +904,7 @@
         "Implement slots: default (content), activator (trigger element), footer",
         "Write tests in packages/Popover/src/index.spec.ts",
         "Write stories in packages/Popover/src/index.stories.ts with autodocs",
-        "Run yarn test from repo root for packages/Popover — all tests pass",
+        "Run yarn test from repo root for packages/Popover \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 53,
@@ -922,7 +922,7 @@
         "Implement default slot for the trigger element",
         "Write tests in packages/Tooltip/src/index.spec.ts",
         "Write stories in packages/Tooltip/src/index.stories.ts with autodocs",
-        "Run yarn test from repo root for packages/Tooltip — all tests pass",
+        "Run yarn test from repo root for packages/Tooltip \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 54,
@@ -940,7 +940,7 @@
         "AccordionListItem props: id, title, subtitle, content, icon; slot: default (custom content)",
         "Write tests for both",
         "Write stories for both with autodocs",
-        "Run yarn test from repo root for packages/AccordionList and packages/AccordionListItem — all tests pass",
+        "Run yarn test from repo root for packages/AccordionList and packages/AccordionListItem \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 55,
@@ -959,7 +959,7 @@
         "Previous/next buttons navigate between slides",
         "Write tests in packages/Carousel/src/index.spec.ts",
         "Write stories in packages/Carousel/src/index.stories.ts with autodocs",
-        "Run yarn test from repo root for packages/Carousel — all tests pass",
+        "Run yarn test from repo root for packages/Carousel \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 56,
@@ -977,7 +977,7 @@
         "Implement slots: icon (custom icon), footer (actions)",
         "Write tests in packages/Callout/src/index.spec.ts",
         "Write stories in packages/Callout/src/index.stories.ts with autodocs",
-        "Run yarn test from repo root for packages/Callout — all tests pass",
+        "Run yarn test from repo root for packages/Callout \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 57,
@@ -996,7 +996,7 @@
         "Implement slots: content, actions, tabs",
         "Write tests in packages/PageHeader/src/index.spec.ts",
         "Write stories in packages/PageHeader/src/index.stories.ts with autodocs",
-        "Run yarn test from repo root for packages/PageHeader — all tests pass",
+        "Run yarn test from repo root for packages/PageHeader \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 58,
@@ -1014,7 +1014,7 @@
         "FileUploaderItem props: file, format, valid, errorMessage, deleteButtonLabel, information; emit: delete; slots: name, information, errorMessage",
         "Write tests for both",
         "Write stories for both with autodocs",
-        "Run yarn test from repo root for packages/FileUploader and packages/FileUploaderItem — all tests pass",
+        "Run yarn test from repo root for packages/FileUploader and packages/FileUploaderItem \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 59,
@@ -1028,13 +1028,13 @@
       "acceptanceCriteria": [
         "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/toaster/MToaster.vue as reference",
         "Run `bash scripts/create-component.sh Toaster` from repo root to scaffold the package",
-        "Implement props: open (boolean), position ('top-left'|'top-right'|'bottom-left'|'bottom-right'), description (string), status ('info'|'success'|'warning'|'danger'), closable (boolean), progress (boolean — show timeout bar), timeout (number ms)",
+        "Implement props: open (boolean), position ('top-left'|'top-right'|'bottom-left'|'bottom-right'), description (string), status ('info'|'success'|'warning'|'danger'), closable (boolean), progress (boolean \u2014 show timeout bar), timeout (number ms)",
         "Implement emit: update:open",
         "Implement action slot for action buttons",
-        "Uses <Teleport to='body'> — add global: { stubs: { Teleport: true } } in spec",
+        "Uses <Teleport to='body'> \u2014 add global: { stubs: { Teleport: true } } in spec",
         "Write tests in packages/Toaster/src/index.spec.ts",
         "Write stories in packages/Toaster/src/index.stories.ts with autodocs",
-        "Run yarn test from repo root for packages/Toaster — all tests pass",
+        "Run yarn test from repo root for packages/Toaster \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 60,
@@ -1051,7 +1051,7 @@
         "Implement props: value (string|number), trend ('up'|'down'|'neutral'), label, status, information, size ('s'|'m'|'l')",
         "Write tests in packages/KpiItem/src/index.spec.ts",
         "Write stories in packages/KpiItem/src/index.stories.ts with autodocs",
-        "Run yarn test from repo root for packages/KpiItem — all tests pass",
+        "Run yarn test from repo root for packages/KpiItem \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 61,
@@ -1065,11 +1065,11 @@
       "acceptanceCriteria": [
         "Read /home/apaneto/leroy-projects/mozaic-vue/src/components/sidebar/MSidebar.vue, sidebarheader/MSidebarHeader.vue and sidebarfooter/MSidebarFooter.vue as references",
         "Run `bash scripts/create-component.sh Sidebar`, `bash scripts/create-component.sh SidebarHeader`, `bash scripts/create-component.sh SidebarFooter` from repo root",
-        "Sidebar props: modelValue (boolean — open/collapsed); emits: update:modelValue, close; slots: header, shortcuts, nav, footer",
+        "Sidebar props: modelValue (boolean \u2014 open/collapsed); emits: update:modelValue, close; slots: header, shortcuts, nav, footer",
         "SidebarHeader and SidebarFooter: default slot for content",
         "Write tests for all three",
         "Write stories for all three with autodocs",
-        "Run yarn test from repo root for packages/Sidebar, packages/SidebarHeader, packages/SidebarFooter — all tests pass",
+        "Run yarn test from repo root for packages/Sidebar, packages/SidebarHeader, packages/SidebarFooter \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 62,
@@ -1089,10 +1089,30 @@
         "SidebarShortcutItem: individual shortcut with icon and label",
         "Write tests for all four",
         "Write stories for all four with autodocs",
-        "Run yarn test from repo root for all four packages — all tests pass",
+        "Run yarn test from repo root for all four packages \u2014 all tests pass",
         "Typecheck passes"
       ],
       "priority": 63,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-064",
+      "title": "Full structural alignment with mozaic-vue",
+      "description": "As a developer, I want the library-components structure to mirror mozaic-vue exactly \u2014 same prop names, defaults, slot names, emit names, component behavior and per-package README documentation.",
+      "acceptanceCriteria": [
+        "For EVERY component, read /home/apaneto/leroy-projects/mozaic-vue/src/components/{name}/M{Name}.vue and diff against packages/{Name}/src/index.vue",
+        "Fix any prop name mismatches (e.g. different casing, missing props, wrong defaults)",
+        "Fix any emit name mismatches (e.g. close vs update:open)",
+        "Fix any slot name mismatches between mozaic and our implementation",
+        "Fix any behavioral differences (e.g. missing keyboard nav, missing aria attributes, wrong class names)",
+        "Add README.md to every package (packages/{Name}/README.md) documenting: description, installation, props table, emits table, slots table, usage example \u2014 matching the style of /home/apaneto/leroy-projects/mozaic-vue/src/components/button/README.md",
+        "Ensure every component file has JSDoc comments on all props, emits and slots matching mozaic style",
+        "Verify all tests still pass after changes: yarn test from repo root",
+        "Commit all changes with: feat: [US-064] - Full structural alignment with mozaic-vue",
+        "Typecheck passes"
+      ],
+      "priority": 64,
       "passes": false,
       "notes": ""
     }
