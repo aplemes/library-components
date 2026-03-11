@@ -106,4 +106,8 @@ const btnClass = computed(() => [
 .icon-btn__spinner {
   @apply absolute w-5 h-5 border-2 border-current border-t-transparent rounded-full animate-spin;
 }
+
+.icon-btn--loading {
+  @apply cursor-wait;
+}
 </style>
