@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Brand / Leroy Merlin ───────────────────────────────── */
+  --color-brand: #007a3e;
+  --color-brand-dark: #005f30;
+  --color-brand-light: #f0faf5;
+
+  /* ── Mozaic Primary-01 (green) ──────────────────────────── */
+  --color-primary-01-100: #ebf5de;
+  --color-primary-01-200: #c5e39e;
+  --color-primary-01-300: #9ed05f;
+  --color-primary-01-400: #78be20;
+  --color-primary-01-500: #46a610;
+  --color-primary-01-600: #188803;
+  --color-primary-01-700: #006902;
+  --color-primary-01-800: #035010;
+  --color-primary-01-900: #023618;
+
+  /* ── Mozaic Primary-02 (dark blue-grey) ─────────────────── */
+  --color-primary-02-100: #eeeff1;
+  --color-primary-02-200: #cfd2d8;
+  --color-primary-02-300: #b3b7c1;
+  --color-primary-02-400: #8f94a3;
+  --color-primary-02-500: #6a7081;
+  --color-primary-02-600: #494f60;
+  --color-primary-02-700: #343b4c;
+  --color-primary-02-800: #242938;
+  --color-primary-02-900: #171b26;
+
+  /* ── Mozaic Grey scale ──────────────────────────────────── */
+  --color-grey-000: #ffffff;
+  --color-grey-100: #e6e6e6;
+  --color-grey-200: #cccccc;
+  --color-grey-300: #b3b3b3;
+  --color-grey-400: #999999;
+  --color-grey-500: #808080;
+  --color-grey-600: #666666;
+  --color-grey-700: #4d4d4d;
+  --color-grey-800: #333333;
+  --color-grey-900: #191919;
+  --color-grey-999: #000000;
+
+  /* ── Mozaic semantic colors ─────────────────────────────── */
+  --color-danger-100: #fdeaea;
+  --color-danger-500: #ea302d;
+  --color-danger-600: #c61112;
+  --color-danger-700: #8c0003;
+
+  --color-info-100: #daeff7;
+  --color-info-500: #0b96cc;
+  --color-info-600: #007bb4;
+  --color-info-700: #005c91;
+
+  --color-warning-100: #fdf1e8;
+  --color-warning-500: #ea7315;
+  --color-warning-600: #c65200;
+  --color-warning-700: #8c3500;
+
+  --color-success-100: #ebf5de;
+  --color-success-500: #46a610;
+  --color-success-600: #188803;
+  --color-success-700: #006902;
+
+  /* ── Mozaic typography (font sizes) ─────────────────────── */
+  --font-size-01: 0.6875rem;
+  --font-size-02: 0.75rem;
+  --font-size-03: 0.8125rem;
+  --font-size-04: 0.875rem;
+  --font-size-05: 1rem;
+  --font-size-06: 1.125rem;
+  --font-size-07: 1.4375rem;
+  --font-size-08: 1.75rem;
+  --font-size-09: 2.125rem;
+  --font-size-10: 2.5625rem;
+  --font-size-11: 3.0625rem;
+  --font-size-12: 3.6875rem;
+
+  /* ── Mozaic spacing (8px base) ──────────────────────────── */
+  --spacing-100: 0.5rem;
+  --spacing-200: 1rem;
+  --spacing-300: 1.5rem;
+  --spacing-400: 2rem;
+  --spacing-500: 2.5rem;
+  --spacing-600: 3rem;
+  --spacing-700: 3.5rem;
+  --spacing-800: 4rem;
+  --spacing-900: 4.5rem;
+
+  /* ── Mozaic border radius ───────────────────────────────── */
+  --radius-s: 0.125rem;
+  --radius-m: 0.25rem;
+  --radius-l: 0.375rem;
+
+  /* ── Mozaic border widths ───────────────────────────────── */
+  --border-s: 1px;
+  --border-m: 2px;
+  --border-l: 3px;
+
+  /* ── Mozaic shadows ─────────────────────────────────────── */
+  --shadow-s: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
+  --shadow-m: 0px 2px 10px 0px rgba(0, 0, 0, 0.2);
+  --shadow-l: 0px 4px 20px 0px rgba(0, 0, 0, 0.2);
+
+  /* ── Legacy aliases (kept for backwards compat) ─────────── */
+  --color-primary: #007a3e;
+  --color-primary-dark: #005f30;
+  --color-primary-light: #f0faf5;
+  --spacing-btn-x: 1rem;
+  --spacing-btn-y: 0.5rem;
+  --radius-btn: 0.375rem;
+}

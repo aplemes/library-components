@@ -1,69 +1,127 @@
 <script setup lang="ts">
-defineProps<{
-  label: string
-  variant?: 'primary' | 'secondary' | 'ghost'
-  disabled?: boolean
-}>()
+import { computed } from 'vue'
+
+const props = withDefaults(
+  defineProps<{
+    label?: string
+    variant?: 'primary' | 'secondary' | 'ghost'
+    appearance?: 'standard' | 'accent' | 'danger' | 'inverse'
+    size?: 's' | 'm' | 'l'
+    disabled?: boolean
+    ghost?: boolean
+    outlined?: boolean
+    iconPosition?: 'left' | 'right' | 'only'
+    type?: 'button' | 'reset' | 'submit'
+    isLoading?: boolean
+  }>(),
+  {
+    size: 'm',
+    type: 'button',
+  },
+)
 
 defineEmits<{
   click: [event: MouseEvent]
 }>()
+
+const effectiveVariant = computed(() => {
+  if (props.variant) return props.variant
+  if (props.ghost || props.outlined) return 'ghost'
+  return 'primary'
+})
+
+const classes = computed(() => [
+  'btn',
+  `btn--${effectiveVariant.value}`,
+  props.size !== 'm' ? `btn--${props.size}` : null,
+  props.appearance && props.appearance !== 'standard' ? `btn--${props.appearance}` : null,
+  props.iconPosition === 'only' ? 'btn--icon-only' : null,
+  props.isLoading ? 'btn--loading' : null,
+])
 </script>
 
 <template>
   <button
-    :class="['btn', `btn--${variant ?? 'primary'}`]"
-    :disabled="disabled"
+    :class="classes"
+    :disabled="disabled || isLoading"
+    :type="type"
     @click="$emit('click', $event)"
   >
-    {{ label }}
+    <span v-if="$slots.icon && iconPosition === 'left' && !isLoading" class="btn__icon">
+      <slot name="icon" />
+    </span>
+
+    <span v-if="isLoading" class="btn__spinner" aria-hidden="true" />
+
+    <template v-if="iconPosition === 'only'">
+      <span class="btn__icon">
+        <slot name="icon" />
+      </span>
+    </template>
+    <template v-else>
+      <span class="btn__label" :class="{ 'btn__label--hidden': isLoading }">
+        <slot>{{ label }}</slot>
+      </span>
+    </template>
+
+    <span v-if="$slots.icon && iconPosition === 'right' && !isLoading" class="btn__icon">
+      <slot name="icon" />
+    </span>
   </button>
 </template>
 
-<style scoped>
+<style>
+@reference "@/tailwind.css";
+
 .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem 1rem;
-  border-radius: 0.375rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  cursor: pointer;
-  border: none;
-  transition: background-color 0.2s, opacity 0.2s;
+  @apply relative inline-flex items-center justify-center gap-2 px-4 py-2 rounded-l text-sm font-medium cursor-pointer border border-transparent transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
 }
 
-.btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+.btn--s {
+  @apply px-3 py-1 text-xs;
+}
+
+.btn--l {
+  @apply px-6 py-3 text-base;
 }
 
 .btn--primary {
-  background-color: #007a3e;
-  color: #ffffff;
-}
-
-.btn--primary:hover:not(:disabled) {
-  background-color: #005f30;
+  @apply bg-primary text-white hover:bg-primary-dark;
 }
 
 .btn--secondary {
-  background-color: transparent;
-  color: #007a3e;
-  border: 1px solid #007a3e;
-}
-
-.btn--secondary:hover:not(:disabled) {
-  background-color: #f0faf5;
+  @apply bg-transparent text-primary border-primary hover:bg-primary-light;
 }
 
 .btn--ghost {
-  background-color: transparent;
-  color: #007a3e;
+  @apply bg-transparent text-primary border-transparent hover:bg-primary-light;
 }
 
-.btn--ghost:hover:not(:disabled) {
-  background-color: #f0faf5;
+.btn--accent {
+  @apply bg-primary-01-400 text-white hover:bg-primary-01-500;
+}
+
+.btn--danger {
+  @apply bg-danger-500 text-white hover:bg-danger-600;
+}
+
+.btn--inverse {
+  @apply bg-white text-primary border-white hover:bg-grey-100;
+}
+
+.btn--icon-only {
+  @apply px-2;
+}
+
+.btn__icon {
+  @apply flex items-center justify-center w-4 h-4;
+}
+
+.btn__spinner {
+  @apply absolute w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin;
+}
+
+.btn__label--hidden {
+  visibility: hidden;
 }
 </style>
