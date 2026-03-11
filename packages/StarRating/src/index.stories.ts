@@ -7,7 +7,7 @@ const meta: Meta<typeof StarRating> = {
   parameters: {
     docs: {
       description: {
-        component: 'Star rating display and input component. In read-only mode it renders full and half stars based on the numeric value. In interactive mode the user can hover and click to select a rating. Compact mode shows a single star with a value label beside it. Supports three sizes and two color appearances.',
+        component: 'Star rating display and input component. In read-only mode it renders full and half stars based on the numeric value. In interactive mode the user can hover and click to select a rating. Compact mode shows a single star with a value label beside it. Supports three sizes and two color appearances. When `href` is set the rating is wrapped in an anchor tag; use `router` to use router-link instead.',
       },
     },
   },
@@ -42,6 +42,19 @@ const meta: Meta<typeof StarRating> = {
       description: 'Total number of stars to render. Defaults to 5.',
       control: 'number',
     },
+    href: {
+      description: 'URL for the link. When set, wraps the rating in an anchor tag.',
+      control: 'text',
+    },
+    target: {
+      description: 'Anchor target attribute (e.g. "_blank"). Only used when href is set.',
+      control: 'select',
+      options: ['_self', '_blank', '_parent', '_top'],
+    },
+    router: {
+      description: 'When true, uses router-link instead of an anchor tag.',
+      control: 'boolean',
+    },
   },
 }
 export default meta
@@ -52,3 +65,4 @@ export const HalfStar: Story = { args: { modelValue: 3.5 } }
 export const WithText: Story = { args: { modelValue: 4, text: '(256 reviews)' } }
 export const Compact: Story = { args: { modelValue: 4, compact: true, text: '4.0' } }
 export const Large: Story = { args: { modelValue: 3, size: 'l' } }
+export const LinkedRating: Story = { args: { modelValue: 4, href: 'https://example.com/reviews', text: '(84 reviews)', target: '_blank' } }

@@ -46,10 +46,35 @@ describe('StarRating', () => {
   })
   it('renders text when provided', () => {
     const wrapper = mount(StarRating, { props: { modelValue: 4, text: '(120 reviews)' } })
-    expect(wrapper.find('.star-rating__text').text()).toBe('(120 reviews)')
+    expect(wrapper.find('.star-rating__info').text()).toBe('(120 reviews)')
   })
   it('has role img when readonly', () => {
     const wrapper = mount(StarRating, { props: { modelValue: 3 } })
     expect(wrapper.find('.star-rating__wrapper').attributes('role')).toBe('img')
+  })
+  it('renders as anchor when href is provided', () => {
+    const wrapper = mount(StarRating, { props: { modelValue: 4, href: 'https://example.com' } })
+    expect(wrapper.element.tagName.toLowerCase()).toBe('a')
+    expect(wrapper.attributes('href')).toBe('https://example.com')
+  })
+  it('applies the target attribute on anchor', () => {
+    const wrapper = mount(StarRating, { props: { modelValue: 4, href: 'https://example.com', target: '_blank' } })
+    expect(wrapper.attributes('target')).toBe('_blank')
+  })
+  it('renders as div when no href is provided', () => {
+    const wrapper = mount(StarRating, { props: { modelValue: 3 } })
+    expect(wrapper.element.tagName.toLowerCase()).toBe('div')
+  })
+  it('applies star-rating--link class when href is set', () => {
+    const wrapper = mount(StarRating, { props: { modelValue: 4, href: 'https://example.com' } })
+    expect(wrapper.classes()).toContain('star-rating--link')
+  })
+  it('is readonly when href is set', () => {
+    const wrapper = mount(StarRating, { props: { modelValue: 4, href: 'https://example.com', readonly: false } })
+    expect(wrapper.find('.star-rating__wrapper').attributes('role')).toBe('img')
+  })
+  it('shows href text in info span when no text prop', () => {
+    const wrapper = mount(StarRating, { props: { modelValue: 4, href: 'https://example.com' } })
+    expect(wrapper.find('.star-rating__info').exists()).toBe(true)
   })
 })

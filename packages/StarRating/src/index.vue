@@ -10,16 +10,30 @@ const props = withDefaults(
     appearance?: 'standard' | 'accent'
     text?: string
     maxValue?: number
+    href?: string
+    target?: string
+    router?: boolean
   }>(),
-  { modelValue: 0, readonly: true, size: 's', compact: false, appearance: 'accent', maxValue: 5 }
+  { modelValue: 0, readonly: true, size: 's', compact: false, appearance: 'accent', maxValue: 5, target: '_self' }
 )
 
 const emit = defineEmits<{ 'update:modelValue': [value: number] }>()
 
 const hover = ref<number | null>(null)
 const displayValue = computed(() => hover.value ?? props.modelValue)
-const isReadonly = computed(() => props.readonly || props.compact || !!props.text)
+const isReadonly = computed(() => props.readonly || props.compact || !!props.text || !!props.href)
 const stars = computed(() => props.compact ? 1 : props.maxValue)
+
+const rootTag = computed(() => {
+  if (props.href) return props.router ? 'router-link' : 'a'
+  return 'div'
+})
+
+const rootProps = computed(() => {
+  if (!props.href) return {}
+  if (props.router) return { to: props.href }
+  return { href: props.href, target: props.target }
+})
 
 const getStarType = (index: number): 'full' | 'half' | 'empty' => {
   const val = displayValue.value
@@ -37,11 +51,12 @@ const wrapperClass = computed(() => [
   `star-rating--${props.size}`,
   `star-rating--${props.appearance}`,
   !isReadonly.value ? 'star-rating--interactive' : null,
+  props.href ? 'star-rating--link' : null,
 ])
 </script>
 
 <template>
-  <div :class="wrapperClass">
+  <component :is="rootTag" :class="wrapperClass" v-bind="rootProps">
     <div
       class="star-rating__wrapper"
       :tabindex="isReadonly ? -1 : 0"
@@ -79,8 +94,8 @@ const wrapperClass = computed(() => [
         </svg>
       </button>
     </div>
-    <span v-if="text" class="star-rating__text">{{ text }}</span>
-  </div>
+    <span v-if="text || href" class="star-rating__info">{{ text || href }}</span>
+  </component>
 </template>
 
 <style>
@@ -122,5 +137,13 @@ const wrapperClass = computed(() => [
 
 .star-rating__text {
   @apply text-sm text-grey-700 ml-1;
+}
+
+.star-rating__info {
+  @apply text-sm text-grey-700 ml-1;
+}
+
+.star-rating--link {
+  @apply no-underline text-inherit;
 }
 </style>
