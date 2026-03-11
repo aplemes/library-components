@@ -51,7 +51,7 @@ describe('Radio', () => {
 
   it('applies invalid class when isInvalid', () => {
     const wrapper = mount(Radio, { props: { id: 'r-1', isInvalid: true } })
-    expect(wrapper.find('input').classes()).toContain('radio__input--invalid')
+    expect(wrapper.find('input').classes()).toContain('is-invalid')
   })
 
   it('sets name attribute', () => {
