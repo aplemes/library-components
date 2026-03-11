@@ -95,7 +95,7 @@ const classObject = computed(() => {
       class="btn__label"
       :style="{ visibility: isLoading ? 'hidden' : 'visible' }"
     >
-      <slot>Button Label</slot>
+      <slot>Test new release</slot>
     </span>
     <span v-if="$slots.icon && iconPosition === 'right' && !isLoading" class="btn__icon">
       <slot name="icon" />
