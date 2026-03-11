@@ -4,8 +4,8 @@
   "scripts": {
     "build": "lerna run build --stream",
     "test": "lerna run test --no-bail",
-    "storybook": "lerna run storybook --stream",
-    "build-storybook": "lerna run build-storybook --stream",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
     "publish": "lerna publish"
   },
   "resolutions": {
@@ -18,9 +18,14 @@
     "@vue/compiler-dom": "3.5.29"
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "^7.0.0",
+    "@storybook/addon-interactions": "^7.0.0",
+    "@storybook/vue3": "^7.0.0",
+    "@storybook/vue3-vite": "^7.0.0",
     "@tailwindcss/vite": "^4.0.0",
     "@vitejs/plugin-vue": "^4.0.0",
     "@vue/test-utils": "^2.0.0",
+    "storybook": "^7.0.0",
     "happy-dom": "^12.0.0",
     "lerna": "^6.0.0",
     "typescript": "^5.0.0",

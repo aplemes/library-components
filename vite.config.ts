@@ -16,10 +16,6 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': __dirname,
-      'vue': path.resolve(__dirname, 'node_modules/vue/dist/vue.cjs.js'),
-      '@vue/runtime-core': path.resolve(__dirname, 'node_modules/@vue/runtime-core/dist/runtime-core.cjs.js'),
-      '@vue/runtime-dom': path.resolve(__dirname, 'node_modules/@vue/runtime-dom/dist/runtime-dom.cjs.js'),
-      '@vue/reactivity': path.resolve(__dirname, 'node_modules/@vue/reactivity/dist/reactivity.cjs.js'),
     },
     dedupe: ['vue', '@vue/runtime-core', '@vue/runtime-dom', '@vue/reactivity']
   },
