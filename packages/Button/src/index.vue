@@ -1,24 +1,70 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, type VNode } from 'vue'
 
+/**
+ * Buttons are key interactive elements used to perform actions.
+ * Their appearance depends on the type of action required from the user.
+ */
 const props = withDefaults(
   defineProps<{
+    /**
+     * The text label for the button (slot content takes priority when provided).
+     */
     label?: string
+    /**
+     * Visual style variant (legacy prop; prefer appearance).
+     */
     variant?: 'primary' | 'secondary' | 'ghost'
+    /**
+     * Defines the visual style of the button.
+     */
     appearance?: 'standard' | 'accent' | 'danger' | 'inverse'
+    /**
+     * Determines the size of the button.
+     */
     size?: 's' | 'm' | 'l'
+    /**
+     * If `true`, disables the button, making it non-interactive.
+     */
     disabled?: boolean
+    /**
+     * If `true`, applies a ghost style to the button.
+     */
     ghost?: boolean
+    /**
+     * If `true`, the button gets an outlined style.
+     */
     outlined?: boolean
+    /**
+     * Controls the positioning of an icon in the button.
+     */
     iconPosition?: 'left' | 'right' | 'only'
+    /**
+     * Specifies the button's HTML `type` attribute.
+     */
     type?: 'button' | 'reset' | 'submit'
+    /**
+     * If `true`, a loading state is displayed.
+     */
     isLoading?: boolean
   }>(),
   {
+    appearance: 'standard',
     size: 'm',
     type: 'button',
   },
 )
+
+defineSlots<{
+  /**
+   * The content displayed in the button (takes priority over the `label` prop).
+   */
+  default?: () => VNode[]
+  /**
+   * Use this slot to insert an icon for the Button.
+   */
+  icon?: () => VNode[]
+}>()
 
 defineEmits<{
   click: [event: MouseEvent]
