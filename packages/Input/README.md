@@ -5,9 +5,9 @@ A text input is a single-line input that allows users to enter and edit short te
 ## Installation
 
 ```bash
-npm install @leroy-merlin-pt/input
+npm install @azulejo-kit/input
 # or
-yarn add @leroy-merlin-pt/input
+yarn add @azulejo-kit/input
 ```
 
 ## Props
@@ -45,7 +45,7 @@ yarn add @leroy-merlin-pt/input
 ```vue
 <script setup>
 import { ref } from 'vue'
-import Input from '@leroy-merlin-pt/input'
+import Input from '@azulejo-kit/input'
 
 const value = ref('')
 </script>

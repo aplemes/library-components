@@ -5,9 +5,9 @@ Design tokens package providing CSS custom properties for colors, typography, sp
 ## Installation
 
 ```bash
-npm install @leroy-merlin-pt/tokens
+npm install @azulejo-kit/tokens
 # or
-yarn add @leroy-merlin-pt/tokens
+yarn add @azulejo-kit/tokens
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ yarn add @leroy-merlin-pt/tokens
 Import the tokens stylesheet in your application entry point:
 
 ```js
-import '@leroy-merlin-pt/tokens/dist/index.css'
+import '@azulejo-kit/tokens/dist/index.css'
 ```
 
 The tokens are exposed as CSS custom properties:

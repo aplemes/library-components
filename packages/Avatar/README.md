@@ -5,9 +5,9 @@ An avatar is a graphical representation of a user, entity, or group, commonly di
 ## Installation
 
 ```bash
-npm install @leroy-merlin-pt/avatar
+npm install @azulejo-kit/avatar
 # or
-yarn add @leroy-merlin-pt/avatar
+yarn add @azulejo-kit/avatar
 ```
 
 ## Props
@@ -26,7 +26,7 @@ yarn add @leroy-merlin-pt/avatar
 
 ```vue
 <script setup>
-import Avatar from '@leroy-merlin-pt/avatar'
+import Avatar from '@azulejo-kit/avatar'
 </script>
 
 <template>

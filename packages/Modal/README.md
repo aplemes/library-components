@@ -5,9 +5,9 @@ A modal is a dialog window that appears on top of the main content, requiring us
 ## Installation
 
 ```bash
-npm install @leroy-merlin-pt/modal
+npm install @azulejo-kit/modal
 # or
-yarn add @leroy-merlin-pt/modal
+yarn add @azulejo-kit/modal
 ```
 
 ## Props
@@ -43,7 +43,7 @@ yarn add @leroy-merlin-pt/modal
 ```vue
 <script setup>
 import { ref } from 'vue'
-import Modal from '@leroy-merlin-pt/modal'
+import Modal from '@azulejo-kit/modal'
 
 const isOpen = ref(false)
 </script>

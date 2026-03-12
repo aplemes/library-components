@@ -5,9 +5,9 @@ A breadcrumb navigation component that shows the current page location within a 
 ## Installation
 
 ```bash
-npm install @leroy-merlin-pt/breadcrumb
+npm install @azulejo-kit/breadcrumb
 # or
-yarn add @leroy-merlin-pt/breadcrumb
+yarn add @azulejo-kit/breadcrumb
 ```
 
 ## Props
@@ -21,6 +21,6 @@ yarn add @leroy-merlin-pt/breadcrumb
 
 ```vue
 <template>
-  <Breadcrumb :links="[{ label: 'Home', href: '/' }, { label: 'Products', href: '/products' }, { label: 'Item', href: '/products/item', current: true }]" />
+  <AzBreadcrumb :links="[{ label: 'Home', href: '/' }, { label: 'Products', href: '/products' }, { label: 'Item', href: '/products/item', current: true }]" />
 </template>
 ```

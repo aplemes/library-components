@@ -5,9 +5,9 @@ Buttons are key interactive elements used to perform actions and can be used as 
 ## Installation
 
 ```bash
-npm install @leroy-merlin-pt/button
+npm install @azulejo-kit/button
 # or
-yarn add @leroy-merlin-pt/button
+yarn add @azulejo-kit/button
 ```
 
 ## Props
@@ -34,11 +34,11 @@ yarn add @leroy-merlin-pt/button
 
 ```vue
 <script setup>
-import Button from '@leroy-merlin-pt/button'
+import { AzButton } from '@azulejo-kit/button'
 </script>
 
 <template>
-  <Button appearance="standard" size="m">Click me</Button>
-  <Button appearance="danger" ghost>Delete</Button>
+  <AzButton appearance="standard" size="m">Click me</AzButton>
+  <AzButton appearance="danger" ghost>Delete</AzButton>
 </template>
 ```

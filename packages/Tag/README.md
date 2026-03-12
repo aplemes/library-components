@@ -5,9 +5,9 @@ A Tag is a UI element used to filter data, categorize, select or deselect an opt
 ## Installation
 
 ```bash
-npm install @leroy-merlin-pt/tag
+npm install @azulejo-kit/tag
 # or
-yarn add @leroy-merlin-pt/tag
+yarn add @azulejo-kit/tag
 ```
 
 ## Props
@@ -36,14 +36,14 @@ yarn add @leroy-merlin-pt/tag
 ```vue
 <script setup>
 import { ref } from 'vue'
-import Tag from '@leroy-merlin-pt/tag'
+import { AzTag } from '@azulejo-kit/tag'
 
 const selected = ref(false)
 </script>
 
 <template>
-  <Tag label="Category" />
-  <Tag id="tag-1" label="Selectable" type="selectable" v-model="selected" />
-  <Tag id="tag-2" label="Removable" type="removable" @remove-tag="(id) => console.log(id)" />
+  <AzTag label="Category" />
+  <AzTag id="tag-1" label="Selectable" type="selectable" v-model="selected" />
+  <AzTag id="tag-2" label="Removable" type="removable" @remove-tag="(id) => console.log(id)" />
 </template>
 ```

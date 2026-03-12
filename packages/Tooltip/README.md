@@ -5,9 +5,9 @@ A tooltip component that displays informational text when hovering over an eleme
 ## Installation
 
 ```bash
-npm install @leroy-merlin-pt/tooltip
+npm install @azulejo-kit/tooltip
 # or
-yarn add @leroy-merlin-pt/tooltip
+yarn add @azulejo-kit/tooltip
 ```
 
 ## Props
@@ -27,8 +27,8 @@ yarn add @leroy-merlin-pt/tooltip
 
 ```vue
 <template>
-  <Tooltip content="This is helpful information">
+  <AzTooltip content="This is helpful information">
     <button>Hover me</button>
-  </Tooltip>
+  </AzTooltip>
 </template>
 ```

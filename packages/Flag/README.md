@@ -5,9 +5,9 @@ A flag is used to display meta-information about a product or service, acting as
 ## Installation
 
 ```bash
-npm install @leroy-merlin-pt/flag
+npm install @azulejo-kit/flag
 # or
-yarn add @leroy-merlin-pt/flag
+yarn add @azulejo-kit/flag
 ```
 
 ## Props
@@ -21,7 +21,7 @@ yarn add @leroy-merlin-pt/flag
 
 ```vue
 <template>
-  <Flag label="New" />
-  <Flag label="Sale" appearance="danger" />
+  <AzFlag label="New" />
+  <AzFlag label="Sale" appearance="danger" />
 </template>
 ```

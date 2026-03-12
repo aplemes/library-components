@@ -23,13 +23,13 @@ cd packages/Button && yarn storybook
 # Run root-level Storybook (all components)
 yarn storybook
 
-# Publish packages to GitHub Packages (requires NODE_AUTH_TOKEN env var)
+# Publish packages to npm (automated via release.yml on push to main)
 yarn publish
 ```
 
 ## Architecture
 
-This is a **Lerna monorepo** publishing Vue 3 component packages to GitHub Packages under the `@azulejo-kit` npm scope.
+This is a **Lerna monorepo** publishing Vue 3 component packages to the public npm registry under the `@azulejo-kit` scope.
 
 **Build system:**
 - Each package has its own `vite.config.ts` that extends the root `vite.config.ts` via `mergeConfig`
@@ -60,4 +60,4 @@ packages/ComponentName/
     preview.ts
 ```
 
-**Publishing:** Uses `lerna version --independent` (each package versioned separately). The `.npmrc` configures `@azulejo-kit:registry=https://npm.pkg.github.com`. To publish, uncomment the auth token line in `.npmrc` and set `NODE_AUTH_TOKEN`.
+**Publishing:** Uses `lerna version --independent` (each package versioned separately). Packages are published to the public npm registry (`registry.npmjs.org`) under `@azulejo-kit`. Publishing is automated via `release.yml` on every push to `main` — it versions changed packages with conventional commits, pushes tags, builds, and publishes using the `NPM_TOKEN` secret in GitHub Actions.
