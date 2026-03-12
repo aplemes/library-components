@@ -1,16 +1,22 @@
-name: Release
+name: Release & Publish
 
 on:
   push:
     branches:
       - main
 
+# Garante execução sequencial: se dois pushes chegarem juntos,
+# o segundo aguarda o primeiro terminar (não cancela).
+concurrency:
+  group: release
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
 jobs:
   release:
-    name: Version & Tag
+    name: Version, Build & Publish
     runs-on: ubuntu-latest
 
     steps:
@@ -30,14 +36,31 @@ jobs:
         with:
           node-version: '20'
           cache: 'yarn'
+          # registry-url configura NODE_AUTH_TOKEN automaticamente para o npm
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
+      # Determina quais pacotes mudaram desde a última tag e bumpa suas versões.
+      # --conventional-commits: patch para fix:, minor para feat:, major para BREAKING CHANGE
+      # --yes: sem prompt interativo
+      # --no-push: não faz push (controlamos o push manualmente abaixo)
+      # Saída esperada quando não há mudanças: "No changed packages to version found; exiting."
       - name: Version changed packages
         run: yarn lerna version --conventional-commits --yes --no-push
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Push commits and tags
+      # Push feito ANTES do publish para garantir que, se o publish falhar,
+      # a versão já está registrada no Git e o próximo run pode fazer from-git novamente.
+      - name: Push version commits and tags
         run: git push --follow-tags origin main
+
+      - name: Build all packages
+        run: yarn build
+
+      # Publica apenas os pacotes que possuem tags locais ainda não publicadas no npm.
+      # --no-verify-access: evita falha de verificação de acesso para pacotes públicos escopados.
+      - name: Publish to npm
+        run: yarn lerna publish from-git --yes --no-verify-access
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

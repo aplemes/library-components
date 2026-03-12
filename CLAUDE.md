@@ -20,6 +20,9 @@ cd packages/Button && yarn test
 # Run Storybook for a specific package
 cd packages/Button && yarn storybook
 
+# Run root-level Storybook (all components)
+yarn storybook
+
 # Publish packages to GitHub Packages (requires NODE_AUTH_TOKEN env var)
 yarn publish
 ```
@@ -39,7 +42,9 @@ This is a **Lerna monorepo** publishing Vue 3 component packages to GitHub Packa
 - Component styles reference `tailwind.css` via `@reference "@/tailwind.css"` (the `@` alias resolves to the repo root)
 - Custom theme variables include brand colors (`--color-primary`, `--color-primary-dark`, `--color-primary-light`), neutral scale, typography, and spacing tokens
 
-**Package anatomy** (use `packages/Button` as the template for new components):
+**`packages/tokens`:** A special non-component package that exports TypeScript design token constants (colors, typography, spacing, borders, shadows) derived from the Mozaic Design System. It has no `.storybook/` directory and no `.vue` files — just `src/tokens.ts` + `src/index.ts`. Use it as a reference for all token values rather than hardcoding values in components.
+
+**Package anatomy** (use `packages/Button` as the template for new Vue components):
 ```
 packages/ComponentName/
   index.ts              # Re-exports the component (entry point for Vite build)

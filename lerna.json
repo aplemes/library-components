@@ -10,8 +10,11 @@
         "**/.npmignore",
         "**/CHANGELOG.md",
         "**/documentation.mdx",
-        "**/index.stories.js",
-        "**/vite.config.js"
+        "**/*.stories.js",
+        "**/*.stories.ts",
+        "**/vite.config.js",
+        "**/vite.config.ts",
+        "**/README.md"
       ]
     },
     "publish": {
