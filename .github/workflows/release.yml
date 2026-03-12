@@ -58,9 +58,11 @@ jobs:
       - name: Build all packages
         run: yarn build
 
-      # Publica apenas os pacotes que possuem tags locais ainda não publicadas no npm.
+      # Publica pacotes cuja versão no package.json é superior à publicada no npm.
+      # from-package é mais resiliente que from-git: não depende de tags no HEAD exato,
+      # funciona mesmo após commits adicionais sobre o commit de versão.
       # --no-verify-access: evita falha de verificação de acesso para pacotes públicos escopados.
       - name: Publish to npm
-        run: yarn lerna publish from-git --yes --no-verify-access
+        run: yarn lerna publish from-package --yes --no-verify-access
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
