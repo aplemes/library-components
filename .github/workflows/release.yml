@@ -53,13 +53,18 @@ jobs:
       # --yes: sem prompt interativo
       # --no-push: não faz push (controlamos o push manualmente abaixo)
       # Saída esperada quando não há mudanças: "No changed packages to version found; exiting."
+      # continue-on-error: true permite recuperar de runs anteriores onde a tag
+      # já foi criada mas o publish falhou (ex: E429). O from-package no publish
+      # é idempotente e não depende do resultado deste passo.
       - name: Version changed packages
         run: yarn lerna version --conventional-commits --yes --no-push
+        continue-on-error: true
 
       # Push feito ANTES do publish para garantir que, se o publish falhar,
-      # a versão já está registrada no Git e o próximo run pode fazer from-git novamente.
+      # a versão já está registrada no Git e o próximo run pode fazer from-package novamente.
+      # || true: se não há nada novo para fazer push (tags já existem), continua normalmente.
       - name: Push version commits and tags
-        run: git push --follow-tags origin main
+        run: git push --follow-tags origin main || true
 
       - name: Build all packages
         run: yarn build
