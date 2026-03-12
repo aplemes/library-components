@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/aplemes/library-components/compare/@leroy-merlin-pt/button@1.1.3...@leroy-merlin-pt/button@1.2.0) (2026-03-12)
+
+
+### Features
+
+* update Button default label and default color ([16ff665](https://github.com/aplemes/library-components/commit/16ff66512a078307efd656f21da9d913c40ff87a))
+
+
+
+
+
 ## [1.1.2](https://github.com/aplemes/library-components/compare/@leroy-merlin-pt/button@1.1.1...@leroy-merlin-pt/button@1.1.2) (2026-03-11)
 
 **Note:** Version bump only for package @leroy-merlin-pt/button
