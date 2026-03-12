@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.2](https://github.com/aplemes/library-components/compare/@azulejo-kit/button@1.3.1...@azulejo-kit/button@1.3.2) (2026-03-12)
+
+**Note:** Version bump only for package @azulejo-kit/button
+
+
+
+
+
 ## [1.3.1](https://github.com/aplemes/library-components/compare/@azulejo-kit/button@1.3.0...@azulejo-kit/button@1.3.1) (2026-03-12)
 
 **Note:** Version bump only for package @azulejo-kit/button
