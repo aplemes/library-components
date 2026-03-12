@@ -1,5 +1,5 @@
 {
-  "name": "@leroy-merlin-pt/breadcrumb",
+  "name": "@azulejo-kit/breadcrumb",
   "version": "1.0.5",
   "type": "module",
   "main": "./dist/index.umd.cjs",

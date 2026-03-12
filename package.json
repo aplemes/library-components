@@ -1,5 +1,5 @@
 {
-  "name": "@leroy-merlin-pt/library-components",
+  "name": "@azulejo-kit/library-components",
   "private": true,
   "scripts": {
     "build": "lerna run build --stream",

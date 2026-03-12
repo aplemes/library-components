@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/vue3'
 import Input from './index.vue'
 
 const meta: Meta<typeof Input> = {
-  title: 'Components/Input',
+  title: 'Components/AzInput',
   component: Input,
   tags: ['autodocs'],
   parameters: {
@@ -13,16 +13,16 @@ const meta: Meta<typeof Input> = {
 ## Installation
 
 \`\`\`bash
-yarn add @leroy-merlin-pt/input
+yarn add @azulejo-kit/input
 \`\`\`
 
 \`\`\`js
-import '@leroy-merlin-pt/input/style.css'
+import '@azulejo-kit/input/style.css'
 \`\`\`
 
 \`\`\`vue
 <script setup>
-import Input from '@leroy-merlin-pt/input'
+import { AzInput } from '@azulejo-kit/input'
 import { ref } from 'vue'
 
 const value = ref('')

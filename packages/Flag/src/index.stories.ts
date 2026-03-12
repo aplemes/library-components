@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/vue3'
 import Flag from './index.vue'
 
 const meta: Meta<typeof Flag> = {
-  title: 'Components/Flag',
+  title: 'Components/AzFlag',
   component: Flag,
   tags: ['autodocs'],
   parameters: {
@@ -13,16 +13,16 @@ const meta: Meta<typeof Flag> = {
 ## Installation
 
 \`\`\`bash
-yarn add @leroy-merlin-pt/flag
+yarn add @azulejo-kit/flag
 \`\`\`
 
 \`\`\`js
-import '@leroy-merlin-pt/flag/style.css'
+import '@azulejo-kit/flag/style.css'
 \`\`\`
 
 \`\`\`vue
 <script setup>
-import Flag from '@leroy-merlin-pt/flag'
+import { AzFlag } from '@azulejo-kit/flag'
 </script>
 
 <template>

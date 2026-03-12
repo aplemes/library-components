@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/vue3'
 import Avatar from './index.vue'
 
 const meta: Meta<typeof Avatar> = {
-  title: 'Components/Avatar',
+  title: 'Components/AzAvatar',
   component: Avatar,
   tags: ['autodocs'],
   parameters: {
@@ -13,16 +13,16 @@ const meta: Meta<typeof Avatar> = {
 ## Installation
 
 \`\`\`bash
-yarn add @leroy-merlin-pt/avatar
+yarn add @azulejo-kit/avatar
 \`\`\`
 
 \`\`\`js
-import '@leroy-merlin-pt/avatar/style.css'
+import '@azulejo-kit/avatar/style.css'
 \`\`\`
 
 \`\`\`vue
 <script setup>
-import Avatar from '@leroy-merlin-pt/avatar'
+import { AzAvatar } from '@azulejo-kit/avatar'
 </script>
 
 <template>

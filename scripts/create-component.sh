@@ -44,7 +44,7 @@ if [[ -d "$PACKAGE_DIR" ]]; then
   exit 1
 fi
 
-echo "Creating component '${COMPONENT_NAME}' (npm: @leroy-merlin-pt/${KEBAB_NAME}) ..."
+echo "Creating component '${COMPONENT_NAME}' (npm: @azulejo-kit/${KEBAB_NAME}) ..."
 
 # ---------------------------------------------------------------------------
 # Create directory structure
@@ -57,7 +57,7 @@ mkdir -p "${PACKAGE_DIR}/.storybook"
 # ---------------------------------------------------------------------------
 cat > "${PACKAGE_DIR}/package.json" << EOF
 {
-  "name": "@leroy-merlin-pt/${KEBAB_NAME}",
+  "name": "@azulejo-kit/${KEBAB_NAME}",
   "version": "1.0.0",
   "type": "module",
   "main": "./dist/index.umd.cjs",

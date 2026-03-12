@@ -1,1 +1,1 @@
-export { default as Flag } from './src/index.vue'
+export { default as AzFlag } from './src/index.vue'

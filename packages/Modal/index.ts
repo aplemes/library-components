@@ -1,1 +1,1 @@
-export { default as Modal } from './src/index.vue'
+export { default as AzModal } from './src/index.vue'

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/vue3'
 import Tooltip from './index.vue'
 
 const meta: Meta<typeof Tooltip> = {
-  title: 'Components/Tooltip',
+  title: 'Components/AzTooltip',
   component: Tooltip,
   tags: ['autodocs'],
   parameters: {
@@ -13,16 +13,16 @@ const meta: Meta<typeof Tooltip> = {
 ## Installation
 
 \`\`\`bash
-yarn add @leroy-merlin-pt/tooltip
+yarn add @azulejo-kit/tooltip
 \`\`\`
 
 \`\`\`js
-import '@leroy-merlin-pt/tooltip/style.css'
+import '@azulejo-kit/tooltip/style.css'
 \`\`\`
 
 \`\`\`vue
 <script setup>
-import Tooltip from '@leroy-merlin-pt/tooltip'
+import { AzTooltip } from '@azulejo-kit/tooltip'
 </script>
 
 <template>

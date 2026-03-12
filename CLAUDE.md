@@ -29,11 +29,11 @@ yarn publish
 
 ## Architecture
 
-This is a **Lerna monorepo** publishing Vue 3 component packages to GitHub Packages under the `@leroy-merlin-pt` npm scope.
+This is a **Lerna monorepo** publishing Vue 3 component packages to GitHub Packages under the `@azulejo-kit` npm scope.
 
 **Build system:**
 - Each package has its own `vite.config.ts` that extends the root `vite.config.ts` via `mergeConfig`
-- Root config sets up Tailwind CSS v4, test environment (happy-dom), and shared Rollup externals (`vue` and all `@leroy-merlin-pt/*` packages are excluded from bundles)
+- Root config sets up Tailwind CSS v4, test environment (happy-dom), and shared Rollup externals (`vue` and all `@azulejo-kit/*` packages are excluded from bundles)
 - Package-level config adds `@vitejs/plugin-vue` and `vite-plugin-dts` for `.d.ts` generation
 - Each package builds to `dist/` with ESM (`index.js`) + CJS (`index.umd.cjs`) + types (`index.d.ts`)
 
@@ -50,7 +50,7 @@ packages/ComponentName/
   index.ts              # Re-exports the component (entry point for Vite build)
   vite.config.ts        # Extends root config; sets lib.entry and lib.name
   tsconfig.json         # Extends root tsconfig
-  package.json          # name: @leroy-merlin-pt/name, exports ESM/CJS/types/style.css
+  package.json          # name: @azulejo-kit/name, exports ESM/CJS/types/style.css
   src/
     index.vue           # Single File Component (<script setup lang="ts">)
     index.spec.ts       # Vitest tests using @vue/test-utils
@@ -60,4 +60,4 @@ packages/ComponentName/
     preview.ts
 ```
 
-**Publishing:** Uses `lerna version --independent` (each package versioned separately). The `.npmrc` configures `@leroy-merlin-pt:registry=https://npm.pkg.github.com`. To publish, uncomment the auth token line in `.npmrc` and set `NODE_AUTH_TOKEN`.
+**Publishing:** Uses `lerna version --independent` (each package versioned separately). The `.npmrc` configures `@azulejo-kit:registry=https://npm.pkg.github.com`. To publish, uncomment the auth token line in `.npmrc` and set `NODE_AUTH_TOKEN`.

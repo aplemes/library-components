@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import Modal from './index.vue'
 const meta: Meta<typeof Modal> = {
-  title: 'Components/Modal',
+  title: 'Components/AzModal',
   component: Modal,
   tags: ['autodocs'],
   parameters: {
@@ -12,16 +12,16 @@ const meta: Meta<typeof Modal> = {
 ## Installation
 
 \`\`\`bash
-yarn add @leroy-merlin-pt/modal
+yarn add @azulejo-kit/modal
 \`\`\`
 
 \`\`\`js
-import '@leroy-merlin-pt/modal/style.css'
+import '@azulejo-kit/modal/style.css'
 \`\`\`
 
 \`\`\`vue
 <script setup>
-import Modal from '@leroy-merlin-pt/modal'
+import { AzModal } from '@azulejo-kit/modal'
 import { ref } from 'vue'
 
 const isOpen = ref(false)

@@ -1,5 +1,5 @@
 {
-  "name": "@leroy-merlin-pt/button",
+  "name": "@azulejo-kit/button",
   "version": "1.2.0",
   "type": "module",
   "main": "./dist/index.umd.cjs",

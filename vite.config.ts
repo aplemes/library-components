@@ -23,11 +23,11 @@ export default defineConfig({
     target: 'es2015',
     minify: 'esbuild',
     rollupOptions: {
-      external: ['vue', /^@leroy-merlin-pt/],
+      external: ['vue', /^@azulejo-kit/],
       output: {
         globals: (id: string) => {
           if (id === 'vue') return 'Vue'
-          if (id.startsWith('@leroy-merlin-pt')) return id.split('/')[1]
+          if (id.startsWith('@azulejo-kit')) return id.split('/')[1]
           return id
         }
       }

@@ -9,7 +9,7 @@ const links = [
 ]
 
 const meta: Meta<typeof Breadcrumb> = {
-  title: 'Components/Breadcrumb',
+  title: 'Components/AzBreadcrumb',
   component: Breadcrumb,
   tags: ['autodocs'],
   parameters: {
@@ -21,16 +21,16 @@ const meta: Meta<typeof Breadcrumb> = {
 ## Installation
 
 \`\`\`bash
-yarn add @leroy-merlin-pt/breadcrumb
+yarn add @azulejo-kit/breadcrumb
 \`\`\`
 
 \`\`\`js
-import '@leroy-merlin-pt/breadcrumb/style.css'
+import '@azulejo-kit/breadcrumb/style.css'
 \`\`\`
 
 \`\`\`vue
 <script setup>
-import Breadcrumb from '@leroy-merlin-pt/breadcrumb'
+import { AzBreadcrumb } from '@azulejo-kit/breadcrumb'
 
 const items = [
   { label: 'Home', href: '/' },

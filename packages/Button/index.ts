@@ -1,1 +1,1 @@
-export { default as Button } from './src/index.vue'
+export { default as AzButton } from './src/index.vue'

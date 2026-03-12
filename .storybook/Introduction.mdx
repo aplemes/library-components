@@ -2,28 +2,17 @@ import { Meta } from '@storybook/blocks'
 
 <Meta title="Introduction" />
 
-# Leroy Merlin PT — Component Library
+# Azulejo Kit — Component Library
 
-A library of reusable Vue 3 UI components for Leroy Merlin Portugal, built with Tailwind CSS v4.
+A library of reusable Vue 3 UI components, built with Tailwind CSS v4.
 
 ---
 
 ## Getting Started
 
-All packages are published to GitHub Packages under the `@leroy-merlin-pt` npm scope. Install only the components your project needs.
+All packages are published to the public npm registry under the `@azulejo-kit` scope. Install only the components your project needs.
 
-### 1. Configure the registry
-
-Add a `.npmrc` file to the root of your project:
-
-```
-@leroy-merlin-pt:registry=https://npm.pkg.github.com
-//npm.pkg.github.com/:_authToken=YOUR_TOKEN
-```
-
-Replace `YOUR_TOKEN` with a GitHub Personal Access Token with the `read:packages` scope.
-
-### 2. Install and import
+### 1. Install and import
 
 Each component section below shows the exact install command, CSS import, and a usage example.
 
@@ -31,25 +20,25 @@ Each component section below shows the exact install command, CSS import, and a 
 
 ## Components
 
-### Button
+### AzButton
 
 Interactive button with multiple variants, appearances, sizes, and states. Supports icon slots, loading state, and form submission.
 
 ```bash
-yarn add @leroy-merlin-pt/button
+yarn add @azulejo-kit/button
 ```
 
 ```js
-import '@leroy-merlin-pt/button/style.css'
+import '@azulejo-kit/button/style.css'
 ```
 
 ```vue
 <script setup>
-import Button from '@leroy-merlin-pt/button'
+import { AzButton } from '@azulejo-kit/button'
 </script>
 
 <template>
-  <Button label="Confirmar" variant="primary" @click="handleClick" />
+  <AzButton label="Confirmar" variant="primary" @click="handleClick" />
 </template>
 ```
 
@@ -57,25 +46,25 @@ import Button from '@leroy-merlin-pt/button'
 
 ---
 
-### Flag
+### AzFlag
 
 Compact label badge used to highlight product states or promotions (e.g. "New", "Sale"). Displays uppercase text in a pill shape.
 
 ```bash
-yarn add @leroy-merlin-pt/flag
+yarn add @azulejo-kit/flag
 ```
 
 ```js
-import '@leroy-merlin-pt/flag/style.css'
+import '@azulejo-kit/flag/style.css'
 ```
 
 ```vue
 <script setup>
-import Flag from '@leroy-merlin-pt/flag'
+import { AzFlag } from '@azulejo-kit/flag'
 </script>
 
 <template>
-  <Flag label="New" appearance="accent" />
+  <AzFlag label="New" appearance="accent" />
 </template>
 ```
 
@@ -83,21 +72,21 @@ import Flag from '@leroy-merlin-pt/flag'
 
 ---
 
-### Breadcrumb
+### AzBreadcrumb
 
 Navigation breadcrumb showing the hierarchical path within the application.
 
 ```bash
-yarn add @leroy-merlin-pt/breadcrumb
+yarn add @azulejo-kit/breadcrumb
 ```
 
 ```js
-import '@leroy-merlin-pt/breadcrumb/style.css'
+import '@azulejo-kit/breadcrumb/style.css'
 ```
 
 ```vue
 <script setup>
-import Breadcrumb from '@leroy-merlin-pt/breadcrumb'
+import { AzBreadcrumb } from '@azulejo-kit/breadcrumb'
 
 const items = [
   { label: 'Home', href: '/' },
@@ -107,7 +96,7 @@ const items = [
 </script>
 
 <template>
-  <Breadcrumb :items="items" />
+  <AzBreadcrumb :items="items" />
 </template>
 ```
 
@@ -115,25 +104,25 @@ const items = [
 
 ---
 
-### Avatar
+### AzAvatar
 
 Displays a user avatar image or initials fallback in a circular shape.
 
 ```bash
-yarn add @leroy-merlin-pt/avatar
+yarn add @azulejo-kit/avatar
 ```
 
 ```js
-import '@leroy-merlin-pt/avatar/style.css'
+import '@azulejo-kit/avatar/style.css'
 ```
 
 ```vue
 <script setup>
-import Avatar from '@leroy-merlin-pt/avatar'
+import { AzAvatar } from '@azulejo-kit/avatar'
 </script>
 
 <template>
-  <Avatar size="medium">JD</Avatar>
+  <AzAvatar size="medium">JD</AzAvatar>
 </template>
 ```
 
@@ -141,28 +130,28 @@ import Avatar from '@leroy-merlin-pt/avatar'
 
 ---
 
-### Input
+### AzInput
 
 Text input field with optional label, hint text, prefix/suffix, and validation states.
 
 ```bash
-yarn add @leroy-merlin-pt/input
+yarn add @azulejo-kit/input
 ```
 
 ```js
-import '@leroy-merlin-pt/input/style.css'
+import '@azulejo-kit/input/style.css'
 ```
 
 ```vue
 <script setup>
-import Input from '@leroy-merlin-pt/input'
+import { AzInput } from '@azulejo-kit/input'
 import { ref } from 'vue'
 
 const value = ref('')
 </script>
 
 <template>
-  <Input
+  <AzInput
     v-model="value"
     label="Email"
     placeholder="name@example.com"
@@ -175,21 +164,21 @@ const value = ref('')
 
 ---
 
-### Modal
+### AzModal
 
 Accessible dialog overlay for focused user interactions. Rendered via `<Teleport>` to the document body.
 
 ```bash
-yarn add @leroy-merlin-pt/modal
+yarn add @azulejo-kit/modal
 ```
 
 ```js
-import '@leroy-merlin-pt/modal/style.css'
+import '@azulejo-kit/modal/style.css'
 ```
 
 ```vue
 <script setup>
-import Modal from '@leroy-merlin-pt/modal'
+import { AzModal } from '@azulejo-kit/modal'
 import { ref } from 'vue'
 
 const isOpen = ref(false)
@@ -198,7 +187,7 @@ const isOpen = ref(false)
 <template>
   <button @click="isOpen = true">Open modal</button>
 
-  <Modal
+  <AzModal
     :open="isOpen"
     title="Confirm action"
     description="Are you sure you want to continue?"
@@ -212,27 +201,27 @@ const isOpen = ref(false)
 
 ---
 
-### Tooltip
+### AzTooltip
 
 Shows descriptive text on hover or focus. Supports four positions and an optional pointer arrow.
 
 ```bash
-yarn add @leroy-merlin-pt/tooltip
+yarn add @azulejo-kit/tooltip
 ```
 
 ```js
-import '@leroy-merlin-pt/tooltip/style.css'
+import '@azulejo-kit/tooltip/style.css'
 ```
 
 ```vue
 <script setup>
-import Tooltip from '@leroy-merlin-pt/tooltip'
+import { AzTooltip } from '@azulejo-kit/tooltip'
 </script>
 
 <template>
-  <Tooltip id="save-tip" text="Save your changes" position="top">
+  <AzTooltip id="save-tip" text="Save your changes" position="top">
     <button>Save</button>
-  </Tooltip>
+  </AzTooltip>
 </template>
 ```
 
@@ -241,29 +230,29 @@ import Tooltip from '@leroy-merlin-pt/tooltip'
 
 ---
 
-### Tag
+### AzTag
 
 Compact label for categorisation or filtering. Supports five behavioural types.
 
 ```bash
-yarn add @leroy-merlin-pt/tag
+yarn add @azulejo-kit/tag
 ```
 
 ```js
-import '@leroy-merlin-pt/tag/style.css'
+import '@azulejo-kit/tag/style.css'
 ```
 
 ```vue
 <script setup>
-import Tag from '@leroy-merlin-pt/tag'
+import { AzTag } from '@azulejo-kit/tag'
 </script>
 
 <template>
   <!-- Informative -->
-  <Tag label="In stock" type="informative" />
+  <AzTag label="In stock" type="informative" />
 
   <!-- Removable -->
-  <Tag label="Filter: Red" type="removable" removableLabel="Remove filter" />
+  <AzTag label="Filter: Red" type="removable" removableLabel="Remove filter" />
 </template>
 ```
 
@@ -273,14 +262,14 @@ import Tag from '@leroy-merlin-pt/tag'
 
 ## Design Tokens
 
-The `@leroy-merlin-pt/tokens` package exposes the brand CSS custom properties (colors, typography, spacing) used by all components.
+The `@azulejo-kit/tokens` package exposes the brand CSS custom properties (colors, typography, spacing) used by all components.
 
 ```bash
-yarn add @leroy-merlin-pt/tokens
+yarn add @azulejo-kit/tokens
 ```
 
 ```js
-import '@leroy-merlin-pt/tokens/style.css'
+import '@azulejo-kit/tokens/style.css'
 ```
 
 Import once at the root of your application to make all tokens available globally.

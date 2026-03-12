@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/vue3'
 import Tag from './index.vue'
 
 const meta: Meta<typeof Tag> = {
-  title: 'Components/Tag',
+  title: 'Components/AzTag',
   component: Tag,
   tags: ['autodocs'],
   parameters: {
@@ -13,16 +13,16 @@ const meta: Meta<typeof Tag> = {
 ## Installation
 
 \`\`\`bash
-yarn add @leroy-merlin-pt/tag
+yarn add @azulejo-kit/tag
 \`\`\`
 
 \`\`\`js
-import '@leroy-merlin-pt/tag/style.css'
+import '@azulejo-kit/tag/style.css'
 \`\`\`
 
 \`\`\`vue
 <script setup>
-import Tag from '@leroy-merlin-pt/tag'
+import { AzTag } from '@azulejo-kit/tag'
 </script>
 
 <template>

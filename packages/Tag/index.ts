@@ -1,1 +1,1 @@
-export { default as Tag } from './src/index.vue'
+export { default as AzTag } from './src/index.vue'

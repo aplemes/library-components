@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/vue3'
 import Button from './index.vue'
 
 const meta: Meta<typeof Button> = {
-  title: 'Components/Button',
+  title: 'Components/AzButton',
   component: Button,
   tags: ['autodocs'],
   parameters: {
@@ -13,16 +13,16 @@ const meta: Meta<typeof Button> = {
 ## Installation
 
 \`\`\`bash
-yarn add @leroy-merlin-pt/button
+yarn add @azulejo-kit/button
 \`\`\`
 
 \`\`\`js
-import '@leroy-merlin-pt/button/style.css'
+import '@azulejo-kit/button/style.css'
 \`\`\`
 
 \`\`\`vue
 <script setup>
-import Button from '@leroy-merlin-pt/button'
+import { AzButton } from '@azulejo-kit/button'
 </script>
 
 <template>

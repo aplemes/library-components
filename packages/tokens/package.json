@@ -1,5 +1,5 @@
 {
-  "name": "@leroy-merlin-pt/tokens",
+  "name": "@azulejo-kit/tokens",
   "version": "1.0.4",
   "type": "module",
   "main": "./dist/index.umd.cjs",
