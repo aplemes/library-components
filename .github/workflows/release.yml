@@ -64,9 +64,10 @@ jobs:
       - name: Build all packages
         run: yarn build
 
-      # Publica apenas os pacotes taggeados no commit de versão criado neste run.
-      # from-git é preciso: não tenta re-publicar versões já existentes no npm.
+      # Publica pacotes cuja versão em package.json ainda não existe no registry.
+      # from-package é resiliente: funciona mesmo quando lerna version não criou
+      # novas tags no HEAD (ex: recovery após falha de publish anterior).
       - name: Publish to npm
-        run: yarn lerna publish from-git --yes
+        run: yarn lerna publish from-package --yes
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
