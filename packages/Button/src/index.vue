@@ -95,7 +95,7 @@ const classObject = computed(() => {
       class="btn__label"
       :style="{ visibility: isLoading ? 'hidden' : 'visible' }"
     >
-      <slot>Test new release</slot>
+      <slot>Clica aqui</slot>
     </span>
     <span v-if="$slots.icon && iconPosition === 'right' && !isLoading" class="btn__icon">
       <slot name="icon" />
@@ -108,7 +108,7 @@ const classObject = computed(() => {
 
 .btn {
   @apply relative inline-flex items-center justify-center gap-2 px-4 py-2 rounded-l text-sm font-medium cursor-pointer border border-transparent transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
-  @apply bg-primary text-white hover:bg-primary-dark;
+  @apply bg-brand text-white hover:bg-brand-dark;
 }
 
 .btn--s {
